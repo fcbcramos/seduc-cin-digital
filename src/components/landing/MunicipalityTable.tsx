@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Progress } from "@/components/ui/progress";
 import {
   Table,
   TableBody,
@@ -19,7 +20,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
-import { getAllMunicipalities, getByGre } from "@/lib/cin-data";
+import { getStudentMunicipalities, getStudentByGre } from "@/lib/cin-data";
 import {
   coverageStatusLabel,
   formatNumber,
@@ -38,25 +39,44 @@ const statusClass: Record<
   danger: "status-danger",
 };
 
+const progressColor = (pct: number): string => {
+  if (pct >= 70) return "bg-accent";
+  if (pct >= 40) return "bg-secondary";
+  return "bg-destructive";
+};
+
 export function MunicipalityTable() {
-  const all = useMemo(() => getAllMunicipalities(), []);
-  const gres = useMemo(() => getByGre().map((g) => g.codGRE), []);
+  const all = useMemo(() => getStudentMunicipalities(), []);
+  const gres = useMemo(() => getStudentByGre().map((g) => g.codGRE), []);
 
   const [search, setSearch] = useState("");
   const [gre, setGre] = useState<string>("all");
   const [status, setStatus] = useState<string>("all");
+  const [sort, setSort] = useState<"semCIN" | "pctAsc" | "pctDesc" | "estudantes">(
+    "semCIN",
+  );
   const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
-    return all
+    const list = all
       .filter((r) => (gre === "all" ? true : r.codGRE === gre))
       .filter((r) =>
-        status === "all" ? true : getCoverageStatus(r.pctEstudantes) === status,
+        status === "all" ? true : getCoverageStatus(r.pctComCIN) === status,
       )
-      .filter((r) => (term ? r.municipio.toLowerCase().includes(term) : true))
-      .sort((a, b) => b.gapTotal - a.gapTotal);
-  }, [all, gre, status, search]);
+      .filter((r) => (term ? r.municipio.toLowerCase().includes(term) : true));
+
+    switch (sort) {
+      case "semCIN":
+        return list.sort((a, b) => b.semCIN - a.semCIN);
+      case "pctAsc":
+        return list.sort((a, b) => a.pctComCIN - b.pctComCIN);
+      case "pctDesc":
+        return list.sort((a, b) => b.pctComCIN - a.pctComCIN);
+      case "estudantes":
+        return list.sort((a, b) => b.estudantes - a.estudantes);
+    }
+  }, [all, gre, status, search, sort]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -70,71 +90,79 @@ export function MunicipalityTable() {
   return (
     <Card className="shadow-card">
       <CardContent className="p-0">
-        <div className="flex flex-col gap-3 border-b border-border p-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-1 flex-col gap-3 sm:flex-row">
-            <div className="relative flex-1">
-              <Search
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-                aria-hidden
-              />
-              <Input
-                aria-label="Buscar município"
-                placeholder="Buscar município..."
-                className="pl-9"
-                value={search}
-                onChange={(e) => resetPageAnd(setSearch)(e.target.value)}
-              />
-            </div>
-            <Select value={gre} onValueChange={resetPageAnd(setGre)}>
-              <SelectTrigger className="sm:w-44" aria-label="Filtrar por GRE">
-                <SelectValue placeholder="Todas as GREs" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Todas as GREs</SelectItem>
-                {gres.map((g) => (
-                  <SelectItem key={g} value={g}>
-                    {g}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Select value={status} onValueChange={resetPageAnd(setStatus)}>
-              <SelectTrigger className="sm:w-44" aria-label="Filtrar por status">
-                <SelectValue placeholder="Todos os status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Todos os status</SelectItem>
-                <SelectItem value="success">Adequado (≥70%)</SelectItem>
-                <SelectItem value="warning">Atenção (40–69%)</SelectItem>
-                <SelectItem value="danger">Crítico (&lt;40%)</SelectItem>
-              </SelectContent>
-            </Select>
+        <div className="flex flex-col gap-3 border-b border-border p-4 md:flex-row md:flex-wrap md:items-center">
+          <div className="relative flex-1 min-w-[200px]">
+            <Search
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+              aria-hidden
+            />
+            <Input
+              aria-label="Buscar município"
+              placeholder="Buscar município..."
+              className="pl-9"
+              value={search}
+              onChange={(e) => resetPageAnd(setSearch)(e.target.value)}
+            />
           </div>
-          <p className="text-xs text-muted-foreground">
-            {filtered.length} municípios · ordenados por gap total (desc.)
+          <Select value={gre} onValueChange={resetPageAnd(setGre)}>
+            <SelectTrigger className="md:w-44" aria-label="Filtrar por GRE">
+              <SelectValue placeholder="Todas as GREs" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todas as GREs</SelectItem>
+              {gres.map((g) => (
+                <SelectItem key={g} value={g}>
+                  {g}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Select value={status} onValueChange={resetPageAnd(setStatus)}>
+            <SelectTrigger className="md:w-44" aria-label="Filtrar por status">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos os status</SelectItem>
+              <SelectItem value="success">Adequado (≥70%)</SelectItem>
+              <SelectItem value="warning">Atenção (40–69%)</SelectItem>
+              <SelectItem value="danger">Crítico (&lt;40%)</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={sort} onValueChange={(v) => setSort(v as typeof sort)}>
+            <SelectTrigger className="md:w-52" aria-label="Ordenar">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="semCIN">Mais estudantes sem CIN</SelectItem>
+              <SelectItem value="pctAsc">Menor cobertura %</SelectItem>
+              <SelectItem value="pctDesc">Maior cobertura %</SelectItem>
+              <SelectItem value="estudantes">Mais estudantes</SelectItem>
+            </SelectContent>
+          </Select>
+          <p className="ml-auto text-xs text-muted-foreground">
+            {filtered.length} municípios
           </p>
         </div>
 
         <div className="overflow-x-auto">
           <Table>
             <caption className="sr-only">
-              Cobertura de CIN por município, ordenada por gap total
+              Cobertura de CIN por município, com filtros e ordenação
             </caption>
             <TableHeader>
               <TableRow>
                 <TableHead scope="col">GRE</TableHead>
                 <TableHead scope="col">Município</TableHead>
                 <TableHead scope="col" className="text-right">Estudantes</TableHead>
-                <TableHead scope="col" className="text-right">% c/ CIN</TableHead>
-                <TableHead scope="col" className="text-right">Parentes</TableHead>
-                <TableHead scope="col" className="text-right">% c/ CIN</TableHead>
-                <TableHead scope="col" className="text-right">Gap total</TableHead>
+                <TableHead scope="col" className="text-right">Com CIN</TableHead>
+                <TableHead scope="col" className="text-right">Sem CIN</TableHead>
+                <TableHead scope="col" className="w-[200px]">Cobertura</TableHead>
                 <TableHead scope="col">Status</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {paged.map((r) => {
-                const s = getCoverageStatus(r.pctEstudantes);
+                const s = getCoverageStatus(r.pctComCIN);
                 return (
                   <TableRow key={`${r.codGRE}-${r.municipio}`}>
                     <TableCell className="font-medium text-muted-foreground">
@@ -142,19 +170,25 @@ export function MunicipalityTable() {
                     </TableCell>
                     <TableCell className="font-medium">{r.municipio}</TableCell>
                     <TableCell className="text-right tabular-nums">
-                      {formatNumber(r.qtdEstudantes)}
+                      {formatNumber(r.estudantes)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums">
-                      {formatPercent(r.pctEstudantes)}
+                    <TableCell className="text-right tabular-nums text-accent">
+                      {formatNumber(r.comCIN)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums">
-                      {formatNumber(r.qtdParentes)}
+                    <TableCell className="text-right tabular-nums text-destructive">
+                      {formatNumber(r.semCIN)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums">
-                      {formatPercent(r.pctParentes)}
-                    </TableCell>
-                    <TableCell className="text-right tabular-nums font-semibold">
-                      {formatNumber(r.gapTotal)}
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        <Progress
+                          value={r.pctComCIN}
+                          className="h-1.5 w-full"
+                          indicatorClassName={progressColor(r.pctComCIN)}
+                        />
+                        <span className="w-12 shrink-0 text-right text-xs font-semibold tabular-nums">
+                          {formatPercent(r.pctComCIN, 0)}
+                        </span>
+                      </div>
                     </TableCell>
                     <TableCell>
                       <Badge variant="outline" className={statusClass[s]}>
@@ -166,8 +200,8 @@ export function MunicipalityTable() {
               })}
               {paged.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={8} className="py-10 text-center text-muted-foreground">
-                    Nenhum município encontrado com os filtros atuais.
+                  <TableCell colSpan={7} className="py-10 text-center text-muted-foreground">
+                    Nenhum município encontrado.
                   </TableCell>
                 </TableRow>
               )}
