@@ -1,0 +1,3634 @@
+[
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "BOM PRINCIPIO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 12,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "BOM PRINCIPIO DO PIAUI",
+    "tipo": "Professor",
+    "total": 29,
+    "comCIN": 24,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "BURITI DOS LOPES",
+    "tipo": "Administrativo",
+    "total": 68,
+    "comCIN": 54,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "BURITI DOS LOPES",
+    "tipo": "Professor",
+    "total": 122,
+    "comCIN": 100,
+    "semCIN": 22
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "CAJUEIRO DA PRAIA",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 11,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "CAJUEIRO DA PRAIA",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 18,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "CARAUBAS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 10,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "CARAUBAS DO PIAUI",
+    "tipo": "Professor",
+    "total": 21,
+    "comCIN": 13,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "CAXINGO",
+    "tipo": "Administrativo",
+    "total": 11,
+    "comCIN": 11,
+    "semCIN": 0
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "CAXINGO",
+    "tipo": "Professor",
+    "total": 29,
+    "comCIN": 28,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "COCAL",
+    "tipo": "Administrativo",
+    "total": 74,
+    "comCIN": 59,
+    "semCIN": 15
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "COCAL",
+    "tipo": "Professor",
+    "total": 107,
+    "comCIN": 74,
+    "semCIN": 33
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "COCAL DOS ALVES",
+    "tipo": "Administrativo",
+    "total": 19,
+    "comCIN": 13,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "COCAL DOS ALVES",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 15,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "ILHA GRANDE",
+    "tipo": "Administrativo",
+    "total": 32,
+    "comCIN": 29,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "ILHA GRANDE",
+    "tipo": "Professor",
+    "total": 45,
+    "comCIN": 36,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "LUIS CORREIA",
+    "tipo": "Administrativo",
+    "total": 79,
+    "comCIN": 60,
+    "semCIN": 19
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "LUIS CORREIA",
+    "tipo": "Professor",
+    "total": 153,
+    "comCIN": 122,
+    "semCIN": 31
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "MURICI DOS PORTELAS",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 13,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "MURICI DOS PORTELAS",
+    "tipo": "Professor",
+    "total": 31,
+    "comCIN": 22,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "PARNAIBA",
+    "tipo": "Administrativo",
+    "total": 505,
+    "comCIN": 391,
+    "semCIN": 114
+  },
+  {
+    "codGRE": "01ª GRE",
+    "municipio": "PARNAIBA",
+    "tipo": "Professor",
+    "total": 721,
+    "comCIN": 586,
+    "semCIN": 135
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "BARRAS",
+    "tipo": "Administrativo",
+    "total": 97,
+    "comCIN": 71,
+    "semCIN": 26
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "BARRAS",
+    "tipo": "Professor",
+    "total": 217,
+    "comCIN": 162,
+    "semCIN": 55
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "BATALHA",
+    "tipo": "Administrativo",
+    "total": 93,
+    "comCIN": 68,
+    "semCIN": 25
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "BATALHA",
+    "tipo": "Professor",
+    "total": 128,
+    "comCIN": 107,
+    "semCIN": 21
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "CABECEIRAS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 37,
+    "comCIN": 32,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "CABECEIRAS DO PIAUI",
+    "tipo": "Professor",
+    "total": 50,
+    "comCIN": 38,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "CAMPO LARGO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 13,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "CAMPO LARGO DO PIAUI",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 27,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "ESPERANTINA",
+    "tipo": "Administrativo",
+    "total": 131,
+    "comCIN": 91,
+    "semCIN": 40
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "ESPERANTINA",
+    "tipo": "Professor",
+    "total": 182,
+    "comCIN": 145,
+    "semCIN": 37
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "JOAQUIM PIRES",
+    "tipo": "Administrativo",
+    "total": 30,
+    "comCIN": 26,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "JOAQUIM PIRES",
+    "tipo": "Professor",
+    "total": 51,
+    "comCIN": 37,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "JOCA MARQUES",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 10,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "JOCA MARQUES",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 24,
+    "semCIN": 0
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "LUZILANDIA",
+    "tipo": "Administrativo",
+    "total": 75,
+    "comCIN": 65,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "LUZILANDIA",
+    "tipo": "Professor",
+    "total": 91,
+    "comCIN": 77,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "MADEIRO",
+    "tipo": "Administrativo",
+    "total": 8,
+    "comCIN": 7,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "MADEIRO",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 21,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "MATIAS OLIMPIO",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 16,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "MATIAS OLIMPIO",
+    "tipo": "Professor",
+    "total": 41,
+    "comCIN": 32,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "MORRO DO CHAPEU DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 9,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "MORRO DO CHAPEU DO PIAUI",
+    "tipo": "Professor",
+    "total": 28,
+    "comCIN": 17,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "NOSSA SENHORA DOS REMEDIOS",
+    "tipo": "Administrativo",
+    "total": 33,
+    "comCIN": 24,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "NOSSA SENHORA DOS REMEDIOS",
+    "tipo": "Professor",
+    "total": 49,
+    "comCIN": 40,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "PORTO",
+    "tipo": "Administrativo",
+    "total": 40,
+    "comCIN": 32,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "PORTO",
+    "tipo": "Professor",
+    "total": 60,
+    "comCIN": 45,
+    "semCIN": 15
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "SAO JOAO DO ARRAIAL",
+    "tipo": "Administrativo",
+    "total": 25,
+    "comCIN": 17,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "02ª GRE",
+    "municipio": "SAO JOAO DO ARRAIAL",
+    "tipo": "Professor",
+    "total": 49,
+    "comCIN": 42,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "BRASILEIRA",
+    "tipo": "Administrativo",
+    "total": 31,
+    "comCIN": 22,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "BRASILEIRA",
+    "tipo": "Professor",
+    "total": 47,
+    "comCIN": 33,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "CAPITAO DE CAMPOS",
+    "tipo": "Administrativo",
+    "total": 34,
+    "comCIN": 25,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "CAPITAO DE CAMPOS",
+    "tipo": "Professor",
+    "total": 68,
+    "comCIN": 47,
+    "semCIN": 21
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "DOMINGOS MOURAO",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 12,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "DOMINGOS MOURAO",
+    "tipo": "Professor",
+    "total": 31,
+    "comCIN": 27,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "LAGOA DE SAO FRANCISCO",
+    "tipo": "Administrativo",
+    "total": 24,
+    "comCIN": 15,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "LAGOA DE SAO FRANCISCO",
+    "tipo": "Professor",
+    "total": 27,
+    "comCIN": 17,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "MILTON BRANDAO",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 13,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "MILTON BRANDAO",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 21,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "PEDRO II",
+    "tipo": "Administrativo",
+    "total": 154,
+    "comCIN": 127,
+    "semCIN": 27
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "PEDRO II",
+    "tipo": "Professor",
+    "total": 186,
+    "comCIN": 158,
+    "semCIN": 28
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "PIRACURUCA",
+    "tipo": "Administrativo",
+    "total": 117,
+    "comCIN": 97,
+    "semCIN": 20
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "PIRACURUCA",
+    "tipo": "Professor",
+    "total": 194,
+    "comCIN": 170,
+    "semCIN": 24
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "PIRIPIRI",
+    "tipo": "Administrativo",
+    "total": 174,
+    "comCIN": 125,
+    "semCIN": 49
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "PIRIPIRI",
+    "tipo": "Professor",
+    "total": 283,
+    "comCIN": 225,
+    "semCIN": 58
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "SAO JOAO DA FRONTEIRA",
+    "tipo": "Administrativo",
+    "total": 32,
+    "comCIN": 15,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "SAO JOAO DA FRONTEIRA",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 21,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "SAO JOSE DO DIVINO",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 6,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "03ª GRE",
+    "municipio": "SAO JOSE DO DIVINO",
+    "tipo": "Professor",
+    "total": 27,
+    "comCIN": 19,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "04ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Administrativo",
+    "total": 1288,
+    "comCIN": 1022,
+    "semCIN": 266
+  },
+  {
+    "codGRE": "04ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Professor",
+    "total": 1341,
+    "comCIN": 1061,
+    "semCIN": 280
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "ASSUNCAO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 20,
+    "semCIN": 0
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "ASSUNCAO DO PIAUI",
+    "tipo": "Professor",
+    "total": 34,
+    "comCIN": 26,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "BOA HORA",
+    "tipo": "Administrativo",
+    "total": 41,
+    "comCIN": 30,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "BOA HORA",
+    "tipo": "Professor",
+    "total": 60,
+    "comCIN": 43,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "BOQUEIRAO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 11,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "BOQUEIRAO DO PIAUI",
+    "tipo": "Professor",
+    "total": 38,
+    "comCIN": 29,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "BURITI DOS MONTES",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 9,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "BURITI DOS MONTES",
+    "tipo": "Professor",
+    "total": 30,
+    "comCIN": 25,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "CAMPO MAIOR",
+    "tipo": "Administrativo",
+    "total": 194,
+    "comCIN": 146,
+    "semCIN": 48
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "CAMPO MAIOR",
+    "tipo": "Professor",
+    "total": 302,
+    "comCIN": 209,
+    "semCIN": 93
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "CASTELO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 50,
+    "comCIN": 35,
+    "semCIN": 15
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "CASTELO DO PIAUI",
+    "tipo": "Professor",
+    "total": 104,
+    "comCIN": 78,
+    "semCIN": 26
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "COCAL DE TELHA",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 9,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "COCAL DE TELHA",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 16,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "JATOBA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 19,
+    "comCIN": 16,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "JATOBA DO PIAUI",
+    "tipo": "Professor",
+    "total": 36,
+    "comCIN": 28,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "JUAZEIRO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 9,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "JUAZEIRO DO PIAUI",
+    "tipo": "Professor",
+    "total": 28,
+    "comCIN": 21,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "NOSSA SENHORA DE NAZARE",
+    "tipo": "Administrativo",
+    "total": 22,
+    "comCIN": 13,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "NOSSA SENHORA DE NAZARE",
+    "tipo": "Professor",
+    "total": 28,
+    "comCIN": 18,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "SAO JOAO DA SERRA",
+    "tipo": "Administrativo",
+    "total": 43,
+    "comCIN": 35,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "SAO JOAO DA SERRA",
+    "tipo": "Professor",
+    "total": 76,
+    "comCIN": 68,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "SAO MIGUEL DO TAPUIO",
+    "tipo": "Administrativo",
+    "total": 60,
+    "comCIN": 49,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "SAO MIGUEL DO TAPUIO",
+    "tipo": "Professor",
+    "total": 76,
+    "comCIN": 58,
+    "semCIN": 18
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "SIGEFREDO PACHECO",
+    "tipo": "Administrativo",
+    "total": 21,
+    "comCIN": 15,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "05ª GRE",
+    "municipio": "SIGEFREDO PACHECO",
+    "tipo": "Professor",
+    "total": 28,
+    "comCIN": 23,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "AGRICOLANDIA",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 14,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "AGRICOLANDIA",
+    "tipo": "Professor",
+    "total": 34,
+    "comCIN": 28,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "AGUA BRANCA",
+    "tipo": "Administrativo",
+    "total": 51,
+    "comCIN": 45,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "AGUA BRANCA",
+    "tipo": "Professor",
+    "total": 70,
+    "comCIN": 56,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "AMARANTE",
+    "tipo": "Administrativo",
+    "total": 96,
+    "comCIN": 73,
+    "semCIN": 23
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "AMARANTE",
+    "tipo": "Professor",
+    "total": 88,
+    "comCIN": 64,
+    "semCIN": 24
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "ANGICAL DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 34,
+    "comCIN": 33,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "ANGICAL DO PIAUI",
+    "tipo": "Professor",
+    "total": 50,
+    "comCIN": 46,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "ARRAIAL",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 16,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "ARRAIAL",
+    "tipo": "Professor",
+    "total": 25,
+    "comCIN": 20,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "FRANCISCO AYRES",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 11,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "FRANCISCO AYRES",
+    "tipo": "Professor",
+    "total": 22,
+    "comCIN": 18,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "HUGO NAPOLEAO",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 13,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "HUGO NAPOLEAO",
+    "tipo": "Professor",
+    "total": 31,
+    "comCIN": 27,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "JARDIM DO MULATO",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 21,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "JARDIM DO MULATO",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 31,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "LAGOINHA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 11,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "LAGOINHA DO PIAUI",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 16,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "MIGUEL LEAO",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 12,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "MIGUEL LEAO",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 19,
+    "semCIN": 0
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "OLHO D AGUA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 8,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "OLHO D AGUA DO PIAUI",
+    "tipo": "Professor",
+    "total": 33,
+    "comCIN": 21,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "REGENERACAO",
+    "tipo": "Administrativo",
+    "total": 56,
+    "comCIN": 39,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "REGENERACAO",
+    "tipo": "Professor",
+    "total": 109,
+    "comCIN": 84,
+    "semCIN": 25
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "SANTO ANTONIO DOS MILAGRES",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 9,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "SANTO ANTONIO DOS MILAGRES",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 21,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "SAO GONCALO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 27,
+    "comCIN": 20,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "SAO GONCALO DO PIAUI",
+    "tipo": "Professor",
+    "total": 31,
+    "comCIN": 26,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "SAO PEDRO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 42,
+    "comCIN": 31,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "06ª GRE",
+    "municipio": "SAO PEDRO DO PIAUI",
+    "tipo": "Professor",
+    "total": 78,
+    "comCIN": 68,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "AROAZES",
+    "tipo": "Administrativo",
+    "total": 35,
+    "comCIN": 28,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "AROAZES",
+    "tipo": "Professor",
+    "total": 37,
+    "comCIN": 27,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "BARRA D ALCANTARA",
+    "tipo": "Administrativo",
+    "total": 24,
+    "comCIN": 19,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "BARRA D ALCANTARA",
+    "tipo": "Professor",
+    "total": 25,
+    "comCIN": 24,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "ELESBAO VELOSO",
+    "tipo": "Administrativo",
+    "total": 28,
+    "comCIN": 20,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "ELESBAO VELOSO",
+    "tipo": "Professor",
+    "total": 55,
+    "comCIN": 44,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "FRANCINOPOLIS",
+    "tipo": "Administrativo",
+    "total": 21,
+    "comCIN": 14,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "FRANCINOPOLIS",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 20,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "INHUMA",
+    "tipo": "Administrativo",
+    "total": 74,
+    "comCIN": 55,
+    "semCIN": 19
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "INHUMA",
+    "tipo": "Professor",
+    "total": 119,
+    "comCIN": 93,
+    "semCIN": 26
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "LAGOA DO SITIO",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 10,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "LAGOA DO SITIO",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 17,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "NOVO ORIENTE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 31,
+    "comCIN": 19,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "NOVO ORIENTE DO PIAUI",
+    "tipo": "Professor",
+    "total": 34,
+    "comCIN": 29,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "PIMENTEIRAS",
+    "tipo": "Administrativo",
+    "total": 46,
+    "comCIN": 34,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "PIMENTEIRAS",
+    "tipo": "Professor",
+    "total": 81,
+    "comCIN": 64,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "SANTA CRUZ DOS MILAGRES",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 10,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "SANTA CRUZ DOS MILAGRES",
+    "tipo": "Professor",
+    "total": 26,
+    "comCIN": 18,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "SAO FELIX DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 12,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "SAO FELIX DO PIAUI",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 21,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "SAO MIGUEL DA BAIXA GRANDE",
+    "tipo": "Administrativo",
+    "total": 10,
+    "comCIN": 8,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "SAO MIGUEL DA BAIXA GRANDE",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "VALENCA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 89,
+    "comCIN": 66,
+    "semCIN": 23
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "VALENCA DO PIAUI",
+    "tipo": "Professor",
+    "total": 125,
+    "comCIN": 96,
+    "semCIN": 29
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "VARZEA GRANDE",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 14,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "07ª GRE",
+    "municipio": "VARZEA GRANDE",
+    "tipo": "Professor",
+    "total": 22,
+    "comCIN": 19,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "CAJAZEIRAS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 24,
+    "comCIN": 20,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "CAJAZEIRAS DO PIAUI",
+    "tipo": "Professor",
+    "total": 35,
+    "comCIN": 29,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "CAMPINAS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 12,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "CAMPINAS DO PIAUI",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 20,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "COLONIA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 15,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "COLONIA DO PIAUI",
+    "tipo": "Professor",
+    "total": 28,
+    "comCIN": 25,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "FLORESTA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 9,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "FLORESTA DO PIAUI",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 12,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "ISAIAS COELHO",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 11,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "ISAIAS COELHO",
+    "tipo": "Professor",
+    "total": 30,
+    "comCIN": 24,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "OEIRAS",
+    "tipo": "Administrativo",
+    "total": 168,
+    "comCIN": 137,
+    "semCIN": 31
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "OEIRAS",
+    "tipo": "Professor",
+    "total": 237,
+    "comCIN": 198,
+    "semCIN": 39
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SANTA ROSA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 16,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SANTA ROSA DO PIAUI",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 22,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SANTO INACIO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 33,
+    "comCIN": 31,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SANTO INACIO DO PIAUI",
+    "tipo": "Professor",
+    "total": 35,
+    "comCIN": 33,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SAO JOAO DA VARJOTA",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 17,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SAO JOAO DA VARJOTA",
+    "tipo": "Professor",
+    "total": 43,
+    "comCIN": 37,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SAO MIGUEL DO FIDALGO",
+    "tipo": "Administrativo",
+    "total": 19,
+    "comCIN": 17,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "SAO MIGUEL DO FIDALGO",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 21,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "TANQUE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 9,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "08ª GRE",
+    "municipio": "TANQUE DO PIAUI",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 17,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "AROEIRAS DO ITAIM",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 10,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "AROEIRAS DO ITAIM",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 15,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "BOCAINA",
+    "tipo": "Administrativo",
+    "total": 34,
+    "comCIN": 25,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "BOCAINA",
+    "tipo": "Professor",
+    "total": 41,
+    "comCIN": 34,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "CAMPO GRANDE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 11,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "CAMPO GRANDE DO PIAUI",
+    "tipo": "Professor",
+    "total": 43,
+    "comCIN": 34,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "DOM EXPEDITO LOPES",
+    "tipo": "Administrativo",
+    "total": 19,
+    "comCIN": 15,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "DOM EXPEDITO LOPES",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 30,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "FRANCISCO SANTOS",
+    "tipo": "Administrativo",
+    "total": 28,
+    "comCIN": 23,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "FRANCISCO SANTOS",
+    "tipo": "Professor",
+    "total": 60,
+    "comCIN": 50,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "GEMINIANO",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 16,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "GEMINIANO",
+    "tipo": "Professor",
+    "total": 26,
+    "comCIN": 19,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "IPIRANGA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 31,
+    "comCIN": 28,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "IPIRANGA DO PIAUI",
+    "tipo": "Professor",
+    "total": 58,
+    "comCIN": 47,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "ITAINOPOLIS",
+    "tipo": "Administrativo",
+    "total": 37,
+    "comCIN": 31,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "ITAINOPOLIS",
+    "tipo": "Professor",
+    "total": 69,
+    "comCIN": 57,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "JAICOS",
+    "tipo": "Administrativo",
+    "total": 54,
+    "comCIN": 41,
+    "semCIN": 13
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "JAICOS",
+    "tipo": "Professor",
+    "total": 105,
+    "comCIN": 86,
+    "semCIN": 19
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "MASSAPE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 7,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "MASSAPE DO PIAUI",
+    "tipo": "Professor",
+    "total": 25,
+    "comCIN": 18,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "MONSENHOR HIPOLITO",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 16,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "MONSENHOR HIPOLITO",
+    "tipo": "Professor",
+    "total": 34,
+    "comCIN": 28,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "PAQUETA",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 12,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "PAQUETA",
+    "tipo": "Professor",
+    "total": 16,
+    "comCIN": 14,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "PICOS",
+    "tipo": "Administrativo",
+    "total": 298,
+    "comCIN": 233,
+    "semCIN": 65
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "PICOS",
+    "tipo": "Professor",
+    "total": 329,
+    "comCIN": 270,
+    "semCIN": 59
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SANTA CRUZ DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 29,
+    "comCIN": 26,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SANTA CRUZ DO PIAUI",
+    "tipo": "Professor",
+    "total": 46,
+    "comCIN": 42,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SANTANA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 8,
+    "comCIN": 7,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SANTANA DO PIAUI",
+    "tipo": "Professor",
+    "total": 16,
+    "comCIN": 15,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SANTO ANTONIO DE LISBOA",
+    "tipo": "Administrativo",
+    "total": 26,
+    "comCIN": 22,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SANTO ANTONIO DE LISBOA",
+    "tipo": "Professor",
+    "total": 53,
+    "comCIN": 43,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SAO JOAO DA CANABRAVA",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 9,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SAO JOAO DA CANABRAVA",
+    "tipo": "Professor",
+    "total": 20,
+    "comCIN": 15,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SAO JOSE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 17,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SAO JOSE DO PIAUI",
+    "tipo": "Professor",
+    "total": 37,
+    "comCIN": 33,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SAO LUIS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 13,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SAO LUIS DO PIAUI",
+    "tipo": "Professor",
+    "total": 15,
+    "comCIN": 13,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SUSSUAPARA",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 10,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "SUSSUAPARA",
+    "tipo": "Professor",
+    "total": 36,
+    "comCIN": 30,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "VERA MENDES",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 16,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "VERA MENDES",
+    "tipo": "Professor",
+    "total": 34,
+    "comCIN": 24,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "WALL FERRAZ",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 14,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "09ª GRE",
+    "municipio": "WALL FERRAZ",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 26,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "CANAVIEIRA",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 17,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "CANAVIEIRA",
+    "tipo": "Professor",
+    "total": 28,
+    "comCIN": 19,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "FLORES DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 33,
+    "comCIN": 26,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "FLORES DO PIAUI",
+    "tipo": "Professor",
+    "total": 31,
+    "comCIN": 28,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "FLORIANO",
+    "tipo": "Administrativo",
+    "total": 212,
+    "comCIN": 166,
+    "semCIN": 46
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "FLORIANO",
+    "tipo": "Professor",
+    "total": 315,
+    "comCIN": 256,
+    "semCIN": 59
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "GUADALUPE",
+    "tipo": "Administrativo",
+    "total": 52,
+    "comCIN": 40,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "GUADALUPE",
+    "tipo": "Professor",
+    "total": 54,
+    "comCIN": 44,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "ITAUEIRA",
+    "tipo": "Administrativo",
+    "total": 21,
+    "comCIN": 17,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "ITAUEIRA",
+    "tipo": "Professor",
+    "total": 45,
+    "comCIN": 41,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "JERUMENHA",
+    "tipo": "Administrativo",
+    "total": 29,
+    "comCIN": 24,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "JERUMENHA",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 20,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "LANDRI SALES",
+    "tipo": "Administrativo",
+    "total": 28,
+    "comCIN": 18,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "LANDRI SALES",
+    "tipo": "Professor",
+    "total": 26,
+    "comCIN": 23,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "MARCOS PARENTE",
+    "tipo": "Administrativo",
+    "total": 22,
+    "comCIN": 18,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "MARCOS PARENTE",
+    "tipo": "Professor",
+    "total": 25,
+    "comCIN": 24,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "NAZARE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 21,
+    "comCIN": 14,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "NAZARE DO PIAUI",
+    "tipo": "Professor",
+    "total": 35,
+    "comCIN": 33,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "PAVUSSU",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 13,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "PAVUSSU",
+    "tipo": "Professor",
+    "total": 22,
+    "comCIN": 21,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "RIO GRANDE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 30,
+    "comCIN": 24,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "RIO GRANDE DO PIAUI",
+    "tipo": "Professor",
+    "total": 30,
+    "comCIN": 26,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "SAO FRANCISCO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 15,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "SAO FRANCISCO DO PIAUI",
+    "tipo": "Professor",
+    "total": 21,
+    "comCIN": 16,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "SAO JOSE DO PEIXE",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 18,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "10ª GRE",
+    "municipio": "SAO JOSE DO PEIXE",
+    "tipo": "Professor",
+    "total": 16,
+    "comCIN": 13,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "ANTONIO ALMEIDA",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 16,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "ANTONIO ALMEIDA",
+    "tipo": "Professor",
+    "total": 27,
+    "comCIN": 25,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "BAIXA GRANDE DO RIBEIRO",
+    "tipo": "Administrativo",
+    "total": 37,
+    "comCIN": 23,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "BAIXA GRANDE DO RIBEIRO",
+    "tipo": "Professor",
+    "total": 57,
+    "comCIN": 38,
+    "semCIN": 19
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "BERTOLINIA",
+    "tipo": "Administrativo",
+    "total": 56,
+    "comCIN": 52,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "BERTOLINIA",
+    "tipo": "Professor",
+    "total": 44,
+    "comCIN": 41,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "PORTO ALEGRE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 7,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "PORTO ALEGRE DO PIAUI",
+    "tipo": "Professor",
+    "total": 16,
+    "comCIN": 9,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "RIBEIRO GONCALVES",
+    "tipo": "Administrativo",
+    "total": 27,
+    "comCIN": 22,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "RIBEIRO GONCALVES",
+    "tipo": "Professor",
+    "total": 50,
+    "comCIN": 34,
+    "semCIN": 16
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "SEBASTIAO LEAL",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 12,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "SEBASTIAO LEAL",
+    "tipo": "Professor",
+    "total": 17,
+    "comCIN": 15,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "URUCUI",
+    "tipo": "Administrativo",
+    "total": 74,
+    "comCIN": 52,
+    "semCIN": 22
+  },
+  {
+    "codGRE": "11ª GRE",
+    "municipio": "URUCUI",
+    "tipo": "Professor",
+    "total": 125,
+    "comCIN": 90,
+    "semCIN": 35
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "BELA VISTA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 16,
+    "semCIN": 0
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "BELA VISTA DO PIAUI",
+    "tipo": "Professor",
+    "total": 21,
+    "comCIN": 17,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "BREJO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 17,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "BREJO DO PIAUI",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 20,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "CAMPO ALEGRE DO FIDALGO",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 16,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "CAMPO ALEGRE DO FIDALGO",
+    "tipo": "Professor",
+    "total": 18,
+    "comCIN": 14,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "CANTO DO BURITI",
+    "tipo": "Administrativo",
+    "total": 86,
+    "comCIN": 63,
+    "semCIN": 23
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "CANTO DO BURITI",
+    "tipo": "Professor",
+    "total": 89,
+    "comCIN": 69,
+    "semCIN": 20
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "CAPITAO GERVASIO OLIVEIRA",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 12,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "CAPITAO GERVASIO OLIVEIRA",
+    "tipo": "Professor",
+    "total": 26,
+    "comCIN": 18,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "JOAO COSTA",
+    "tipo": "Administrativo",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "JOAO COSTA",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 17,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "LAGOA DO BARRO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 14,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "LAGOA DO BARRO DO PIAUI",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 20,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "NOVA SANTA RITA",
+    "tipo": "Administrativo",
+    "total": 21,
+    "comCIN": 14,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "NOVA SANTA RITA",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 18,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "PAES LANDIM",
+    "tipo": "Administrativo",
+    "total": 31,
+    "comCIN": 23,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "PAES LANDIM",
+    "tipo": "Professor",
+    "total": 36,
+    "comCIN": 32,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "PAJEU DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 10,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "PAJEU DO PIAUI",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 16,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "PEDRO LAURENTINO",
+    "tipo": "Administrativo",
+    "total": 11,
+    "comCIN": 9,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "PEDRO LAURENTINO",
+    "tipo": "Professor",
+    "total": 15,
+    "comCIN": 12,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "RIBEIRA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 12,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "RIBEIRA DO PIAUI",
+    "tipo": "Professor",
+    "total": 30,
+    "comCIN": 20,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "SAO JOAO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 113,
+    "comCIN": 86,
+    "semCIN": 27
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "SAO JOAO DO PIAUI",
+    "tipo": "Professor",
+    "total": 111,
+    "comCIN": 86,
+    "semCIN": 25
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "SIMPLICIO MENDES",
+    "tipo": "Administrativo",
+    "total": 72,
+    "comCIN": 54,
+    "semCIN": 18
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "SIMPLICIO MENDES",
+    "tipo": "Professor",
+    "total": 82,
+    "comCIN": 62,
+    "semCIN": 20
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "SOCORRO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 34,
+    "comCIN": 29,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "12ª GRE",
+    "municipio": "SOCORRO DO PIAUI",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 20,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "ANISIO DE ABREU",
+    "tipo": "Administrativo",
+    "total": 37,
+    "comCIN": 27,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "ANISIO DE ABREU",
+    "tipo": "Professor",
+    "total": 42,
+    "comCIN": 29,
+    "semCIN": 13
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "BONFIM DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 12,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "BONFIM DO PIAUI",
+    "tipo": "Professor",
+    "total": 26,
+    "comCIN": 19,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "CARACOL",
+    "tipo": "Administrativo",
+    "total": 30,
+    "comCIN": 24,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "CARACOL",
+    "tipo": "Professor",
+    "total": 41,
+    "comCIN": 31,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "CORONEL JOSE DIAS",
+    "tipo": "Administrativo",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "CORONEL JOSE DIAS",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 17,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "DIRCEU ARCOVERDE",
+    "tipo": "Administrativo",
+    "total": 34,
+    "comCIN": 29,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "DIRCEU ARCOVERDE",
+    "tipo": "Professor",
+    "total": 22,
+    "comCIN": 15,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "DOM INOCENCIO",
+    "tipo": "Administrativo",
+    "total": 69,
+    "comCIN": 57,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "DOM INOCENCIO",
+    "tipo": "Professor",
+    "total": 50,
+    "comCIN": 44,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "FARTURA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 13,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "FARTURA DO PIAUI",
+    "tipo": "Professor",
+    "total": 20,
+    "comCIN": 17,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "GUARIBAS",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 21,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "GUARIBAS",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 22,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "JUREMA",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 8,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "JUREMA",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 15,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "SAO BRAZ DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 27,
+    "comCIN": 18,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "SAO BRAZ DO PIAUI",
+    "tipo": "Professor",
+    "total": 30,
+    "comCIN": 24,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "SAO LOURENCO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 30,
+    "comCIN": 27,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "SAO LOURENCO DO PIAUI",
+    "tipo": "Professor",
+    "total": 33,
+    "comCIN": 29,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "SAO RAIMUNDO NONATO",
+    "tipo": "Administrativo",
+    "total": 152,
+    "comCIN": 136,
+    "semCIN": 16
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "SAO RAIMUNDO NONATO",
+    "tipo": "Professor",
+    "total": 152,
+    "comCIN": 115,
+    "semCIN": 37
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "TAMBORIL DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 10,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "TAMBORIL DO PIAUI",
+    "tipo": "Professor",
+    "total": 16,
+    "comCIN": 14,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "VARZEA BRANCA",
+    "tipo": "Administrativo",
+    "total": 25,
+    "comCIN": 20,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "13ª GRE",
+    "municipio": "VARZEA BRANCA",
+    "tipo": "Professor",
+    "total": 24,
+    "comCIN": 22,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "ALVORADA DO GURGUEIA",
+    "tipo": "Administrativo",
+    "total": 11,
+    "comCIN": 9,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "ALVORADA DO GURGUEIA",
+    "tipo": "Professor",
+    "total": 26,
+    "comCIN": 17,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "BOM JESUS",
+    "tipo": "Administrativo",
+    "total": 76,
+    "comCIN": 56,
+    "semCIN": 20
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "BOM JESUS",
+    "tipo": "Professor",
+    "total": 121,
+    "comCIN": 99,
+    "semCIN": 22
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "COLONIA DO GURGUEIA",
+    "tipo": "Administrativo",
+    "total": 34,
+    "comCIN": 16,
+    "semCIN": 18
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "COLONIA DO GURGUEIA",
+    "tipo": "Professor",
+    "total": 55,
+    "comCIN": 37,
+    "semCIN": 18
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "CRISTINO CASTRO",
+    "tipo": "Administrativo",
+    "total": 52,
+    "comCIN": 35,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "CRISTINO CASTRO",
+    "tipo": "Professor",
+    "total": 76,
+    "comCIN": 57,
+    "semCIN": 19
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "CURRAIS",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 10,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "CURRAIS",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "ELISEU MARTINS",
+    "tipo": "Administrativo",
+    "total": 29,
+    "comCIN": 26,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "ELISEU MARTINS",
+    "tipo": "Professor",
+    "total": 33,
+    "comCIN": 24,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "MANOEL EMIDIO",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 16,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "MANOEL EMIDIO",
+    "tipo": "Professor",
+    "total": 33,
+    "comCIN": 24,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "PALMEIRA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 14,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "PALMEIRA DO PIAUI",
+    "tipo": "Professor",
+    "total": 27,
+    "comCIN": 24,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "REDENCAO DO GURGUEIA",
+    "tipo": "Administrativo",
+    "total": 45,
+    "comCIN": 32,
+    "semCIN": 13
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "REDENCAO DO GURGUEIA",
+    "tipo": "Professor",
+    "total": 55,
+    "comCIN": 48,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "SANTA LUZ",
+    "tipo": "Administrativo",
+    "total": 27,
+    "comCIN": 14,
+    "semCIN": 13
+  },
+  {
+    "codGRE": "14ª GRE",
+    "municipio": "SANTA LUZ",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 25,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "AVELINO LOPES",
+    "tipo": "Administrativo",
+    "total": 31,
+    "comCIN": 20,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "AVELINO LOPES",
+    "tipo": "Professor",
+    "total": 40,
+    "comCIN": 33,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "BARREIRAS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 11,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "BARREIRAS DO PIAUI",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 14,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "CORRENTE",
+    "tipo": "Administrativo",
+    "total": 88,
+    "comCIN": 69,
+    "semCIN": 19
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "CORRENTE",
+    "tipo": "Professor",
+    "total": 135,
+    "comCIN": 104,
+    "semCIN": 31
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "CRISTALANDIA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 14,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "CRISTALANDIA DO PIAUI",
+    "tipo": "Professor",
+    "total": 36,
+    "comCIN": 29,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "CURIMATA",
+    "tipo": "Administrativo",
+    "total": 47,
+    "comCIN": 40,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "CURIMATA",
+    "tipo": "Professor",
+    "total": 55,
+    "comCIN": 45,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "GILBUES",
+    "tipo": "Administrativo",
+    "total": 30,
+    "comCIN": 25,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "GILBUES",
+    "tipo": "Professor",
+    "total": 48,
+    "comCIN": 37,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "JULIO BORGES",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 9,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "JULIO BORGES",
+    "tipo": "Professor",
+    "total": 22,
+    "comCIN": 9,
+    "semCIN": 13
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "MONTE ALEGRE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 38,
+    "comCIN": 27,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "MONTE ALEGRE DO PIAUI",
+    "tipo": "Professor",
+    "total": 47,
+    "comCIN": 36,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "MORRO CABECA NO TEMPO",
+    "tipo": "Administrativo",
+    "total": 21,
+    "comCIN": 16,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "MORRO CABECA NO TEMPO",
+    "tipo": "Professor",
+    "total": 17,
+    "comCIN": 12,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "PARNAGUA",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 16,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "PARNAGUA",
+    "tipo": "Professor",
+    "total": 41,
+    "comCIN": 34,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "RIACHO FRIO",
+    "tipo": "Administrativo",
+    "total": 7,
+    "comCIN": 7,
+    "semCIN": 0
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "RIACHO FRIO",
+    "tipo": "Professor",
+    "total": 25,
+    "comCIN": 23,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "SANTA FILOMENA",
+    "tipo": "Administrativo",
+    "total": 24,
+    "comCIN": 16,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "SANTA FILOMENA",
+    "tipo": "Professor",
+    "total": 37,
+    "comCIN": 20,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "SAO GONCALO DO GURGUEIA",
+    "tipo": "Administrativo",
+    "total": 9,
+    "comCIN": 6,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "SAO GONCALO DO GURGUEIA",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "SEBASTIAO BARROS",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 8,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "15ª GRE",
+    "municipio": "SEBASTIAO BARROS",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "ALAGOINHA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 18,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "ALAGOINHA DO PIAUI",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 24,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "ALEGRETE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 38,
+    "comCIN": 27,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "ALEGRETE DO PIAUI",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 21,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "BELEM DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 14,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "BELEM DO PIAUI",
+    "tipo": "Professor",
+    "total": 27,
+    "comCIN": 22,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "CALDEIRAO GRANDE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 11,
+    "comCIN": 8,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "CALDEIRAO GRANDE DO PIAUI",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "FRANCISCO MACEDO",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 10,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "FRANCISCO MACEDO",
+    "tipo": "Professor",
+    "total": 16,
+    "comCIN": 16,
+    "semCIN": 0
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "FRONTEIRAS",
+    "tipo": "Administrativo",
+    "total": 63,
+    "comCIN": 43,
+    "semCIN": 20
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "FRONTEIRAS",
+    "tipo": "Professor",
+    "total": 74,
+    "comCIN": 45,
+    "semCIN": 29
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "MARCOLANDIA",
+    "tipo": "Administrativo",
+    "total": 20,
+    "comCIN": 14,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "MARCOLANDIA",
+    "tipo": "Professor",
+    "total": 37,
+    "comCIN": 26,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "PADRE MARCOS",
+    "tipo": "Administrativo",
+    "total": 28,
+    "comCIN": 17,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "PADRE MARCOS",
+    "tipo": "Professor",
+    "total": 60,
+    "comCIN": 51,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "PIO IX",
+    "tipo": "Administrativo",
+    "total": 57,
+    "comCIN": 39,
+    "semCIN": 18
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "PIO IX",
+    "tipo": "Professor",
+    "total": 90,
+    "comCIN": 64,
+    "semCIN": 26
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "SAO JULIAO",
+    "tipo": "Administrativo",
+    "total": 36,
+    "comCIN": 25,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "SAO JULIAO",
+    "tipo": "Professor",
+    "total": 37,
+    "comCIN": 28,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "SIMOES",
+    "tipo": "Administrativo",
+    "total": 49,
+    "comCIN": 32,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "SIMOES",
+    "tipo": "Professor",
+    "total": 89,
+    "comCIN": 67,
+    "semCIN": 22
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "VILA NOVA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 21,
+    "comCIN": 11,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "16ª GRE",
+    "municipio": "VILA NOVA DO PIAUI",
+    "tipo": "Professor",
+    "total": 32,
+    "comCIN": 24,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "ACAUA",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 10,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "ACAUA",
+    "tipo": "Professor",
+    "total": 27,
+    "comCIN": 18,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "BETANIA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 18,
+    "comCIN": 12,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "BETANIA DO PIAUI",
+    "tipo": "Professor",
+    "total": 36,
+    "comCIN": 25,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "CARIDADE DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 7,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "CARIDADE DO PIAUI",
+    "tipo": "Professor",
+    "total": 21,
+    "comCIN": 16,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "CONCEICAO DO CANINDE",
+    "tipo": "Administrativo",
+    "total": 17,
+    "comCIN": 15,
+    "semCIN": 2
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "CONCEICAO DO CANINDE",
+    "tipo": "Professor",
+    "total": 29,
+    "comCIN": 24,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "CURRAL NOVO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 16,
+    "comCIN": 13,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "CURRAL NOVO DO PIAUI",
+    "tipo": "Professor",
+    "total": 34,
+    "comCIN": 23,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "JACOBINA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 13,
+    "comCIN": 10,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "JACOBINA DO PIAUI",
+    "tipo": "Professor",
+    "total": 22,
+    "comCIN": 19,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "PATOS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 30,
+    "comCIN": 18,
+    "semCIN": 12
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "PATOS DO PIAUI",
+    "tipo": "Professor",
+    "total": 48,
+    "comCIN": 34,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "PAULISTANA",
+    "tipo": "Administrativo",
+    "total": 72,
+    "comCIN": 56,
+    "semCIN": 16
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "PAULISTANA",
+    "tipo": "Professor",
+    "total": 131,
+    "comCIN": 104,
+    "semCIN": 27
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "QUEIMADA NOVA",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 22,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "QUEIMADA NOVA",
+    "tipo": "Professor",
+    "total": 27,
+    "comCIN": 22,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "SAO FRANCISCO DE ASSIS DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 22,
+    "comCIN": 16,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "17ª GRE",
+    "municipio": "SAO FRANCISCO DE ASSIS DO PIAUI",
+    "tipo": "Professor",
+    "total": 25,
+    "comCIN": 18,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "ALTO LONGA",
+    "tipo": "Administrativo",
+    "total": 41,
+    "comCIN": 36,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "ALTO LONGA",
+    "tipo": "Professor",
+    "total": 49,
+    "comCIN": 42,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "ALTOS",
+    "tipo": "Administrativo",
+    "total": 199,
+    "comCIN": 145,
+    "semCIN": 54
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "ALTOS",
+    "tipo": "Professor",
+    "total": 226,
+    "comCIN": 170,
+    "semCIN": 56
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "BARRO DURO",
+    "tipo": "Administrativo",
+    "total": 32,
+    "comCIN": 29,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "BARRO DURO",
+    "tipo": "Professor",
+    "total": 31,
+    "comCIN": 25,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "BENEDITINOS",
+    "tipo": "Administrativo",
+    "total": 64,
+    "comCIN": 53,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "BENEDITINOS",
+    "tipo": "Professor",
+    "total": 70,
+    "comCIN": 61,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "COIVARAS",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 15,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "COIVARAS",
+    "tipo": "Professor",
+    "total": 26,
+    "comCIN": 19,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "CURRALINHOS",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 13,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "CURRALINHOS",
+    "tipo": "Professor",
+    "total": 16,
+    "comCIN": 11,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "DEMERVAL LOBAO",
+    "tipo": "Administrativo",
+    "total": 99,
+    "comCIN": 66,
+    "semCIN": 33
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "DEMERVAL LOBAO",
+    "tipo": "Professor",
+    "total": 58,
+    "comCIN": 41,
+    "semCIN": 17
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "JOSE DE FREITAS",
+    "tipo": "Administrativo",
+    "total": 117,
+    "comCIN": 104,
+    "semCIN": 13
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "JOSE DE FREITAS",
+    "tipo": "Professor",
+    "total": 143,
+    "comCIN": 129,
+    "semCIN": 14
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "LAGOA ALEGRE",
+    "tipo": "Administrativo",
+    "total": 32,
+    "comCIN": 29,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "LAGOA ALEGRE",
+    "tipo": "Professor",
+    "total": 44,
+    "comCIN": 35,
+    "semCIN": 9
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "LAGOA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 24,
+    "comCIN": 14,
+    "semCIN": 10
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "LAGOA DO PIAUI",
+    "tipo": "Professor",
+    "total": 20,
+    "comCIN": 14,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "MIGUEL ALVES",
+    "tipo": "Administrativo",
+    "total": 67,
+    "comCIN": 43,
+    "semCIN": 24
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "MIGUEL ALVES",
+    "tipo": "Professor",
+    "total": 90,
+    "comCIN": 48,
+    "semCIN": 42
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "MONSENHOR GIL",
+    "tipo": "Administrativo",
+    "total": 45,
+    "comCIN": 39,
+    "semCIN": 6
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "MONSENHOR GIL",
+    "tipo": "Professor",
+    "total": 31,
+    "comCIN": 23,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "NAZARIA",
+    "tipo": "Administrativo",
+    "total": 23,
+    "comCIN": 18,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "NAZARIA",
+    "tipo": "Professor",
+    "total": 23,
+    "comCIN": 18,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "NOVO SANTO ANTONIO",
+    "tipo": "Administrativo",
+    "total": 12,
+    "comCIN": 11,
+    "semCIN": 1
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "NOVO SANTO ANTONIO",
+    "tipo": "Professor",
+    "total": 20,
+    "comCIN": 16,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PALMEIRAIS",
+    "tipo": "Administrativo",
+    "total": 45,
+    "comCIN": 37,
+    "semCIN": 8
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PALMEIRAIS",
+    "tipo": "Professor",
+    "total": 57,
+    "comCIN": 46,
+    "semCIN": 11
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PASSAGEM FRANCA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 22,
+    "comCIN": 15,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PASSAGEM FRANCA DO PIAUI",
+    "tipo": "Professor",
+    "total": 14,
+    "comCIN": 10,
+    "semCIN": 4
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PAU D ARCO DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 14,
+    "comCIN": 11,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PAU D ARCO DO PIAUI",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 14,
+    "semCIN": 5
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PRATA DO PIAUI",
+    "tipo": "Administrativo",
+    "total": 15,
+    "comCIN": 12,
+    "semCIN": 3
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "PRATA DO PIAUI",
+    "tipo": "Professor",
+    "total": 19,
+    "comCIN": 12,
+    "semCIN": 7
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "UNIAO",
+    "tipo": "Administrativo",
+    "total": 189,
+    "comCIN": 144,
+    "semCIN": 45
+  },
+  {
+    "codGRE": "18ª GRE",
+    "municipio": "UNIAO",
+    "tipo": "Professor",
+    "total": 238,
+    "comCIN": 193,
+    "semCIN": 45
+  },
+  {
+    "codGRE": "19ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Administrativo",
+    "total": 1188,
+    "comCIN": 931,
+    "semCIN": 257
+  },
+  {
+    "codGRE": "19ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Professor",
+    "total": 1233,
+    "comCIN": 954,
+    "semCIN": 279
+  },
+  {
+    "codGRE": "20ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Administrativo",
+    "total": 1013,
+    "comCIN": 794,
+    "semCIN": 219
+  },
+  {
+    "codGRE": "20ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Professor",
+    "total": 992,
+    "comCIN": 776,
+    "semCIN": 216
+  },
+  {
+    "codGRE": "21ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Administrativo",
+    "total": 886,
+    "comCIN": 673,
+    "semCIN": 213
+  },
+  {
+    "codGRE": "21ª GRE",
+    "municipio": "TERESINA",
+    "tipo": "Professor",
+    "total": 940,
+    "comCIN": 748,
+    "semCIN": 192
+  }
+]
