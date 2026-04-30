@@ -60,7 +60,11 @@ export function TerritorialDiagnosis() {
   const worst = getTopWorstGres(5);
 
   const chartData = [...gres]
-    .sort((a, b) => a.pctComCIN - b.pctComCIN)
+    .sort((a, b) => {
+      const na = parseInt(a.codGRE, 10);
+      const nb = parseInt(b.codGRE, 10);
+      return na - nb;
+    })
     .map((g) => ({
       name: g.codGRE.replace("ª GRE", "ª"),
       pct: Number(g.pctComCIN.toFixed(1)),
