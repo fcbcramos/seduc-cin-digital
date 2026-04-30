@@ -1,75 +1,120 @@
 import { Badge } from "@/components/ui/badge";
-import { Building2, CalendarDays, MapPin, Users } from "lucide-react";
-import { getTotals } from "@/lib/cin-data";
+import { GraduationCap, MapPin, Building2, Sparkles } from "lucide-react";
+import { getStudentTotals } from "@/lib/cin-data";
 import { formatNumber, formatPercent } from "@/lib/format";
 
-export function Hero() {
-  const t = getTotals();
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1600&q=80";
 
-  const microKpis = [
-    { label: "Cobertura estudantes", value: formatPercent(t.pctEstudantes), icon: Users },
-    { label: "Cobertura parentes", value: formatPercent(t.pctParentes), icon: Users },
-    { label: "Municípios atendidos", value: formatNumber(t.totalMunicipios), icon: MapPin },
-    { label: "GREs envolvidas", value: formatNumber(t.totalGREs), icon: Building2 },
-  ];
+export function Hero() {
+  const t = getStudentTotals();
 
   return (
-    <header className="relative overflow-hidden">
-      <div className="gradient-header text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
-              <div className="mb-4 flex flex-wrap items-center gap-2">
-                <Badge variant="outline" className="border-primary-foreground/30 bg-transparent text-primary-foreground">
-                  Projeto Institucional
-                </Badge>
-                <Badge variant="outline" className="border-primary-foreground/30 bg-transparent text-primary-foreground">
-                  <span className="mr-1.5 inline-block h-2 w-2 rounded-full bg-secondary" aria-hidden />
-                  Em execução
-                </Badge>
-              </div>
+    <header className="relative overflow-hidden bg-card">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-16">
+        {/* LEFT — content */}
+        <div className="flex flex-col justify-center lg:col-span-7">
+          <div className="mb-5 flex flex-wrap items-center gap-2">
+            <Badge className="border-0 bg-secondary text-secondary-foreground hover:bg-secondary">
+              <Sparkles className="mr-1.5 h-3 w-3" aria-hidden />
+              Projeto Institucional
+            </Badge>
+            <Badge variant="outline" className="border-accent/40 bg-accent/10 text-accent">
+              <span className="mr-1.5 inline-block h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden />
+              Em execução
+            </Badge>
+          </div>
 
-              <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-                Projeto CIN nas Escolas
-              </h1>
-              <p className="mt-3 text-base text-primary-foreground/85 sm:text-lg">
-                Iniciativa da Secretaria de Estado da Educação do Piauí para garantir que
-                estudantes e familiares da rede estadual obtenham a Carteira de Identidade
-                Nacional (CIN), reduzindo a subidentificação documental no estado.
+          <h1 className="text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Projeto{" "}
+            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              CIN nas Escolas
+            </span>
+          </h1>
+
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            A Secretaria de Estado da Educação do Piauí mobiliza a rede para garantir
+            que <strong className="text-foreground">todos os estudantes</strong> da
+            educação básica obtenham a Carteira de Identidade Nacional, eliminando a
+            subidentificação documental no estado.
+          </p>
+
+          {/* micro KPIs */}
+          <dl className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <KpiPill icon={GraduationCap} label="Estudantes" value={formatNumber(t.estudantes)} tone="primary" />
+            <KpiPill icon={Sparkles} label="Cobertura" value={formatPercent(t.pctComCIN, 1)} tone="accent" />
+            <KpiPill icon={MapPin} label="Municípios" value={formatNumber(t.totalMunicipios)} tone="secondary" />
+            <KpiPill icon={Building2} label="GREs" value={formatNumber(t.totalGREs)} tone="muted" />
+          </dl>
+        </div>
+
+        {/* RIGHT — imagery */}
+        <div className="relative lg:col-span-5">
+          <div className="relative overflow-hidden rounded-2xl shadow-card-hover">
+            <img
+              src={HERO_IMAGE}
+              alt="Estudantes da rede pública em sala de aula"
+              className="h-[320px] w-full object-cover sm:h-[400px] lg:h-[460px]"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/70 via-primary/20 to-transparent" aria-hidden />
+            <div className="absolute inset-x-0 bottom-0 p-5 text-primary-foreground">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+                Identidade · Cidadania · Educação
               </p>
-
-              <dl className="mt-6 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
-                <div className="flex items-center gap-2">
-                  <Building2 className="h-4 w-4 text-secondary" aria-hidden />
-                  <dt className="font-medium text-primary-foreground/80">Órgão responsável:</dt>
-                  <dd>SEDUC-PI</dd>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CalendarDays className="h-4 w-4 text-secondary" aria-hidden />
-                  <dt className="font-medium text-primary-foreground/80">Período:</dt>
-                  <dd className="italic text-primary-foreground/70">A definir</dd>
-                </div>
-              </dl>
+              <p className="mt-1 text-lg font-bold leading-snug sm:text-xl">
+                Cada estudante com sua identidade garantida.
+              </p>
             </div>
+          </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:w-[28rem]">
-              {microKpis.map(({ label, value, icon: Icon }) => (
-                <div
-                  key={label}
-                  className="rounded-xl border border-primary-foreground/15 bg-primary-foreground/10 p-4 backdrop-blur"
-                >
-                  <Icon className="mb-2 h-5 w-5 text-secondary" aria-hidden />
-                  <p className="text-xs font-medium uppercase tracking-wide text-primary-foreground/70">
-                    {label}
-                  </p>
-                  <p className="mt-1 text-2xl font-bold sm:text-3xl">{value}</p>
-                </div>
-              ))}
+          {/* floating stat card */}
+          <div className="absolute -bottom-5 left-4 hidden rounded-xl border border-border bg-card px-4 py-3 shadow-card-hover sm:flex sm:items-center sm:gap-3 lg:-left-8">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-destructive/10">
+              <span className="h-2.5 w-2.5 rounded-full bg-destructive" aria-hidden />
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                Faltam atender
+              </p>
+              <p className="text-xl font-bold leading-none text-destructive">
+                {formatNumber(t.semCIN)}
+              </p>
+              <p className="mt-0.5 text-[11px] text-muted-foreground">estudantes sem CIN</p>
             </div>
           </div>
         </div>
       </div>
+
       <div className="gradient-institutional h-1.5 w-full" aria-hidden />
     </header>
+  );
+}
+
+interface KpiPillProps {
+  icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
+  label: string;
+  value: string;
+  tone: "primary" | "accent" | "secondary" | "muted";
+}
+
+const toneBg: Record<KpiPillProps["tone"], string> = {
+  primary: "bg-primary/10 text-primary",
+  accent: "bg-accent/10 text-accent",
+  secondary: "bg-secondary/20 text-foreground",
+  muted: "bg-muted text-muted-foreground",
+};
+
+function KpiPill({ icon: Icon, label, value, tone }: KpiPillProps) {
+  return (
+    <div className="rounded-xl border border-border bg-background p-3">
+      <div className={`mb-2 flex h-8 w-8 items-center justify-center rounded-lg ${toneBg[tone]}`}>
+        <Icon className="h-4 w-4" aria-hidden />
+      </div>
+      <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+        {label}
+      </p>
+      <p className="mt-0.5 text-lg font-bold text-foreground sm:text-xl">{value}</p>
+    </div>
   );
 }

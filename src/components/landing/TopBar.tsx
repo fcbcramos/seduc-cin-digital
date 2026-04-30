@@ -2,7 +2,7 @@ import { Phone, Mail } from "lucide-react";
 
 export function TopBar() {
   return (
-    <div className="bg-[oklch(0.42_0.13_252)] text-primary-foreground">
+    <div className="bg-[oklch(0.32_0.12_252)] text-primary-foreground">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-2 text-xs sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <a
