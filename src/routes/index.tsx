@@ -67,6 +67,15 @@ function LandingPage() {
           <KpiSummary />
         </Section>
 
+        <Section id="servidores">
+          <SectionHeader
+            eyebrow="Adesão da rede"
+            title="Servidores da SEDUC-PI já com CIN"
+            description="Indicador indireto de engajamento institucional — quanto da própria rede (professores e administrativo) já está regularizada com a Carteira de Identidade Nacional."
+          />
+          <StaffAdoption />
+        </Section>
+
         <CallToAction />
 
         <div className="bg-muted/40">
