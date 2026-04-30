@@ -75,110 +75,110 @@ export function TerritorialDiagnosis() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <Card className="border border-border shadow-card lg:col-span-2">
-          <CardContent className="p-6">
-            <div className="mb-5">
-              <h3 className="text-base font-semibold text-foreground">
-                Distribuição geral
-              </h3>
-              <p className="text-xs text-muted-foreground">
-                Estudantes Com vs Sem CIN — rede estadual
-              </p>
-            </div>
+      {/* 1. Distribuição geral — largura total */}
+      <Card className="border border-border shadow-card">
+        <CardContent className="p-6">
+          <div className="mb-5">
+            <h3 className="text-base font-semibold text-foreground">
+              Distribuição geral
+            </h3>
+            <p className="text-xs text-muted-foreground">
+              Estudantes Com vs Sem CIN — rede estadual
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[260px_1fr]">
-              <div className="relative mx-auto h-[180px] w-full max-w-[260px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <RadialBarChart
-                    data={gaugeData}
-                    innerRadius="78%"
-                    outerRadius="100%"
-                    startAngle={180}
-                    endAngle={0}
-                    barSize={22}
-                  >
-                    <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                    <RadialBar
-                      dataKey="value"
-                      cornerRadius={12}
-                      background={{ fill: "oklch(0.94 0.02 28)" }}
-                      fill={CHART_COLORS.accent}
-                    />
-                  </RadialBarChart>
-                </ResponsiveContainer>
-                <div className="pointer-events-none absolute inset-x-0 bottom-2 flex flex-col items-center">
-                  <span className="text-4xl font-extrabold tracking-tight text-foreground tabular-nums">
-                    {formatPercent(totals.pctComCIN)}
-                  </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                    Com CIN · Meta 100%
-                  </span>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <BreakdownRow
-                  label="Com CIN"
-                  count={totals.comCIN}
-                  pct={totals.pctComCIN}
-                  color={CHART_COLORS.accent}
-                  indicatorClassName="bg-accent"
-                  valueClassName="text-accent"
-                />
-                <BreakdownRow
-                  label="Sem CIN"
-                  count={totals.semCIN}
-                  pct={totals.pctSemCIN}
-                  color={CHART_COLORS.destructive}
-                  indicatorClassName="bg-destructive"
-                  valueClassName="text-destructive"
-                />
+          <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[260px_1fr]">
+            <div className="relative mx-auto h-[180px] w-full max-w-[260px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadialBarChart
+                  data={gaugeData}
+                  innerRadius="78%"
+                  outerRadius="100%"
+                  startAngle={180}
+                  endAngle={0}
+                  barSize={22}
+                >
+                  <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
+                  <RadialBar
+                    dataKey="value"
+                    cornerRadius={12}
+                    background={{ fill: "oklch(0.94 0.02 28)" }}
+                    fill={CHART_COLORS.accent}
+                  />
+                </RadialBarChart>
+              </ResponsiveContainer>
+              <div className="pointer-events-none absolute inset-x-0 bottom-2 flex flex-col items-center">
+                <span className="text-4xl font-extrabold tracking-tight text-foreground tabular-nums">
+                  {formatPercent(totals.pctComCIN)}
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Com CIN · Meta 100%
+                </span>
               </div>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border pt-4 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5">
-                <GraduationCap className="h-3.5 w-3.5" aria-hidden />
-                <strong className="font-semibold text-foreground tabular-nums">
-                  {formatNumber(totals.estudantes)}
-                </strong>{" "}
-                estudantes
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Building2 className="h-3.5 w-3.5" aria-hidden />
-                <strong className="font-semibold text-foreground tabular-nums">
-                  {totals.totalGREs}
-                </strong>{" "}
-                GREs
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5" aria-hidden />
-                <strong className="font-semibold text-foreground tabular-nums">
-                  {totals.totalMunicipios}
-                </strong>{" "}
-                municípios
-              </span>
+            <div className="space-y-4">
+              <BreakdownRow
+                label="Com CIN"
+                count={totals.comCIN}
+                pct={totals.pctComCIN}
+                color={CHART_COLORS.accent}
+                indicatorClassName="bg-accent"
+                valueClassName="text-accent"
+              />
+              <BreakdownRow
+                label="Sem CIN"
+                count={totals.semCIN}
+                pct={totals.pctSemCIN}
+                color={CHART_COLORS.destructive}
+                indicatorClassName="bg-destructive"
+                valueClassName="text-destructive"
+              />
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        <div className="flex flex-col gap-6">
-          <RankingCard
-            title="Top 5 — Melhores GREs"
-            subtitle="Maior cobertura de CIN"
-            icon={<TrendingUp className="h-4 w-4 text-accent" aria-hidden />}
-            accentClass="border-l-accent"
-            rows={best}
-          />
-          <RankingCard
-            title="Top 5 — Prioritárias"
-            subtitle="Menor cobertura — atenção imediata"
-            icon={<TrendingDown className="h-4 w-4 text-destructive" aria-hidden />}
-            accentClass="border-l-destructive"
-            rows={worst}
-          />
-        </div>
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border pt-4 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <GraduationCap className="h-3.5 w-3.5" aria-hidden />
+              <strong className="font-semibold text-foreground tabular-nums">
+                {formatNumber(totals.estudantes)}
+              </strong>{" "}
+              estudantes
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Building2 className="h-3.5 w-3.5" aria-hidden />
+              <strong className="font-semibold text-foreground tabular-nums">
+                {totals.totalGREs}
+              </strong>{" "}
+              GREs
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5" aria-hidden />
+              <strong className="font-semibold text-foreground tabular-nums">
+                {totals.totalMunicipios}
+              </strong>{" "}
+              municípios
+            </span>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* 2. Top 5 lado a lado */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <RankingCard
+          title="Top 5 — Melhores GREs"
+          subtitle="Maior cobertura de CIN"
+          icon={<TrendingUp className="h-4 w-4 text-accent" aria-hidden />}
+          accentClass="border-l-accent"
+          rows={best}
+        />
+        <RankingCard
+          title="Top 5 — Prioritárias"
+          subtitle="Menor cobertura — atenção imediata"
+          icon={<TrendingDown className="h-4 w-4 text-destructive" aria-hidden />}
+          accentClass="border-l-destructive"
+          rows={worst}
+        />
       </div>
 
       <Card className="border border-border shadow-card">
@@ -310,37 +310,29 @@ function RankingCard({ title, subtitle, icon, accentClass, rows }: RankingCardPr
           </div>
         </div>
         <ol className="space-y-2.5">
-          {rows.map((g, idx) => {
-            const status = getCoverageStatus(g.pctComCIN);
-            return (
-              <li
-                key={g.codGRE}
-                className="flex items-center justify-between gap-3 rounded-lg bg-muted/50 px-3 py-2"
-              >
-                <div className="flex min-w-0 items-center gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-card text-xs font-bold text-muted-foreground">
-                    {idx + 1}
-                  </span>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-foreground">
-                      {g.codGRE}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">
-                      {formatNumber(g.estudantes)} estudantes
-                    </p>
-                  </div>
+          {rows.map((g, idx) => (
+            <li
+              key={g.codGRE}
+              className="flex items-center justify-between gap-3 rounded-lg bg-muted/50 px-3 py-2"
+            >
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-card text-xs font-bold text-muted-foreground">
+                  {idx + 1}
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold text-foreground">
+                    {g.codGRE}
+                  </p>
+                  <p className="text-[11px] text-muted-foreground">
+                    {formatNumber(g.estudantes)} estudantes
+                  </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold tabular-nums text-foreground">
-                    {formatPercent(g.pctComCIN)}
-                  </span>
-                  <Badge variant="outline" className={`${statusClass[status]} text-[10px]`}>
-                    {coverageStatusLabel[status]}
-                  </Badge>
-                </div>
-              </li>
-            );
-          })}
+              </div>
+              <span className="shrink-0 text-base font-bold tabular-nums text-foreground">
+                {formatPercent(g.pctComCIN)}
+              </span>
+            </li>
+          ))}
         </ol>
       </CardContent>
     </Card>
