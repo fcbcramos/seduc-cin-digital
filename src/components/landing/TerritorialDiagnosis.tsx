@@ -157,9 +157,9 @@ export function TerritorialDiagnosis() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-              <LegendDot color="var(--color-accent)" label="Adequado ≥70%" />
-              <LegendDot color="var(--color-secondary)" label="Atenção 40–69%" />
-              <LegendDot color="var(--color-destructive)" label="Crítico <40%" />
+              <LegendDot color={CHART_COLORS.accent} label="Adequado ≥70%" />
+              <LegendDot color={CHART_COLORS.secondary} label="Atenção 40–69%" />
+              <LegendDot color={CHART_COLORS.destructive} label="Crítico <40%" />
             </div>
           </div>
           <div className="h-[420px]">
