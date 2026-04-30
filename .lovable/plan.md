@@ -1,173 +1,157 @@
-## Diagnóstico de UI/UX (com base nas 3 marcações + auditoria geral)
+## Objetivo
 
-### O que está ruim hoje
-
-**1. Linguagem visual inconsistente — cara de "mosaico colorido"**
-- Cada bloco usa uma combinação diferente de barra colorida no topo (azul / verde / vermelho / amarelo). Em uma única tela aparecem 6+ cores de destaque ao mesmo tempo (KPIs com 4 cores, AboutCIN com 4, Roadmap com 4, badges com mais 3). Resultado: parece um Pacman de cores em vez de um painel institucional.
-- Emojis e gradientes de texto no Hero ("Projeto CIN nas Escolas" com gradient bg-clip) destoam do tom técnico-governamental.
-- Mistura de border-radius (cards `rounded-2xl`, pills `rounded-full`, ícones `rounded-xl/lg`) sem hierarquia.
-
-**2. Hierarquia de informação confusa (marcação da imagem 8)**
-- Faixa de 6 KPIs todos com peso visual igual: o leitor não sabe o que é prioritário. "Total de estudantes" e "Cobertura geral" repetem o mesmo dado em formatos diferentes.
-- "Universalizar a CIN em toda a rede SEDUC-PI" aparece DEPOIS dos 6 KPIs, mas é a meta-síntese — deveria ser o título da seção, não um card adicional. Cria redundância (a barra de progresso do card repete `56,5%` que já está no KPI 6).
-
-**3. Espaços inconsistentes**
-- Section padding `py-6 sm:py-8 lg:py-10` é apertado e não respira. Faixas alternadas `bg-muted/40` colam umas nas outras sem separação visual clara.
-- AboutCIN: imagem da direita tem altura fixa enquanto os 4 cards à esquerda têm alturas variáveis → bloco "Campanha oficial" fica solto embaixo, desalinhado (marcação imagem 7).
-- CTA "Garantir identidade documental" tem padding interno gigantesco (py-12/16/20) enquanto outras seções usam py-10. Inconsistente.
-
-**4. Componente "Distribuição geral" fraco (marcação imagem 9)**
-- Gauge semicircular grande à esquerda + 2 barras à direita = muito espaço para pouca informação (basicamente só mostra "56,5% Com CIN / 43,5% Sem CIN", redundante com os KPIs acima).
-- Footer com "175.824 estudantes · 21 GREs · 224 municípios" repete os micro-KPIs do Hero.
-
-**5. CTA full-bleed quebra a leitura**
-- A faixa azul gigante no fim com foto + 3 stats repete dados ("76.535 sem CIN", "100% meta", "224 municípios") que JÁ aparecem 3 vezes na página. É decoração, não informação.
-
-**6. Tipografia genérica**
-- Tudo em sans-serif do sistema, mesmo peso (bold) em headings, KPIs e badges. Sem hierarquia tipográfica.
-- "PAINEL INSTITUCIONAL / CIN nas Escolas — Rede Estadual" no header está apertado e pouco legível.
+Voltar ao estado visual anterior (tipografia Inter, paleta colorida original, componentes restaurados) e, sobre essa base, construir um sistema rígido de padronização de containers, grids, espaçamento e proporções que não quebre quando a viewport muda.
 
 ---
 
-## Plano de refatoração
+## Parte 1 — Reversão da última refatoração
 
-### Princípios da nova versão
+### Tipografia
+- Remover `Fraunces` do `@import` em `src/styles.css`.
+- Remover token `--font-display` (Fraunces) — voltar a usar `Inter` (sans) em tudo.
+- Remover todas as classes `font-display` espalhadas pelos componentes.
+- Remover heading override `h1..h6 { font-family: var(--font-display) }` em `@layer base`.
 
-1. **Sóbrio antes de bonito** — visual de relatório executivo de governo, não de landing page de SaaS.
-2. **Uma cor de destaque por seção** — não 4. Tons neutros dominam; cor só pinta o dado relevante.
-3. **Sem redundância** — cada métrica aparece UMA vez, no contexto certo.
-4. **Densidade informacional alta** — painel é para tomada de decisão, não para "scrollar bonito".
-5. **Tipografia com hierarquia** — display serif para títulos institucionais, sans para dados.
+### Paleta de cores
+- Restaurar a paleta colorida original em `src/styles.css`:
+  - `--primary` (azul SEDUC) com `--primary-glow`
+  - `--secondary` (amarelo institucional, não cinza)
+  - `--accent` (verde) como cor de status positivo
+  - `--destructive` (vermelho)
+- Restaurar utilitários e gradientes que foram removidos: `gradient-institutional`, `shadow-card-hover`, `card-hover`, etc.
+- Manter `text-positive/warning/critical` apenas como aliases de status para gráficos.
 
-### Sistema de design (tokens em `src/styles.css`)
+### Componentes
+- Recriar `KpiSummary.tsx`, `UniversalizationGoal.tsx`, `CallToAction.tsx` no estado em que estavam antes (linha do tempo: versão "6 KPIs + meta de universalização + CTA full-bleed").
+- Reverter `Hero.tsx`, `AboutCIN.tsx`, `IndicatorBlock.tsx`, `InstitutionalHeader.tsx`, `TerritorialDiagnosis.tsx` (com gauge), `ExecutionRoadmap.tsx` (com cards coloridos), `Footer.tsx` ao formato anterior.
+- Remover `KpiStrip.tsx` (criado na última iteração).
+- Restaurar a ordem original em `src/routes/index.tsx`: Header → Hero → KpiSummary → AboutCIN → UniversalizationGoal → TerritorialDiagnosis → MunicipalityTable → ExecutionRoadmap → SecondaryIndicators → CallToAction → Footer.
+- Remover `SectionHeader.tsx` se não for mais necessário (ou reverter ao estado anterior).
 
-**Tipografia**
-- Adicionar 2 fontes via Google Fonts `<link>` em `__root.tsx`:
-  - `Fraunces` (serif moderna, institucional, gratuita) → títulos de seção e Hero.
-  - `Inter` (já no DOM) → textos, dados, UI.
-- Tokens: `--font-display: 'Fraunces', Georgia, serif;` e `--font-sans: 'Inter', system-ui, sans-serif;`.
-- Escala tipográfica fixa: `text-xs=12, text-sm=13, text-base=15, text-lg=18, text-2xl=24, text-3xl=30, text-display=44`.
+---
 
-**Cores — paleta reduzida**
-- `--surface` (branco quase puro), `--surface-muted` (cinza 50), `--surface-strong` (cinza 100).
-- `--ink` (cinza 900), `--ink-muted` (cinza 600), `--ink-subtle` (cinza 500).
-- `--brand` (azul institucional SEDUC, mantido) — único acento.
-- `--positive`, `--warning`, `--critical` — usadas SOMENTE em status de dados (gráfico/tabela).
-- Remover todos os usos decorativos de `secondary` (amarelo) e `accent` (verde) em ícones/cards.
+## Parte 2 — Sistema de padronização (a parte nova)
 
-**Espaçamento**
-- Section: `py-16 lg:py-20` (mais respiro).
-- Gap entre cards de seção: `gap-6 lg:gap-8`.
-- Padding interno de card: `p-6` consistente (em vez de `p-3/p-4/p-5/p-6` misturados).
+### 2.1 Tokens de container em `styles.css`
 
-**Cards**
-- Borda fina `border border-border/60`, sombra sutil `shadow-sm`, sem barra colorida no topo (a não ser para status crítico/atenção/ok).
-- Border-radius único: `rounded-xl` para cards, `rounded-md` para chips/badges.
-
-### Estrutura nova da página
+Definir três larguras fixas, e nada mais:
 
 ```text
-1. Header institucional       (logo + breadcrumb gov.br, sem gradient bar)
-2. Hero                       (título serif + descrição + 1 imagem grande, SEM micro-KPIs)
-3. KPI Strip                  (linha única de 4 KPIs essenciais — sticky em scroll)
-4. Sobre a CIN                (4 pilares, layout horizontal, SEM imagens promocionais)
-5. Diagnóstico territorial    (gráfico de barras grande + Top 5/Bottom 5)
-6. Plano de ação municipal    (tabela)
-7. Roadmap de execução        (timeline horizontal, não cards)
-8. Adesão da rede             (3 indicadores secundários, mais discretos)
-9. Footer                     (assinatura institucional)
+--container-narrow : 960px   (texto longo, descrições)
+--container-base   : 1280px  (todo conteúdo padrão de seções)
+--container-wide   : 1440px  (Header, Hero, Footer — apenas faixas full-bleed)
 ```
 
-Removidos: `CallToAction` (redundante), `UniversalizationGoal` como card separado (vira o título da seção 3), gauge semicircular (substituído por número grande + delta), bloco "Campanha oficial" do AboutCIN (vai para o footer como crédito).
-
-### Mudanças por arquivo
-
-**`src/styles.css`** — novos tokens (fontes, escala, paleta reduzida).
-
-**`src/routes/__root.tsx`** — `<link>` Fraunces + Inter via Google Fonts.
-
-**`src/routes/index.tsx`**
-- `Section` com `max-w-[1280px]` (volta para 1280, mais legível) + `py-16 lg:py-20`.
-- Remover `CallToAction` da árvore.
-- Reordenar: Hero → KpiStrip → AboutCIN → Diagnóstico (com meta integrada) → Município → Roadmap → SecondaryIndicators → Footer.
-- Tirar fundos `bg-muted/40` alternados; usar separadores `<hr>` finos ou só espaçamento.
-
-**`src/components/landing/InstitutionalHeader.tsx`**
-- Remover faixa gradient inferior (decorativa).
-- Trocar título "Painel Institucional / CIN nas Escolas — Rede Estadual" por hierarquia tipográfica clara: serif pequena "SEDUC · Governo do Piauí" + sans bold "Painel CIN nas Escolas".
-- Logo permanece, link gov.br vira ícone discreto.
-
-**`src/components/landing/Hero.tsx`**
-- Título com `font-display` (Fraunces) sem gradient.
-- Remover bloco de 4 micro-KPIs (vão para o KpiStrip dedicado).
-- Imagem ocupa 5/12, texto 7/12, altura fixa proporcional.
-- Removidos os 2 badges decorativos no topo; manter só 1 badge "Em execução · Meta dez/2026".
-
-**Novo: `src/components/landing/KpiStrip.tsx`**
-- 4 KPIs apenas: Estudantes total, % Com CIN (com delta vs meta), Estudantes Sem CIN, GREs críticas.
-- Layout horizontal denso, separadores verticais entre eles, sem cards individuais.
-- `sticky top-0` opcional ao rolar (vira barra de status compacta).
-- **Remove** `KpiSummary.tsx` antigo.
-
-**`src/components/landing/AboutCIN.tsx`**
-- Layout horizontal: 4 pilares em linha (`grid-cols-4`), ícones monocromáticos (todos brand), sem barra colorida.
-- Remover bloco da imagem do cidadão e selo losango (decorativos, redundantes).
-- Adicionar 1 callout linha-única no final: "Fonte: gov.br/governodigital — Carteira de Identidade Nacional" (link).
-
-**`src/components/landing/TerritorialDiagnosis.tsx`**
-- Substituir gauge semicircular por **header de seção integrado**: número grande "56,5%" + label "Cobertura atual · Meta 100% até dez/2026" + barra de progresso linear fina abaixo. Ocupa 1 linha no topo da seção.
-- Top 5 Melhores e Top 5 Prioritárias mantidos, mas com layout idêntico (grid 1fr 1fr), sem `border-l-4` colorida — só ícone de tendência.
-- Bar chart full-width permanece, mas com paleta reduzida (1 azul + 1 cinza para "abaixo da meta") em vez de 3 cores.
-- Remover footer com "175.824 estudantes · 21 GREs · 224 municípios" (já no KpiStrip).
-
-**`src/components/landing/UniversalizationGoal.tsx`**
-- **Excluir o componente** — vira título + subtítulo da seção Diagnóstico.
-
-**`src/components/landing/MunicipalityTable.tsx`**
-- Manter funcionalidade, padronizar paddings/borders ao novo sistema.
-
-**`src/components/landing/ExecutionRoadmap.tsx`**
-- Trocar grid de cards por **timeline horizontal** com 7 nós (jun → dez 2026): linha contínua, marcos com mês, badge de intensidade, ao lado tabela compacta das GREs daquele mês.
-- Cabeçalho da seção explica critério em 1 linha, não em card separado.
-
-**`src/components/landing/SecondaryIndicators.tsx`**
-- Manter os 3 cards (Docentes / Administrativo / Pais) mas reduzir peso visual: borda fina, sem cores fortes, padding consistente, GREs prioritárias em formato lista compacta sem badges amarelos.
-
-**`src/components/landing/CallToAction.tsx`** — **excluir**.
-
-**`src/components/landing/Footer.tsx`**
-- Adicionar coluna com créditos: "Imagens da campanha CIN: gov.br · Dados: SEDUC-PI · Atualizado em mês/ano".
-- Logo SEDUC + Governo do Piauí lado a lado, alinhamento limpo.
-
-### QA
-- Validar em 1366×768, 1536×864, 1920×1080.
-- Conferir contraste AA em todos os textos (mínimo 4.5:1).
-- Verificar que cada métrica aparece **uma única vez** na página.
-- Conferir que a paleta usa no máximo 3 cores funcionais (brand + 2 status) por viewport.
-
-### Resumo dos arquivos
+Plus tokens de espaçamento de seção:
 
 ```text
-Modificados:
-  src/styles.css                                    (tokens novos)
-  src/routes/__root.tsx                             (fontes)
-  src/routes/index.tsx                              (estrutura, ordem, espaços)
-  src/components/landing/InstitutionalHeader.tsx
-  src/components/landing/Hero.tsx
-  src/components/landing/AboutCIN.tsx
-  src/components/landing/TerritorialDiagnosis.tsx
-  src/components/landing/ExecutionRoadmap.tsx
-  src/components/landing/SecondaryIndicators.tsx
-  src/components/landing/Footer.tsx
-  src/components/landing/MunicipalityTable.tsx      (padronização visual)
-
-Criados:
-  src/components/landing/KpiStrip.tsx
-
-Removidos:
-  src/components/landing/KpiSummary.tsx
-  src/components/landing/UniversalizationGoal.tsx
-  src/components/landing/CallToAction.tsx
+--section-padding-y       : clamp(3rem, 5vw, 5rem)   (py-12 a py-20)
+--section-padding-x       : clamp(1.5rem, 4vw, 2.5rem)
+--section-gap-internal    : 2rem  (gap entre header da seção e conteúdo)
+--card-gap                : 1.5rem (gap entre cards de uma mesma grid)
+--card-padding            : 1.5rem (p-6 — único padding interno permitido)
 ```
 
-Após aprovação, implemento em sequência: tokens → header/hero → KpiStrip → AboutCIN → Diagnóstico → Roadmap → SecondaryIndicators → Footer → limpeza dos arquivos removidos → QA visual.
+### 2.2 Componente `<Container>` único
+
+Criar `src/components/layout/Container.tsx`:
+
+```tsx
+type Size = "narrow" | "base" | "wide";
+<Container size="base">{children}</Container>
+```
+
+Aplica largura, padding horizontal, e centraliza. **Nenhum componente de página pode usar `max-w-*` ad-hoc** — sempre usa `<Container>`.
+
+### 2.3 Componente `<Section>` único
+
+Criar `src/components/layout/Section.tsx`:
+
+```tsx
+<Section id="..." background="default | muted">
+  {children}
+</Section>
+```
+
+- Aplica `--section-padding-y` vertical
+- Envolve em `<Container size="base">` automaticamente
+- Garante separação consistente entre seções (sem mais "py-6/py-10/py-16" misturados)
+
+### 2.4 Grid system fixo por tipo
+
+Criar tokens de grid reutilizáveis (classes utilitárias em `styles.css`):
+
+```text
+.grid-kpis-6     →  1 → 2 → 3 → 6   (mobile→sm→md→lg)
+.grid-kpis-4     →  1 → 2 → 4
+.grid-cards-3    →  1 → 2 → 3
+.grid-cards-2    →  1 → 2
+.grid-roadmap-7  →  1 → 2 → 4 → 7
+```
+
+Todas com `gap: var(--card-gap)`. **Proibido `grid-cols-X` ad-hoc nos componentes** — sempre usar essas classes.
+
+### 2.5 Padding interno de cards
+
+- Toda `<CardContent>` usa `p-6` (= `--card-padding`).
+- Eliminar `p-3 / p-4 / p-5 / p-8` espalhados.
+- Cards têm altura igual dentro de uma mesma grid via `h-full` no Card e `flex flex-col` no CardContent.
+
+### 2.6 Imagens — proporções fixas
+
+- Hero: `aspect-[16/7]` em todas as resoluções, `object-cover object-[center_30%]`.
+- AboutCIN imagem promocional: `aspect-[4/3]`.
+- CallToAction background: `aspect-[21/9]` máximo, evitando cortes em telas largas.
+- **Nunca mais alturas fixas em px** que quebram quando a viewport cresce.
+
+### 2.7 Auditoria componente a componente
+
+Para cada um dos componentes restaurados, refatorar para usar EXCLUSIVAMENTE o sistema acima:
+- Trocar wrappers `<div className="mx-auto max-w-...">` por `<Container>`.
+- Trocar `<section className="py-X">` por `<Section>`.
+- Trocar `grid grid-cols-1 md:grid-cols-X` por `.grid-cards-X`.
+- Trocar paddings de card variados por `p-6`.
+- Remover qualquer largura interna conflitante (ex.: `SecondaryIndicators` tinha `max-w-[1280px]` aninhado dentro de outro `max-w-[1280px]`).
+
+---
+
+## Resultado esperado
+
+- Mesma identidade visual de antes da última refatoração (Inter, paleta colorida, todos os componentes originais).
+- Em qualquer viewport entre 360px e 2560px, a página mantém:
+  - Container central de largura previsível, sem "espremido" nem "gigante".
+  - Cards do mesmo tipo sempre alinhados, mesma altura, mesmo padding.
+  - Espaçamento vertical constante entre seções.
+  - Imagens nunca cortam mal porque usam aspect-ratio em vez de altura fixa.
+
+---
+
+## Detalhes técnicos
+
+**Arquivos novos:**
+- `src/components/layout/Container.tsx`
+- `src/components/layout/Section.tsx`
+
+**Arquivos restaurados ao estado pré-refatoração:**
+- `src/styles.css` (tokens originais + adições do sistema novo)
+- `src/components/landing/KpiSummary.tsx` (recriado)
+- `src/components/landing/UniversalizationGoal.tsx` (recriado)
+- `src/components/landing/CallToAction.tsx` (recriado)
+- `src/components/landing/Hero.tsx`, `AboutCIN.tsx`, `IndicatorBlock.tsx`, `InstitutionalHeader.tsx`, `TerritorialDiagnosis.tsx`, `ExecutionRoadmap.tsx`, `Footer.tsx`, `SecondaryIndicators.tsx`
+
+**Arquivos removidos:**
+- `src/components/landing/KpiStrip.tsx`
+
+**Arquivos auditados e refatorados para o novo sistema (sem mudar visual):**
+- Todos os componentes de `src/components/landing/` + `src/routes/index.tsx`
+
+**Não muda:**
+- `MunicipalityTable.tsx` (já estava ok)
+- Lógica de dados em `src/lib/`
+- Roteamento
+
+---
+
+## Validação
+
+Após a implementação, vou abrir a preview em três viewports diferentes (1366×768, 1920×1080, 360×800) e tirar screenshot para conferir que tudo permanece alinhado e proporcional antes de devolver.
