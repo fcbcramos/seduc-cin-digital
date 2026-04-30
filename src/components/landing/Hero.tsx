@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <header className="relative overflow-hidden bg-card">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-6 sm:px-6 sm:py-8 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:py-10">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-6 px-4 py-6 sm:px-6 sm:py-8 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:py-10">
         {/* LEFT — content */}
         <div className="flex flex-col justify-center lg:col-span-7">
           <div className="mb-3 flex flex-wrap items-center gap-2">
