@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Projeto CIN nas Escolas — SEDUC-PI" },
+      { title: "SEDUC-PI | CIN nas Escolas" },
       { name: "description", content: "Painel executivo do Projeto CIN nas Escolas da SEDUC-PI." },
       { name: "author", content: "SEDUC-PI" },
-      { property: "og:title", content: "Projeto CIN nas Escolas — SEDUC-PI" },
+      { property: "og:title", content: "SEDUC-PI | CIN nas Escolas" },
       { property: "og:description", content: "Painel executivo do Projeto CIN nas Escolas da SEDUC-PI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "SEDUC-PI | CIN nas Escolas" },
+      { name: "twitter:description", content: "Painel executivo do Projeto CIN nas Escolas da SEDUC-PI." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/86376974-6306-4a08-850b-6a8e418a8fcd" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/86376974-6306-4a08-850b-6a8e418a8fcd" },
     ],
     links: [
       {
