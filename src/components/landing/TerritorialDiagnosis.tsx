@@ -60,7 +60,7 @@ export function TerritorialDiagnosis() {
   const worst = getTopWorstGres(5);
 
   const chartData = [...gres]
-    .sort((a, b) => b.pctComCIN - a.pctComCIN)
+    .sort((a, b) => a.pctComCIN - b.pctComCIN)
     .map((g) => ({
       name: g.codGRE.replace("ª GRE", "ª"),
       pct: Number(g.pctComCIN.toFixed(1)),
@@ -201,7 +201,7 @@ export function TerritorialDiagnosis() {
                 Cobertura CIN por Gerência Regional
               </h3>
               <p className="mt-1 text-xs text-muted-foreground">
-                Ordenadas da maior para a menor cobertura · cor indica status
+                Ordenadas da menor para a maior cobertura · cor indica status
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
