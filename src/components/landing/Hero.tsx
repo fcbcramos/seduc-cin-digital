@@ -69,14 +69,19 @@ export function Hero() {
           </div>
 
           {/* floating stat card */}
-          <div className="absolute -bottom-6 -left-6 hidden rounded-xl border border-border bg-card p-4 shadow-card-hover sm:block lg:-left-10">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Faltam atender
-            </p>
-            <p className="mt-1 text-3xl font-bold text-destructive">
-              {formatNumber(t.semCIN)}
-            </p>
-            <p className="text-xs text-muted-foreground">estudantes sem CIN</p>
+          <div className="absolute -bottom-5 left-4 hidden rounded-xl border border-border bg-card px-4 py-3 shadow-card-hover sm:flex sm:items-center sm:gap-3 lg:-left-8">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-destructive/10">
+              <span className="h-2.5 w-2.5 rounded-full bg-destructive" aria-hidden />
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                Faltam atender
+              </p>
+              <p className="text-xl font-bold leading-none text-destructive">
+                {formatNumber(t.semCIN)}
+              </p>
+              <p className="mt-0.5 text-[11px] text-muted-foreground">estudantes sem CIN</p>
+            </div>
           </div>
         </div>
       </div>
