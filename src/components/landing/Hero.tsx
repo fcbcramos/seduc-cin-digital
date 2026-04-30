@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <header className="relative overflow-hidden bg-card">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-6 sm:px-6 sm:py-8 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:py-10">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-6 px-4 py-6 sm:px-6 sm:py-8 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:py-10">
         {/* LEFT — content */}
         <div className="flex flex-col justify-center lg:col-span-7">
           <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -52,10 +52,10 @@ export function Hero() {
             <img
               src={heroImage}
               alt="Estudantes da rede estadual do Piauí em sala de aula com uniforme oficial do Governo do Estado"
-              className="h-[280px] w-full object-cover sm:h-[400px] lg:h-[460px]"
+              className="h-[280px] w-full object-cover object-[center_30%] sm:h-[400px] lg:h-[460px] xl:h-[520px]"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/55 via-primary/15 to-transparent" aria-hidden />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/45 via-primary/10 to-transparent" aria-hidden />
             <div className="absolute inset-x-0 bottom-0 p-5 text-primary-foreground">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
                 Identidade · Cidadania · Educação

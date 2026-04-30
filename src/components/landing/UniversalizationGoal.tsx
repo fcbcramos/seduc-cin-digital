@@ -16,9 +16,9 @@ export function UniversalizationGoal() {
   const pct = totalRede === 0 ? 0 : (comCINRede / totalRede) * 100;
 
   return (
-    <Card className="relative overflow-hidden shadow-card">
+    <Card className="relative mx-auto max-w-[1100px] overflow-hidden shadow-card">
       <span className="gradient-institutional absolute inset-x-0 top-0 h-1" aria-hidden />
-      <CardContent className="grid gap-4 p-4 sm:p-5 lg:grid-cols-[1.5fr_1fr] lg:gap-6">
+      <CardContent className="grid gap-4 p-4 sm:p-5 lg:grid-cols-[2fr_1fr] lg:gap-6">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge

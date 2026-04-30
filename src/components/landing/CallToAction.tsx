@@ -6,16 +6,16 @@ import ctaImage from "@/assets/aluno-cin-piaui.jpg";
 export function CallToAction() {
   const t = getStudentTotals();
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative max-h-[560px] overflow-hidden">
       <img
         src={ctaImage}
         alt="Estudante da rede estadual do Piauí em laboratório de informática, com uniforme oficial do Governo do Estado"
-        className="absolute inset-0 h-full w-full object-cover object-left"
+        className="absolute inset-0 h-full w-full object-cover object-[30%_center]"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/30" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/70 to-primary/20" aria-hidden />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="relative mx-auto max-w-[1440px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary-foreground">

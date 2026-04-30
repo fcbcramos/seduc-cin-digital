@@ -4,11 +4,11 @@ import logoSeducPi from "@/assets/seduc-piaui-lockup.jpg";
 export function InstitutionalHeader() {
   return (
     <div className="bg-card">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7">
+      <div className="mx-auto flex min-h-[96px] max-w-[1440px] items-center justify-between gap-4 px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7">
         <img
           src={logoSeducPi}
           alt="Secretaria da Educação — SEDUC · Governo do Piauí. Aqui tem trabalho. Aqui tem futuro."
-          className="h-16 w-auto sm:h-20 lg:h-24"
+          className="h-16 w-auto sm:h-20 lg:h-24 xl:h-28"
         />
         <div className="hidden text-right sm:block">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
