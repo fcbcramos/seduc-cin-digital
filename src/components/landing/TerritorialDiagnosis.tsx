@@ -5,9 +5,6 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
-  PolarAngleAxis,
-  RadialBar,
-  RadialBarChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -50,106 +47,10 @@ export function TerritorialDiagnosis() {
       pct: Number(g.pctComCIN.toFixed(1)),
     }));
 
-  const gaugeData = [
-    {
-      name: "Cobertura",
-      value: Number(totals.pctComCIN.toFixed(1)),
-      fill: CHART_COLORS.accent,
-    },
-  ];
-
   return (
     <div className="space-y-6">
-      {/* 1. Distribuição geral — largura total */}
-      <Card className="border border-border shadow-card">
-        <CardContent className="p-6">
-          <div className="mb-5">
-            <h3 className="text-base font-semibold text-foreground">
-              Distribuição geral
-            </h3>
-            <p className="text-xs text-muted-foreground">
-              Estudantes Com vs Sem CIN — rede estadual
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[260px_1fr]">
-            <div className="relative mx-auto h-[180px] w-full max-w-[260px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <RadialBarChart
-                  data={gaugeData}
-                  innerRadius="78%"
-                  outerRadius="100%"
-                  startAngle={180}
-                  endAngle={0}
-                  barSize={22}
-                >
-                  <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                  <RadialBar
-                    dataKey="value"
-                    cornerRadius={12}
-                    background={{ fill: "oklch(0.94 0.02 28)" }}
-                    fill={CHART_COLORS.accent}
-                  />
-                </RadialBarChart>
-              </ResponsiveContainer>
-              <div className="pointer-events-none absolute inset-x-0 bottom-2 flex flex-col items-center">
-                <span className="text-4xl font-extrabold tracking-tight text-foreground tabular-nums">
-                  {formatPercent(totals.pctComCIN)}
-                </span>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Com CIN · Meta 100%
-                </span>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <BreakdownRow
-                label="Com CIN"
-                count={totals.comCIN}
-                pct={totals.pctComCIN}
-                color={CHART_COLORS.accent}
-                indicatorClassName="bg-accent"
-                valueClassName="text-accent"
-              />
-              <BreakdownRow
-                label="Sem CIN"
-                count={totals.semCIN}
-                pct={totals.pctSemCIN}
-                color={CHART_COLORS.destructive}
-                indicatorClassName="bg-destructive"
-                valueClassName="text-destructive"
-              />
-            </div>
-          </div>
-
-          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border pt-4 text-xs text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5">
-              <GraduationCap className="h-3.5 w-3.5" aria-hidden />
-              <strong className="font-semibold text-foreground tabular-nums">
-                {formatNumber(totals.estudantes)}
-              </strong>{" "}
-              estudantes
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Building2 className="h-3.5 w-3.5" aria-hidden />
-              <strong className="font-semibold text-foreground tabular-nums">
-                {totals.totalGREs}
-              </strong>{" "}
-              GREs
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5" aria-hidden />
-              <strong className="font-semibold text-foreground tabular-nums">
-                {totals.totalMunicipios}
-              </strong>{" "}
-              municípios
-            </span>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* 2. Top 5 lado a lado */}
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <DistributionCard totals={totals} />
         <RankingCard
           title="Top 5 — Melhores GREs"
           subtitle="Maior cobertura de CIN"
@@ -219,6 +120,99 @@ export function TerritorialDiagnosis() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+interface DistributionCardProps {
+  totals: ReturnType<typeof getStudentTotals>;
+}
+
+function DistributionCard({ totals }: DistributionCardProps) {
+  return (
+    <Card className="h-full border border-border border-l-4 border-l-primary shadow-card">
+      <CardContent className="flex h-full flex-col p-6">
+        <div className="mb-4 flex items-start gap-3">
+          <div className="mt-0.5">
+            <GraduationCap className="h-4 w-4 text-primary" aria-hidden />
+          </div>
+          <div>
+            <h3 className="text-base font-semibold text-foreground">Distribuição geral</h3>
+            <p className="text-xs text-muted-foreground">
+              Estudantes Com vs Sem CIN
+            </p>
+          </div>
+        </div>
+
+        <div className="mb-4 rounded-lg bg-muted/50 px-3 py-3">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+            Cobertura atual
+          </p>
+          <div className="mt-1 flex items-end justify-between gap-3">
+            <span className="text-3xl font-extrabold leading-none text-foreground tabular-nums">
+              {formatPercent(totals.pctComCIN)}
+            </span>
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Meta 100%
+            </span>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <BreakdownRow
+            label="Com CIN"
+            count={totals.comCIN}
+            pct={totals.pctComCIN}
+            color={CHART_COLORS.accent}
+            indicatorClassName="bg-accent"
+            valueClassName="text-accent"
+          />
+          <BreakdownRow
+            label="Sem CIN"
+            count={totals.semCIN}
+            pct={totals.pctSemCIN}
+            color={CHART_COLORS.destructive}
+            indicatorClassName="bg-destructive"
+            valueClassName="text-destructive"
+          />
+        </div>
+
+        <div className="mt-auto grid grid-cols-3 gap-2 border-t border-border pt-4 text-center text-[11px] text-muted-foreground">
+          <SummaryMetric
+            icon={<GraduationCap className="h-3.5 w-3.5" aria-hidden />}
+            value={formatNumber(totals.estudantes)}
+            label="estudantes"
+          />
+          <SummaryMetric
+            icon={<Building2 className="h-3.5 w-3.5" aria-hidden />}
+            value={String(totals.totalGREs)}
+            label="GREs"
+          />
+          <SummaryMetric
+            icon={<MapPin className="h-3.5 w-3.5" aria-hidden />}
+            value={String(totals.totalMunicipios)}
+            label="municípios"
+          />
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+interface SummaryMetricProps {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+}
+
+function SummaryMetric({ icon, value, label }: SummaryMetricProps) {
+  return (
+    <span className="flex min-w-0 flex-col items-center gap-1">
+      <span className="text-muted-foreground">{icon}</span>
+      <strong className="max-w-full truncate font-semibold text-foreground tabular-nums">
+        {value}
+      </strong>
+      <span className="max-w-full truncate">{label}</span>
+    </span>
   );
 }
 
