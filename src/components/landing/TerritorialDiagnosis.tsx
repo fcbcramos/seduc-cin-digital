@@ -65,8 +65,8 @@ export function TerritorialDiagnosis() {
     }));
 
   const donutData = [
-    { name: "Com CIN", value: totals.comCIN, color: "var(--color-accent)" },
-    { name: "Sem CIN", value: totals.semCIN, color: "var(--color-destructive)" },
+    { name: "Com CIN", value: totals.comCIN, color: CHART_COLORS.accent },
+    { name: "Sem CIN", value: totals.semCIN, color: CHART_COLORS.destructive },
   ];
 
   return (
