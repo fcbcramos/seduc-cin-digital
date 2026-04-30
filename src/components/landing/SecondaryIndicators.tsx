@@ -1,14 +1,11 @@
 import { GraduationCap, Briefcase, Users2 } from "lucide-react";
-import {
-  IndicatorBlock,
-  IndicatorBlockEmpty,
-  type IndicatorBlockGre,
-} from "./IndicatorBlock";
+import { IndicatorBlock, type IndicatorBlockGre } from "./IndicatorBlock";
 import {
   getAdministrativoTotals,
   getDocentesTotals,
   getServidorWorstGres,
 } from "@/lib/cin-servidores";
+import { getParentTotals, getParentWorstGres } from "@/lib/cin-data";
 
 const toBlockGres = (
   rows: { codGRE: string; total: number; pctComCIN: number }[],
@@ -18,8 +15,10 @@ const toBlockGres = (
 export function SecondaryIndicators() {
   const docentes = getDocentesTotals();
   const admin = getAdministrativoTotals();
+  const parents = getParentTotals();
   const docentesWorst = toBlockGres(getServidorWorstGres(3, "Professor"));
   const adminWorst = toBlockGres(getServidorWorstGres(3, "Administrativo"));
+  const parentsWorst = toBlockGres(getParentWorstGres(3));
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -47,12 +46,16 @@ export function SecondaryIndicators() {
         worstGres={adminWorst}
         accent="accent"
       />
-      <IndicatorBlockEmpty
+      <IndicatorBlock
         icon={Users2}
         eyebrow="Responsáveis"
         title="Pais e responsáveis"
-        description="Famílias dos estudantes da rede"
-        pendingNote="Indicador previsto na hierarquia oficial. Aguardando integração com a base de matrícula para consolidar total na rede, com CIN e sem CIN, por GRE e por município."
+        description="Famílias dos estudantes da rede — base de matrícula 2026"
+        total={parents.total}
+        comCIN={parents.comCIN}
+        semCIN={parents.semCIN}
+        pctComCIN={parents.pctComCIN}
+        worstGres={parentsWorst}
         accent="secondary"
       />
     </div>

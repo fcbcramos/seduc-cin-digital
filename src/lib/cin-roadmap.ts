@@ -22,12 +22,14 @@ export interface RoadmapGre {
   prioridadeScore: number;
 }
 
+export type WaveTone = "destructive" | "secondary" | "accent" | "primary";
+
 export interface RoadmapWave {
-  wave: 1 | 2 | 3 | 4;
+  wave: number;
   label: string;
   periodo: string;
-  intensidade: "Crítica" | "Alta" | "Média" | "Consolidação";
-  tone: "destructive" | "secondary" | "accent" | "primary";
+  intensidade: string;
+  tone: WaveTone;
   gres: RoadmapGre[];
   totalEstudantes: number;
   totalSemCIN: number;
@@ -68,36 +70,22 @@ const GRE_SEATS: Record<string, SedeInfo> = {
 
 const fallback = (cod: string): SedeInfo => ({ sede: cod, distanciaKm: 200 });
 
-const WAVE_META: Record<RoadmapWave["wave"], Omit<RoadmapWave, "gres" | "totalEstudantes" | "totalSemCIN">> = {
-  1: {
-    wave: 1,
-    label: "Onda 1",
-    periodo: "Jan – Mar 2026",
-    intensidade: "Crítica",
-    tone: "destructive",
-  },
-  2: {
-    wave: 2,
-    label: "Onda 2",
-    periodo: "Abr – Jun 2026",
-    intensidade: "Alta",
-    tone: "secondary",
-  },
-  3: {
-    wave: 3,
-    label: "Onda 3",
-    periodo: "Jul – Set 2026",
-    intensidade: "Média",
-    tone: "accent",
-  },
-  4: {
-    wave: 4,
-    label: "Onda 4",
-    periodo: "Out – Dez 2026",
-    intensidade: "Consolidação",
-    tone: "primary",
-  },
-};
+interface WaveMeta {
+  label: string;
+  periodo: string;
+  intensidade: string;
+  tone: WaveTone;
+}
+
+const WAVES: WaveMeta[] = [
+  { label: "Onda 1", periodo: "Junho · 2026", intensidade: "Crítica", tone: "destructive" },
+  { label: "Onda 2", periodo: "Julho · 2026", intensidade: "Crítica", tone: "destructive" },
+  { label: "Onda 3", periodo: "Agosto · 2026", intensidade: "Alta", tone: "secondary" },
+  { label: "Onda 4", periodo: "Setembro · 2026", intensidade: "Alta", tone: "secondary" },
+  { label: "Onda 5", periodo: "Outubro · 2026", intensidade: "Média", tone: "accent" },
+  { label: "Onda 6", periodo: "Novembro · 2026", intensidade: "Consolidação", tone: "primary" },
+  { label: "Onda 7", periodo: "Dezembro · 2026", intensidade: "Fechamento", tone: "primary" },
+];
 
 const enrichGre = (g: GreStudentAggregate, maxDist: number): RoadmapGre => {
   const seat = GRE_SEATS[g.codGRE] ?? fallback(g.codGRE);
@@ -124,23 +112,21 @@ export const getRoadmap = (): RoadmapWave[] => {
     .sort((a, b) => b.prioridadeScore - a.prioridadeScore);
 
   const total = enriched.length;
-  const baseSize = Math.floor(total / 4);
-  const remainder = total % 4;
-  // Distribui o "resto" nas primeiras ondas — onda 1 fica ligeiramente maior.
-  const sizes = [0, 1, 2, 3].map((i) => baseSize + (i < remainder ? 1 : 0));
+  const numWaves = WAVES.length;
+  const baseSize = Math.floor(total / numWaves);
+  const remainder = total % numWaves;
+  const sizes = WAVES.map((_, i) => baseSize + (i < remainder ? 1 : 0));
 
-  const waves: RoadmapWave[] = [];
   let cursor = 0;
-  ([1, 2, 3, 4] as const).forEach((w, idx) => {
+  return WAVES.map((meta, idx) => {
     const slice = enriched.slice(cursor, cursor + sizes[idx]);
     cursor += sizes[idx];
-    waves.push({
-      ...WAVE_META[w],
+    return {
+      wave: idx + 1,
+      ...meta,
       gres: slice,
       totalEstudantes: slice.reduce((acc, r) => acc + r.estudantes, 0),
       totalSemCIN: slice.reduce((acc, r) => acc + r.semCIN, 0),
-    });
+    };
   });
-
-  return waves;
 };

@@ -109,7 +109,7 @@ function LandingPage() {
         <Section id="roadmap">
           <SectionHeader
             eyebrow="Roadmap de execução"
-            title="Plano em 4 ondas até dezembro de 2026"
+            title="Plano em 7 ondas mensais — junho a dezembro de 2026"
             description="Sequência operacional das 21 GREs, priorizando primeiro as de menor cobertura e maior distância da capital, e fechando o ciclo na Região Metropolitana de Teresina."
             eyebrowTone="destructive"
           />
