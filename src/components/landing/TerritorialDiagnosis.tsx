@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import {
   Bar,
@@ -21,21 +20,7 @@ import {
   getTopBestGres,
   getTopWorstGres,
 } from "@/lib/cin-data";
-import {
-  coverageStatusLabel,
-  formatNumber,
-  formatPercent,
-  getCoverageStatus,
-} from "@/lib/format";
-
-const statusClass: Record<
-  ReturnType<typeof getCoverageStatus>,
-  "status-success" | "status-warning" | "status-danger"
-> = {
-  success: "status-success",
-  warning: "status-warning",
-  danger: "status-danger",
-};
+import { formatNumber, formatPercent } from "@/lib/format";
 
 const CHART_COLORS = {
   accent: "oklch(0.521 0.144 152)",
