@@ -16,9 +16,9 @@ export function Hero() {
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               A Secretaria de Estado da Educação do Piauí mobiliza a rede para garantir
-              que <span className="font-semibold text-foreground">todos os estudantes</span> da
-              educação básica obtenham a Carteira de Identidade Nacional, eliminando a
-              subidentificação documental no estado.
+              que <span className="font-semibold text-foreground">todos os estudantes</span> do
+              Ensino Fundamental e Ensino Médio obtenham a Carteira de Identidade
+              Nacional, eliminando a subidentificação documental no estado.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-2">
