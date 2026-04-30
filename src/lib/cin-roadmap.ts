@@ -22,12 +22,14 @@ export interface RoadmapGre {
   prioridadeScore: number;
 }
 
+export type WaveTone = "destructive" | "secondary" | "accent" | "primary";
+
 export interface RoadmapWave {
-  wave: 1 | 2 | 3 | 4;
+  wave: number;
   label: string;
   periodo: string;
-  intensidade: "Crítica" | "Alta" | "Média" | "Consolidação";
-  tone: "destructive" | "secondary" | "accent" | "primary";
+  intensidade: string;
+  tone: WaveTone;
   gres: RoadmapGre[];
   totalEstudantes: number;
   totalSemCIN: number;

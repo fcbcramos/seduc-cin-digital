@@ -41,10 +41,58 @@ export interface MunicipalityStudentRow {
   pctComCIN: number;
 }
 
+export interface ParentTotals {
+  total: number;
+  comCIN: number;
+  semCIN: number;
+  pctComCIN: number;
+  pctSemCIN: number;
+}
+
+export interface ParentByGre {
+  codGRE: string;
+  total: number;
+  comCIN: number;
+  semCIN: number;
+  pctComCIN: number;
+}
+
 const data = rawData as MunicipioCIN[];
 
 const safePct = (part: number, total: number): number =>
   total === 0 ? 0 : (part / total) * 100;
+
+export const getParentTotals = (): ParentTotals => {
+  const total = data.reduce((a, r) => a + r.qtdParentes, 0);
+  const comCIN = data.reduce((a, r) => a + r.qtdParenteComCIN, 0);
+  const semCIN = data.reduce((a, r) => a + r.qtdParenteSemCIN, 0);
+  return {
+    total,
+    comCIN,
+    semCIN,
+    pctComCIN: safePct(comCIN, total),
+    pctSemCIN: safePct(semCIN, total),
+  };
+};
+
+export const getParentByGre = (): ParentByGre[] => {
+  const map = new Map<string, ParentByGre>();
+  for (const r of data) {
+    const cur =
+      map.get(r.codGRE) ??
+      { codGRE: r.codGRE, total: 0, comCIN: 0, semCIN: 0, pctComCIN: 0 };
+    cur.total += r.qtdParentes;
+    cur.comCIN += r.qtdParenteComCIN;
+    cur.semCIN += r.qtdParenteSemCIN;
+    map.set(r.codGRE, cur);
+  }
+  return [...map.values()]
+    .map((g) => ({ ...g, pctComCIN: safePct(g.comCIN, g.total) }))
+    .sort((a, b) => a.pctComCIN - b.pctComCIN);
+};
+
+export const getParentWorstGres = (n = 3): ParentByGre[] =>
+  getParentByGre().slice(0, n);
 
 /**
  * Nota: Teresina aparece em 4 GREs distintas (04ª, 19ª, 20ª e 21ª) por desenho
