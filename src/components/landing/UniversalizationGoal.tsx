@@ -18,7 +18,7 @@ export function UniversalizationGoal() {
   return (
     <Card className="relative overflow-hidden shadow-card">
       <span className="gradient-institutional absolute inset-x-0 top-0 h-1" aria-hidden />
-      <CardContent className="grid gap-6 p-6 lg:grid-cols-[1.5fr_1fr] lg:p-7">
+      <CardContent className="grid gap-4 p-5 sm:p-6 lg:grid-cols-[1.5fr_1fr] lg:gap-6 lg:p-7">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge

@@ -1,22 +1,21 @@
 import { Sparkles, Users, Target } from "lucide-react";
 import { getStudentTotals } from "@/lib/cin-data";
 import { formatNumber } from "@/lib/format";
-
-const BG_IMAGE =
-  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1800&q=80";
+import ctaImage from "@/assets/aluno-cin-piaui.jpg";
 
 export function CallToAction() {
   const t = getStudentTotals();
   return (
     <section className="relative overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${BG_IMAGE})` }}
-        aria-hidden
+      <img
+        src={ctaImage}
+        alt="Estudante da rede estadual do Piauí recebendo a Carteira de Identidade Nacional"
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.32_0.12_252)]/95 via-primary/85 to-accent/80" aria-hidden />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary-foreground">

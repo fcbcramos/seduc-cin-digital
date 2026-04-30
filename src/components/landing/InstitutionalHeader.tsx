@@ -2,7 +2,7 @@ import logoSeducPi from "@/assets/seduc-piaui-lockup.jpg";
 
 export function InstitutionalHeader() {
   return (
-    <div className="border-b border-border bg-card">
+    <div className="bg-card">
       <div className="mx-auto flex max-w-7xl items-center px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
         <img
           src={logoSeducPi}
@@ -10,6 +10,7 @@ export function InstitutionalHeader() {
           className="h-12 w-auto sm:h-14"
         />
       </div>
+      <div className="gradient-institutional h-0.5 w-full" aria-hidden />
     </div>
   );
 }
