@@ -7,6 +7,7 @@ import { UniversalizationGoal } from "@/components/landing/UniversalizationGoal"
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
 import { MunicipalityTable } from "@/components/landing/MunicipalityTable";
 import { ExecutionRoadmap } from "@/components/landing/ExecutionRoadmap";
+import { HardwareKit } from "@/components/landing/HardwareKit";
 import { SecondaryIndicators } from "@/components/landing/SecondaryIndicators";
 import { CallToAction } from "@/components/landing/CallToAction";
 import { Footer } from "@/components/landing/Footer";
@@ -95,7 +96,16 @@ function LandingPage() {
           <ExecutionRoadmap />
         </Section>
 
-        <Section id="secundarios">
+        <Section id="kit-hardware">
+          <SectionHeader
+            eyebrow="Infraestrutura"
+            title="Kit de hardware para atendimento"
+            description="Composição padrão do ponto de captura biométrica e fotográfica utilizado nas operações da CIN nas escolas. Serão mobilizados 10 kits para cobrir as ondas do roadmap."
+          />
+          <HardwareKit />
+        </Section>
+
+        <Section id="secundarios" background="muted">
           <SectionHeader
             eyebrow="Adesão da rede"
             title="Docentes, administrativo e responsáveis"
