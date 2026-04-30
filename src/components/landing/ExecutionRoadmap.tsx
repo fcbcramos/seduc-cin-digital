@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarRange, MapPin, Route } from "lucide-react";
+import { CalendarRange, Route } from "lucide-react";
 import { getRoadmap, type RoadmapWave } from "@/lib/cin-roadmap";
 import { formatNumber, formatPercent } from "@/lib/format";
 
@@ -101,23 +101,16 @@ function WaveCard({ wave }: { wave: RoadmapWave }) {
           {wave.gres.map((g) => (
             <li
               key={g.codGRE}
-              className="flex items-center justify-between gap-2 rounded-md border border-border/60 bg-background px-2.5 py-2 text-xs"
+              className="flex items-center justify-between gap-2 rounded-md border border-border/60 bg-background px-2.5 py-1.5 text-xs"
             >
               <div className="min-w-0">
                 <p className="truncate font-bold text-foreground">{g.codGRE}</p>
-                <p className="mt-0.5 inline-flex items-center gap-1 truncate text-[11px] text-muted-foreground">
-                  <MapPin className="h-3 w-3 shrink-0" aria-hidden />
+                <p className="truncate text-[10px] text-muted-foreground">
                   {g.sede}
-                  {g.distanciaKm > 0 && (
-                    <span className="tabular-nums">· {g.distanciaKm} km</span>
-                  )}
                 </p>
               </div>
-              <span className="shrink-0 text-right">
-                <span className="block text-[11px] font-bold tabular-nums text-foreground">
-                  {formatPercent(g.pctComCIN)}
-                </span>
-                <span className="block text-[10px] text-muted-foreground">cobertura</span>
+              <span className="shrink-0 text-[11px] font-bold tabular-nums text-foreground">
+                {formatPercent(g.pctComCIN)}
               </span>
             </li>
           ))}
