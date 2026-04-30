@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -7,17 +7,18 @@
 
 /*
  * SEDUC-PI · Painel CIN nas Escolas
- * Sistema de design institucional sóbrio.
  *
- * Princípios:
- *  - 1 cor de marca (azul SEDUC) + neutros + 3 cores de status (uso restrito a dados)
- *  - Tipografia: Fraunces (display, serif) + Inter (UI/dados)
- *  - Espaçamentos generosos, sem decoração colorida em containers
+ * Sistema de design:
+ *  - Tipografia única: Inter (sans-serif)
+ *  - Paleta colorida institucional: primary (azul SEDUC), secondary (âmbar),
+ *    accent (verde), destructive (vermelho)
+ *  - Aliases de status: positive/warning/critical para gráficos
+ *  - Sistema de containers padronizado: --container-narrow / base / wide
  */
 
 @theme inline {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -63,9 +64,20 @@
 :root {
   --radius: 0.625rem;
 
-  /* Neutros — base de quase tudo */
-  --background: oklch(0.99 0.003 240);          /* off-white */
-  --foreground: oklch(0.22 0.02 250);           /* tinta quase preta */
+  /* ===== Sistema de containers (padronização rígida) ===== */
+  --container-narrow: 960px;
+  --container-base: 1280px;
+  --container-wide: 1440px;
+
+  --section-padding-y: clamp(3rem, 5vw, 5rem);
+  --section-padding-x: clamp(1.5rem, 4vw, 2.5rem);
+  --section-gap-internal: 2rem;
+  --card-gap: 1.5rem;
+  --card-padding: 1.5rem;
+
+  /* ===== Neutros ===== */
+  --background: oklch(0.99 0.003 240);
+  --foreground: oklch(0.22 0.02 250);
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.02 250);
@@ -73,50 +85,52 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.02 250);
 
-  /* Marca — único acento decorativo permitido */
-  --primary: oklch(0.42 0.13 252);              /* SEDUC azul institucional */
+  /* ===== Marca — paleta colorida institucional ===== */
+  --primary: oklch(0.502 0.158 252);            /* azul SEDUC */
   --primary-foreground: oklch(1 0 0);
+  --primary-glow: oklch(0.62 0.16 252);
 
-  /* Secondary/Accent reaproveitados como neutros suaves */
-  --secondary: oklch(0.965 0.005 240);          /* cinza-claro de fundo */
+  --secondary: oklch(0.823 0.165 84);           /* âmbar institucional */
   --secondary-foreground: oklch(0.22 0.02 250);
+
+  --accent: oklch(0.521 0.144 152);             /* verde institucional */
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.612 0.231 28);         /* vermelho institucional */
+  --destructive-foreground: oklch(1 0 0);
 
   --muted: oklch(0.965 0.005 240);
   --muted-foreground: oklch(0.45 0.02 250);
 
-  --accent: oklch(0.96 0.008 240);              /* hover/realce sutil */
-  --accent-foreground: oklch(0.22 0.02 250);
-
-  /* Status — uso restrito a dados (gráficos, badges de status) */
-  --positive: oklch(0.52 0.12 152);             /* verde sóbrio */
+  /* ===== Status (aliases para dados/gráficos) ===== */
+  --positive: oklch(0.521 0.144 152);
   --positive-foreground: oklch(1 0 0);
-  --warning: oklch(0.62 0.13 70);               /* âmbar sóbrio */
-  --warning-foreground: oklch(1 0 0);
-  --critical: oklch(0.55 0.20 28);              /* vermelho sóbrio */
+  --warning: oklch(0.72 0.15 78);
+  --warning-foreground: oklch(0.22 0.02 250);
+  --critical: oklch(0.612 0.231 28);
   --critical-foreground: oklch(1 0 0);
-
-  /* Destructive (compat shadcn) → mapeado a critical */
-  --destructive: oklch(0.55 0.20 28);
-  --destructive-foreground: oklch(1 0 0);
 
   --border: oklch(0.91 0.008 245);
   --input: oklch(0.91 0.008 245);
-  --ring: oklch(0.42 0.13 252);
+  --ring: oklch(0.502 0.158 252);
 
-  --chart-1: oklch(0.42 0.13 252);
-  --chart-2: oklch(0.65 0.05 250);
-  --chart-3: oklch(0.52 0.12 152);
-  --chart-4: oklch(0.55 0.20 28);
-  --chart-5: oklch(0.62 0.13 70);
+  --chart-1: oklch(0.502 0.158 252);
+  --chart-2: oklch(0.823 0.165 84);
+  --chart-3: oklch(0.521 0.144 152);
+  --chart-4: oklch(0.612 0.231 28);
+  --chart-5: oklch(0.65 0.05 250);
 
-  --sidebar: oklch(0.42 0.13 252);
+  --sidebar: oklch(0.502 0.158 252);
   --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.55 0.15 252);
+  --sidebar-primary: oklch(0.62 0.16 252);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.55 0.15 252);
+  --sidebar-accent: oklch(0.62 0.16 252);
   --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.48 0.14 252);
-  --sidebar-ring: oklch(0.42 0.13 252);
+  --sidebar-border: oklch(0.55 0.15 252);
+  --sidebar-ring: oklch(0.502 0.158 252);
+
+  /* Gradientes institucionais */
+  --gradient-institutional: linear-gradient(90deg, var(--primary) 0%, var(--primary-glow) 100%);
 }
 
 .dark {
@@ -128,15 +142,15 @@
   --popover-foreground: oklch(0.985 0.005 240);
   --primary: oklch(0.62 0.16 252);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.3 0.02 250);
-  --secondary-foreground: oklch(0.985 0.005 240);
+  --secondary: oklch(0.7 0.14 84);
+  --secondary-foreground: oklch(0.18 0.02 250);
+  --accent: oklch(0.6 0.13 152);
+  --accent-foreground: oklch(1 0 0);
   --muted: oklch(0.3 0.02 250);
   --muted-foreground: oklch(0.7 0.02 250);
-  --accent: oklch(0.3 0.02 250);
-  --accent-foreground: oklch(0.985 0.005 240);
   --positive: oklch(0.6 0.13 152);
   --critical: oklch(0.65 0.22 28);
-  --warning: oklch(0.7 0.13 70);
+  --warning: oklch(0.75 0.14 78);
   --destructive: oklch(0.65 0.22 28);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.35 0.02 250);
@@ -162,13 +176,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-  }
-
-  /* Tabular figures globalmente em números */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum" 1, "ss01" 1;
@@ -176,21 +183,86 @@
 }
 
 @layer utilities {
-  /* Faixa institucional discreta — usada APENAS no topo do header */
+  /* ===== Containers padronizados ===== */
+  .container-narrow,
+  .container-base,
+  .container-wide {
+    margin-inline: auto;
+    width: 100%;
+    padding-inline: var(--section-padding-x);
+  }
+  .container-narrow { max-width: var(--container-narrow); }
+  .container-base   { max-width: var(--container-base); }
+  .container-wide   { max-width: var(--container-wide); }
+
+  /* ===== Section padding vertical único ===== */
+  .section-y { padding-block: var(--section-padding-y); }
+
+  /* ===== Grids fixos por tipo (NUNCA usar grid-cols-X ad-hoc) ===== */
+  .grid-kpis-6 {
+    display: grid;
+    gap: var(--card-gap);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 640px)  { .grid-kpis-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 768px)  { .grid-kpis-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .grid-kpis-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+  .grid-kpis-4 {
+    display: grid;
+    gap: var(--card-gap);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 640px)  { .grid-kpis-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .grid-kpis-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+  .grid-cards-3 {
+    display: grid;
+    gap: var(--card-gap);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 640px)  { .grid-cards-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .grid-cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+  .grid-cards-2 {
+    display: grid;
+    gap: var(--card-gap);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 768px) { .grid-cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  .grid-cards-4 {
+    display: grid;
+    gap: var(--card-gap);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 640px)  { .grid-cards-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .grid-cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+  .grid-roadmap-7 {
+    display: grid;
+    gap: var(--card-gap);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 640px)  { .grid-roadmap-7 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .grid-roadmap-7 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (min-width: 1280px) { .grid-roadmap-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); } }
+
+  /* ===== Faixa institucional ===== */
   .institutional-rule {
-    background: linear-gradient(90deg,
-      var(--color-primary) 0%,
-      var(--color-primary) 100%);
+    background: var(--gradient-institutional);
+  }
+  .gradient-institutional {
+    background: var(--gradient-institutional);
   }
 
+  /* ===== Sombras de card ===== */
   .shadow-card {
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 1px 0 rgb(0 0 0 / 0.03);
   }
-
   .shadow-card-hover {
     box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -1px rgb(0 0 0 / 0.04);
   }
-
   .card-hover {
     transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
   }
@@ -198,15 +270,15 @@
     box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -1px rgb(0 0 0 / 0.04);
   }
 
-  /* Status — semântica restrita a dados */
+  /* ===== Status — uso restrito a dados ===== */
   .status-success {
     background-color: color-mix(in oklab, var(--positive) 10%, transparent);
     color: var(--positive);
     border-color: color-mix(in oklab, var(--positive) 25%, transparent);
   }
   .status-warning {
-    background-color: color-mix(in oklab, var(--warning) 12%, transparent);
-    color: var(--warning);
+    background-color: color-mix(in oklab, var(--warning) 14%, transparent);
+    color: oklch(0.45 0.13 78);
     border-color: color-mix(in oklab, var(--warning) 30%, transparent);
   }
   .status-danger {
@@ -220,9 +292,9 @@
     border-color: color-mix(in oklab, var(--color-primary) 22%, transparent);
   }
 
-  /* Cores semânticas para uso direto em componentes */
+  /* Cores semânticas diretas (uso em dados) */
   .text-positive { color: var(--positive); }
-  .text-warning  { color: var(--warning); }
+  .text-warning  { color: oklch(0.45 0.13 78); }
   .text-critical { color: var(--critical); }
   .bg-positive   { background-color: var(--positive); }
   .bg-warning    { background-color: var(--warning); }
@@ -231,7 +303,7 @@
   .border-warning  { border-color: var(--warning); }
   .border-critical { border-color: var(--critical); }
 
-  /* Eyebrow institucional padronizado */
+  /* Eyebrow institucional */
   .eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
