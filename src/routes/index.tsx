@@ -5,6 +5,7 @@ import { Hero } from "@/components/landing/Hero";
 import { KpiSummary } from "@/components/landing/KpiSummary";
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
 import { MunicipalityTable } from "@/components/landing/MunicipalityTable";
+import { StaffAdoption } from "@/components/landing/StaffAdoption";
 import { Footer } from "@/components/landing/Footer";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 import { CallToAction } from "@/components/landing/CallToAction";
@@ -64,6 +65,15 @@ function LandingPage() {
             description="Indicadores consolidados da rede estadual de ensino do Piauí — quem já tem a Carteira de Identidade Nacional e quem ainda precisa ser atendido."
           />
           <KpiSummary />
+        </Section>
+
+        <Section id="servidores">
+          <SectionHeader
+            eyebrow="Adesão da rede"
+            title="Servidores da SEDUC-PI já com CIN"
+            description="Indicador indireto de engajamento institucional — quanto da própria rede (professores e administrativo) já está regularizada com a Carteira de Identidade Nacional."
+          />
+          <StaffAdoption />
         </Section>
 
         <CallToAction />
