@@ -1,10 +1,11 @@
+import { Container } from "@/components/layout/Container";
 import logoSeducPi from "@/assets/seduc-piaui-lockup.jpg";
 
 export function Footer() {
   return (
     <footer className="mt-12 border-t border-border bg-card">
-      <div className="mx-auto max-w-[1280px] px-6 py-10 lg:px-10">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+      <Container size="base">
+        <div className="flex flex-col items-start justify-between gap-6 py-10 sm:flex-row sm:items-center">
           <div className="flex items-center gap-4">
             <img
               src={logoSeducPi}
@@ -12,9 +13,7 @@ export function Footer() {
               className="h-10 w-auto"
             />
             <div className="text-sm">
-              <p className="font-display font-semibold text-foreground">
-                Projeto CIN nas Escolas
-              </p>
+              <p className="font-semibold text-foreground">Projeto CIN nas Escolas</p>
               <p className="mt-0.5 text-xs text-muted-foreground">
                 Painel executivo de cobertura — rede estadual do Piauí
               </p>
@@ -26,7 +25,8 @@ export function Footer() {
             Demais informações em consolidação.
           </p>
         </div>
-      </div>
+      </Container>
+      <div className="gradient-institutional h-1 w-full" aria-hidden />
     </footer>
   );
 }

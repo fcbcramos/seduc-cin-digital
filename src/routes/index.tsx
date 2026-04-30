@@ -1,14 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InstitutionalHeader } from "@/components/landing/InstitutionalHeader";
 import { Hero } from "@/components/landing/Hero";
-import { KpiStrip } from "@/components/landing/KpiStrip";
+import { KpiSummary } from "@/components/landing/KpiSummary";
 import { AboutCIN } from "@/components/landing/AboutCIN";
+import { UniversalizationGoal } from "@/components/landing/UniversalizationGoal";
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
 import { MunicipalityTable } from "@/components/landing/MunicipalityTable";
 import { ExecutionRoadmap } from "@/components/landing/ExecutionRoadmap";
 import { SecondaryIndicators } from "@/components/landing/SecondaryIndicators";
+import { CallToAction } from "@/components/landing/CallToAction";
 import { Footer } from "@/components/landing/Footer";
 import { SectionHeader } from "@/components/landing/SectionHeader";
+import { Section } from "@/components/layout/Section";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,32 +34,23 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-function Section({
-  id,
-  children,
-}: {
-  id: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section
-      id={id}
-      className="mx-auto w-full max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20"
-    >
-      {children}
-    </section>
-  );
-}
-
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       <InstitutionalHeader />
       <Hero />
-      <KpiStrip />
 
       <main>
-        <Section id="sobre-cin">
+        <Section id="kpis">
+          <SectionHeader
+            eyebrow="Visão geral"
+            title="Indicadores principais da cobertura CIN"
+            description="Síntese dos números que orientam o planejamento e a execução do projeto na rede estadual."
+          />
+          <KpiSummary />
+        </Section>
+
+        <Section id="sobre-cin" background="muted">
           <SectionHeader
             eyebrow="Sobre o documento"
             title="O que é a Carteira de Identidade Nacional"
@@ -65,16 +59,23 @@ function LandingPage() {
           <AboutCIN />
         </Section>
 
-        <div className="border-t border-border bg-muted/40">
-          <Section id="diagnostico">
-            <SectionHeader
-              eyebrow="Diagnóstico territorial"
-              title="Cobertura por Gerência Regional de Educação"
-              description="Comparativo entre as 21 GREs do Piauí — destaque para as melhores e as prioritárias para mobilização imediata."
-            />
-            <TerritorialDiagnosis />
-          </Section>
-        </div>
+        <Section id="meta">
+          <SectionHeader
+            eyebrow="Meta institucional"
+            title="Compromisso de universalização"
+            description="Síntese da meta da SEDUC-PI até dezembro de 2026."
+          />
+          <UniversalizationGoal />
+        </Section>
+
+        <Section id="diagnostico" background="muted">
+          <SectionHeader
+            eyebrow="Diagnóstico territorial"
+            title="Cobertura por Gerência Regional de Educação"
+            description="Comparativo entre as 21 GREs do Piauí — destaque para as melhores e as prioritárias para mobilização imediata."
+          />
+          <TerritorialDiagnosis />
+        </Section>
 
         <Section id="municipios">
           <SectionHeader
@@ -85,16 +86,14 @@ function LandingPage() {
           <MunicipalityTable />
         </Section>
 
-        <div className="border-t border-border bg-muted/40">
-          <Section id="roadmap">
-            <SectionHeader
-              eyebrow="Roadmap de execução"
-              title="Plano em 7 ondas mensais — junho a dezembro de 2026"
-              description="Sequência operacional das 21 GREs, priorizando primeiro as de menor cobertura e maior distância da capital, e fechando o ciclo na Região Metropolitana de Teresina."
-            />
-            <ExecutionRoadmap />
-          </Section>
-        </div>
+        <Section id="roadmap" background="muted">
+          <SectionHeader
+            eyebrow="Roadmap de execução"
+            title="Plano em 7 ondas mensais — junho a dezembro de 2026"
+            description="Sequência operacional das 21 GREs, priorizando primeiro as de menor cobertura e maior distância da capital, e fechando o ciclo na Região Metropolitana de Teresina."
+          />
+          <ExecutionRoadmap />
+        </Section>
 
         <Section id="secundarios">
           <SectionHeader
@@ -104,6 +103,8 @@ function LandingPage() {
           />
           <SecondaryIndicators />
         </Section>
+
+        <CallToAction />
       </main>
 
       <Footer />

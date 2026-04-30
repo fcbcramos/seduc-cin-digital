@@ -19,12 +19,12 @@ export function SectionHeader({
         {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
         <h2
           id={id}
-          className="font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl"
+          className="text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-3xl"
         >
           {title}
         </h2>
         {description && (
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             {description}
           </p>
         )}
