@@ -36,10 +36,19 @@ const statusClass: Record<
   danger: "status-danger",
 };
 
+const CHART_COLORS = {
+  accent: "oklch(0.521 0.144 152)",
+  secondary: "oklch(0.823 0.165 84)",
+  destructive: "oklch(0.612 0.231 28)",
+  primary: "oklch(0.502 0.158 252)",
+  grid: "oklch(0.91 0.01 245)",
+  axis: "oklch(0.5 0.02 250)",
+} as const;
+
 const barColor = (pct: number): string => {
-  if (pct >= 70) return "var(--color-accent)";
-  if (pct >= 40) return "var(--color-secondary)";
-  return "var(--color-destructive)";
+  if (pct >= 70) return CHART_COLORS.accent;
+  if (pct >= 40) return CHART_COLORS.secondary;
+  return CHART_COLORS.destructive;
 };
 
 export function TerritorialDiagnosis() {
@@ -56,8 +65,8 @@ export function TerritorialDiagnosis() {
     }));
 
   const donutData = [
-    { name: "Com CIN", value: totals.comCIN, color: "var(--color-accent)" },
-    { name: "Sem CIN", value: totals.semCIN, color: "var(--color-destructive)" },
+    { name: "Com CIN", value: totals.comCIN, color: CHART_COLORS.accent },
+    { name: "Sem CIN", value: totals.semCIN, color: CHART_COLORS.destructive },
   ];
 
   return (
@@ -148,9 +157,9 @@ export function TerritorialDiagnosis() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-              <LegendDot color="var(--color-accent)" label="Adequado ≥70%" />
-              <LegendDot color="var(--color-secondary)" label="Atenção 40–69%" />
-              <LegendDot color="var(--color-destructive)" label="Crítico <40%" />
+              <LegendDot color={CHART_COLORS.accent} label="Adequado ≥70%" />
+              <LegendDot color={CHART_COLORS.secondary} label="Atenção 40–69%" />
+              <LegendDot color={CHART_COLORS.destructive} label="Crítico <40%" />
             </div>
           </div>
           <div className="h-[420px]">
