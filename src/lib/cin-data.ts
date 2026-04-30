@@ -194,3 +194,67 @@ export const getTopWorstGres = (limit = 5): GreStudentAggregate[] =>
 
 export const getTopGapMunicipalities = (limit = 10): MunicipalityStudentRow[] =>
   [...getStudentMunicipalitiesConsolidated()].sort((a, b) => b.semCIN - a.semCIN).slice(0, limit);
+
+export type CoverageTier = "adequado" | "atencao" | "critico";
+
+export interface GreCoverageMunicipality {
+  municipio: string;
+  estudantes: number;
+  pctComCIN: number;
+  tier: CoverageTier;
+}
+
+export interface GreCoverageBreakdown {
+  codGRE: string;
+  pctComCIN: number;
+  estudantes: number;
+  totalMunicipios: number;
+  adequado: number;
+  atencao: number;
+  critico: number;
+  municipios: GreCoverageMunicipality[];
+}
+
+const classifyTier = (pct: number): CoverageTier => {
+  if (pct >= 70) return "adequado";
+  if (pct >= 40) return "atencao";
+  return "critico";
+};
+
+export const getCoverageBreakdownByGre = (): GreCoverageBreakdown[] => {
+  const map = new Map<string, GreCoverageBreakdown>();
+  for (const r of data) {
+    const pct = safePct(r.qtdEstudanteComCIN, r.qtdEstudantes);
+    const tier = classifyTier(pct);
+    const cur =
+      map.get(r.codGRE) ??
+      {
+        codGRE: r.codGRE,
+        pctComCIN: 0,
+        estudantes: 0,
+        totalMunicipios: 0,
+        adequado: 0,
+        atencao: 0,
+        critico: 0,
+        municipios: [] as GreCoverageMunicipality[],
+      };
+    cur.estudantes += r.qtdEstudantes;
+    cur.totalMunicipios += 1;
+    cur[tier] += 1;
+    cur.municipios.push({
+      municipio: r.municipio,
+      estudantes: r.qtdEstudantes,
+      pctComCIN: pct,
+      tier,
+    });
+    map.set(r.codGRE, cur);
+  }
+  const aggregates = new Map(getStudentByGre().map((g) => [g.codGRE, g.pctComCIN]));
+  return [...map.values()]
+    .map((g) => ({
+      ...g,
+      pctComCIN: aggregates.get(g.codGRE) ?? 0,
+      municipios: g.municipios.sort((a, b) => b.pctComCIN - a.pctComCIN),
+    }))
+    .sort((a, b) => parseInt(a.codGRE, 10) - parseInt(b.codGRE, 10));
+};

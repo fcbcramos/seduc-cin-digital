@@ -1,78 +1,81 @@
-## Nova seção: Kit de Hardware para Atendimento
+## Objetivo
 
-Adicionar uma seção institucional descrevendo o kit de captura utilizado nos pontos de atendimento, no mesmo padrão visual das demais seções (Section + SectionHeader + cards/tabela com tokens já existentes).
+Evoluir o gráfico "Cobertura CIN por Gerência Regional" em `src/components/landing/TerritorialDiagnosis.tsx` para:
 
-### Onde entra na página
+1. Mostrar, para cada GRE, a composição dos seus municípios em três faixas: **Adequado (≥70%)**, **Atenção (40–69%)** e **Crítico (<40%)** — alinhado à legenda já exibida.
+2. Permitir interação por clique:
+   - Clicar em um item da **legenda** liga/desliga aquela faixa (toggle de série).
+   - Clicar em uma **barra (GRE)** seleciona a GRE e abre um painel de drill-down inline logo abaixo do gráfico, com a lista de municípios daquela GRE agrupados por faixa.
 
-Inserir entre `ExecutionRoadmap` (Roadmap) e `SecondaryIndicators` (Adesão da rede) em `src/routes/index.tsx`. Justificativa: depois do "como será executado" (roadmap), faz sentido mostrar "com o quê será executado" (kit), antes da adesão dos públicos.
+A barra atual de "% de cobertura" é substituída por barras empilhadas de **contagem de municípios por faixa** (mais informativa e coerente com a legenda). O percentual de cobertura da GRE continua disponível no tooltip e no painel de drill-down.
 
-Background alternado: como o Roadmap já é `muted`, esta seção fica `default` (fundo branco), mantendo o ritmo visual de alternância da landing.
+## Mudanças
 
-### Estrutura visual
+### 1. `src/lib/cin-data.ts` — novo seletor
 
-```text
-┌──────────────────────────────────────────────────────────────────┐
-│ Eyebrow: Infraestrutura                                          │
-│ Título: Kit de hardware para atendimento                         │
-│ Descrição: Composição padrão do ponto de captura...              │
-├──────────────────────────────────────────────────────────────────┤
-│ ┌────────────┐ ┌────────────┐ ┌────────────┐                     │
-│ │ 10 kits    │ │ R$ 25.000  │ │ R$ 250.000 │  (3 KPIs resumo)    │
-│ │ previstos  │ │ valor unit.│ │ inv. total │                     │
-│ └────────────┘ └────────────┘ └────────────┘                     │
-├──────────────────────────────────────────────────────────────────┤
-│ Card único: Composição do kit                                    │
-│ ┌────┬──────────────────┬──────────────────┬─────────────────┐   │
-│ │ Qt │ Item             │ Modelo de ref.   │ Função          │   │
-│ ├────┼──────────────────┼──────────────────┼─────────────────┤   │
-│ │ 01 │ Biombo de atend. │ MAKO             │ Privacidade...  │   │
-│ │ 02 │ Estações...      │ Dell Optiplex... │ Captura/apoio   │   │
-│ │ 01 │ Câmera digital   │ Canon PowerShot..│ Captura foto    │   │
-│ │ 01 │ Pad de assinat.  │ Akiyama AK560    │ Assinatura el.  │   │
-│ │ 01 │ Leitor biométr.  │ Suprema RealScan │ Impressões dig. │   │
-│ └────┴──────────────────┴──────────────────┴─────────────────┘   │
-│ Nota de rodapé: descrição operacional do kit (texto fornecido)   │
-└──────────────────────────────────────────────────────────────────┘
+Adicionar um seletor que retorna, por GRE, a contagem de municípios em cada faixa e a lista de municípios com % de cobertura. Sem alterar seletores existentes.
+
+```ts
+export type CoverageTier = "adequado" | "atencao" | "critico";
+
+export interface GreCoverageBreakdown {
+  codGRE: string;
+  pctComCIN: number;          // já existente em GreStudentAggregate
+  estudantes: number;
+  adequado: number;            // nº de municípios >= 70%
+  atencao: number;             // 40–69%
+  critico: number;             // < 40%
+  municipios: Array<{
+    municipio: string;
+    estudantes: number;
+    pctComCIN: number;
+    tier: CoverageTier;
+  }>;
+}
+
+export const getCoverageBreakdownByGre = (): GreCoverageBreakdown[] => { ... };
 ```
 
-Em telas pequenas a tabela vira lista de cards empilhados (cada item do kit = um cartão com Qt + Item + Modelo + Função), aproveitando o componente `Table` existente que já tem `overflow-auto`.
+A função reutiliza `data` (já carregado) e `safePct`. Tier classificado pela mesma regra de `barColor` em `TerritorialDiagnosis.tsx` para garantir consistência visual.
 
-### Arquivos
+### 2. `src/components/landing/TerritorialDiagnosis.tsx` — gráfico e interação
 
-**Criar** `src/components/landing/HardwareKit.tsx`:
-- Dados do kit como `const KIT_ITEMS` tipado dentro do próprio arquivo (5 itens, fixos — não justifica um JSON separado).
-- 3 mini-cards de KPI no topo (qtd kits, valor unitário, investimento total) usando o mesmo padrão visual dos cards já existentes na landing (border-l-4, ícone pequeno no header, número grande, label).
-- Card principal contendo a tabela (`@/components/ui/table`) com colunas: Quantidade, Termo genérico, Modelo de referência, Descrição/Função.
-- Rodapé do card com a descrição operacional fornecida pelo usuário (parágrafo cinza pequeno).
-- Ícones do `lucide-react`: `PackageCheck` (kits), `Wallet` (valor unit.), `Banknote` (investimento total), `Cpu` no header da seção.
-- Formatação monetária via `formatNumber` ou `Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" })`.
+- Trocar o `<BarChart>` de série única por **barras empilhadas** com três `<Bar dataKey="adequado|atencao|critico" stackId="tier">`, usando as cores já definidas em `CHART_COLORS` (`accent`, `secondary`, `destructive`).
+- Eixo Y passa a representar **nº de municípios** (inteiro, sem `%`). O percentual da GRE aparece no tooltip como linha extra ("Cobertura: XX,X%").
+- **Legenda customizada** (substitui os `LegendDot` atuais): cada item vira um botão com `aria-pressed`, controlando um estado `visibleTiers: Set<CoverageTier>`. Faixas desligadas são removidas do stack e ficam visualmente atenuadas no item da legenda.
+- **Clique na barra**: handler `onClick` no `<Bar>` (via prop `onClick={(d) => setSelectedGre(d.codGRE)}`). Seleção destacada com borda na barra (renderizando `<Cell stroke>` para a GRE ativa). Re-clicar na mesma GRE limpa a seleção.
+- **Painel de drill-down inline**: abaixo do gráfico, dentro do mesmo `Card`, renderizar um bloco condicional quando `selectedGre` existe. Mostra:
+  - Cabeçalho com código da GRE, % de cobertura, nº de municípios, botão "Fechar".
+  - Três sub-listas agrupadas por faixa (mesmas cores), cada município com nome, total de estudantes e % de cobertura. Layout em grid responsivo (`md:grid-cols-3`).
+  - Usa `Card` interno com `bg-muted/40` para distinguir do gráfico, mantendo tokens.
+- Acessibilidade: legenda navegável por teclado (`<button>`), barras com `role="button"` e `aria-label`, ESC fecha o painel.
+- Sem novas dependências. Sem hex hardcoded — todas as cores via `CHART_COLORS` já existentes (que já são tokens OKLCH compatíveis).
 
-**Editar** `src/routes/index.tsx`:
-- Importar `HardwareKit`.
-- Inserir um novo `<Section id="kit-hardware">` com `SectionHeader` (eyebrow "Infraestrutura", título "Kit de hardware para atendimento", descrição curta) entre `roadmap` e `secundarios`.
+### 3. Sem alterações em outros arquivos
 
-### Conteúdo (textos exatos)
+`KpiSummary`, `MunicipalityTable` e demais seções permanecem inalteradas.
 
-- Eyebrow: `Infraestrutura`
-- Título: `Kit de hardware para atendimento`
-- Descrição da seção: `Composição padrão do ponto de captura biométrica e fotográfica utilizado nas operações da CIN nas escolas. Serão mobilizados 10 kits para cobrir as ondas do roadmap.`
-- KPIs:
-  - `10` — Kits previstos
-  - `R$ 25.000` — Valor aproximado por kit
-  - `R$ 250.000` — Investimento total estimado
-- Tabela: os 5 itens conforme fornecido pelo usuário.
-- Nota de rodapé do card: o parágrafo "Kit de captura composto por estrutura de atendimento, duas estações de trabalho..." literalmente como o usuário enviou.
+## Layout (ASCII)
 
-### Padronização (não inventar)
+```text
+┌─ Card: Cobertura CIN por Gerência Regional ─────────────────┐
+│  título + subtítulo            [Adequado][Atenção][Crítico] │  ← legenda clicável
+│  ─────────────────────────────────────────────────────────  │
+│  ▆▆ ▆ ▆▆ ▆▆▆ ▆ ▆▆ ▆▆ ▆ ▆▆▆ ▆▆ ▆ ▆▆ ▆▆▆ ▆ ▆▆ ▆▆ ▆ ▆▆ ▆▆▆   │  ← barras empilhadas por GRE
+│  1ª 2ª 3ª 4ª … 21ª                                          │
+│  ─────────────────────────────────────────────────────────  │
+│  ▼ 5ª GRE — Cobertura 62,3% — 14 municípios       [Fechar]  │  ← drill-down (quando selecionado)
+│  ┌ Adequado ─────┐ ┌ Atenção ──────┐ ┌ Crítico ──────────┐ │
+│  │ Município A 82%│ │ Município D 55%│ │ Município G  28% │ │
+│  │ Município B 78%│ │ Município E 47%│ │ Município H  19% │ │
+│  └───────────────┘ └───────────────┘ └──────────────────┘ │
+└──────────────────────────────────────────────────────────────┘
+```
 
-- Usar `Section`, `SectionHeader` e `Container` já existentes — sem `max-w-*` solto.
-- Tipografia, cores e radius vêm dos tokens; nada de cor hardcoded.
-- Tabela usa o componente `@/components/ui/table` para herdar tipografia/bordas do design system.
-- Sem novas dependências.
+## Notas técnicas
 
-### Critério de aceite
-
-- Nova seção aparece entre Roadmap e Adesão da rede, com fundo branco (default).
-- Três mini-KPIs no topo, alinhados como os demais cards da landing.
-- Tabela legível em desktop com 4 colunas; em mobile rola horizontalmente sem quebrar layout.
-- Nenhum dado fora do que o usuário forneceu; nenhuma cor/fonte nova.
+- Estado local com `useState<Set<CoverageTier>>` para legenda e `useState<string | null>` para GRE selecionada.
+- Toggle de série: ao desligar uma faixa, removemos o `<Bar>` correspondente do render (Recharts re-renderiza o stack automaticamente). Domínio do Y recalculado por Recharts.
+- Tooltip customizado para incluir as três contagens + % cobertura + total de estudantes da GRE.
+- Performance: dataset tem 21 GREs — cálculo do breakdown é O(n) sobre os ~184 municípios, executado uma vez via `useMemo`.
+- TypeScript estrito mantido; sem `any`. Tipos novos exportados de `cin-data.ts`.
