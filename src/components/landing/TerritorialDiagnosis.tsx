@@ -123,6 +123,99 @@ export function TerritorialDiagnosis() {
   );
 }
 
+interface DistributionCardProps {
+  totals: ReturnType<typeof getStudentTotals>;
+}
+
+function DistributionCard({ totals }: DistributionCardProps) {
+  return (
+    <Card className="h-full border border-border border-l-4 border-l-primary shadow-card">
+      <CardContent className="flex h-full flex-col p-6">
+        <div className="mb-4 flex items-start gap-3">
+          <div className="mt-0.5">
+            <GraduationCap className="h-4 w-4 text-primary" aria-hidden />
+          </div>
+          <div>
+            <h3 className="text-base font-semibold text-foreground">Distribuição geral</h3>
+            <p className="text-xs text-muted-foreground">
+              Estudantes Com vs Sem CIN
+            </p>
+          </div>
+        </div>
+
+        <div className="mb-4 rounded-lg bg-muted/50 px-3 py-3">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+            Cobertura atual
+          </p>
+          <div className="mt-1 flex items-end justify-between gap-3">
+            <span className="text-3xl font-extrabold leading-none text-foreground tabular-nums">
+              {formatPercent(totals.pctComCIN)}
+            </span>
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Meta 100%
+            </span>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <BreakdownRow
+            label="Com CIN"
+            count={totals.comCIN}
+            pct={totals.pctComCIN}
+            color={CHART_COLORS.accent}
+            indicatorClassName="bg-accent"
+            valueClassName="text-accent"
+          />
+          <BreakdownRow
+            label="Sem CIN"
+            count={totals.semCIN}
+            pct={totals.pctSemCIN}
+            color={CHART_COLORS.destructive}
+            indicatorClassName="bg-destructive"
+            valueClassName="text-destructive"
+          />
+        </div>
+
+        <div className="mt-auto grid grid-cols-3 gap-2 border-t border-border pt-4 text-center text-[11px] text-muted-foreground">
+          <SummaryMetric
+            icon={<GraduationCap className="h-3.5 w-3.5" aria-hidden />}
+            value={formatNumber(totals.estudantes)}
+            label="estudantes"
+          />
+          <SummaryMetric
+            icon={<Building2 className="h-3.5 w-3.5" aria-hidden />}
+            value={String(totals.totalGREs)}
+            label="GREs"
+          />
+          <SummaryMetric
+            icon={<MapPin className="h-3.5 w-3.5" aria-hidden />}
+            value={String(totals.totalMunicipios)}
+            label="municípios"
+          />
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+interface SummaryMetricProps {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+}
+
+function SummaryMetric({ icon, value, label }: SummaryMetricProps) {
+  return (
+    <span className="flex min-w-0 flex-col items-center gap-1">
+      <span className="text-muted-foreground">{icon}</span>
+      <strong className="max-w-full truncate font-semibold text-foreground tabular-nums">
+        {value}
+      </strong>
+      <span className="max-w-full truncate">{label}</span>
+    </span>
+  );
+}
+
 function LegendDot({ color, label }: { color: string; label: string }) {
   return (
     <span className="inline-flex items-center gap-1.5">
