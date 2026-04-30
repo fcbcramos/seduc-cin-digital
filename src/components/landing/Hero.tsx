@@ -2,16 +2,14 @@ import { Badge } from "@/components/ui/badge";
 import { GraduationCap, MapPin, Building2, Sparkles } from "lucide-react";
 import { getStudentTotals } from "@/lib/cin-data";
 import { formatNumber, formatPercent } from "@/lib/format";
-
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1600&q=80";
+import heroImage from "@/assets/aluno-rede-estadual-pi.jpg";
 
 export function Hero() {
   const t = getStudentTotals();
 
   return (
     <header className="relative overflow-hidden bg-card">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-16">
         {/* LEFT — content */}
         <div className="flex flex-col justify-center lg:col-span-7">
           <div className="mb-5 flex flex-wrap items-center gap-2">
@@ -27,7 +25,7 @@ export function Hero() {
 
           <h1 className="text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Projeto{" "}
-            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               CIN nas Escolas
             </span>
           </h1>
@@ -52,12 +50,12 @@ export function Hero() {
         <div className="relative lg:col-span-5">
           <div className="relative overflow-hidden rounded-2xl shadow-card-hover">
             <img
-              src={HERO_IMAGE}
-              alt="Estudantes da rede pública em sala de aula"
-              className="h-[320px] w-full object-cover sm:h-[400px] lg:h-[460px]"
+              src={heroImage}
+              alt="Estudantes da rede estadual do Piauí em sala de aula, uniforme oficial Governo do Estado"
+              className="h-[280px] w-full object-cover sm:h-[400px] lg:h-[460px]"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/70 via-primary/20 to-transparent" aria-hidden />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/75 via-primary/25 to-transparent" aria-hidden />
             <div className="absolute inset-x-0 bottom-0 p-5 text-primary-foreground">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
                 Identidade · Cidadania · Educação

@@ -53,6 +53,7 @@ export function SecondaryIndicators() {
         title="Pais e responsáveis"
         description="Famílias dos estudantes da rede"
         pendingNote="Indicador previsto na hierarquia oficial. Aguardando integração com a base de matrícula para consolidar total na rede, com CIN e sem CIN, por GRE e por município."
+        accent="secondary"
       />
     </div>
   );

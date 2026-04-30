@@ -44,7 +44,7 @@ function Section({
   return (
     <section
       id={id}
-      className={`mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8 ${className ?? ""}`}
+      className={`mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 ${className ?? ""}`}
     >
       {children}
     </section>
@@ -64,9 +64,10 @@ function LandingPage() {
             eyebrow="Indicadores prioritários"
             title="Alunos da rede estadual — ano letivo 2026"
             description="Totalizadores macro de estudantes da rede estadual do Piauí com enturmação 2026: quem já tem a Carteira de Identidade Nacional e quem ainda precisa ser atendido."
+            eyebrowTone="primary"
           />
           <KpiSummary />
-          <div className="mt-6">
+          <div className="mt-5">
             <UniversalizationGoal />
           </div>
         </Section>
@@ -77,6 +78,7 @@ function LandingPage() {
               eyebrow="Diagnóstico por GRE"
               title="Quem tem mais e quem tem menos cobertura"
               description="Comparativo entre as 21 Gerências Regionais de Educação — destaque para as melhores e as prioritárias."
+              eyebrowTone="accent"
             />
             <TerritorialDiagnosis />
           </Section>
@@ -87,6 +89,7 @@ function LandingPage() {
             eyebrow="Plano de ação por município"
             title="224 municípios da rede estadual"
             description="Tabela operacional com filtros por GRE, status e ordenação por gap. Use para identificar prioridades."
+            eyebrowTone="destructive"
           />
           <MunicipalityTable />
         </Section>
@@ -97,6 +100,7 @@ function LandingPage() {
               eyebrow="Indicadores secundários"
               title="Adesão da rede e responsáveis"
               description="Cobertura entre docentes em sala de aula, quadro administrativo e famílias dos estudantes — base de credibilidade institucional para a campanha."
+              eyebrowTone="secondary"
             />
             <SecondaryIndicators />
           </Section>
