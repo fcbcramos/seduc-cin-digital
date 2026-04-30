@@ -1,55 +1,78 @@
-Entendi agora: os três blocos devem ter o mesmo padrão visual e ficar na mesma linha.
+## Nova seção: Kit de Hardware para Atendimento
 
-Vou corrigir assim:
+Adicionar uma seção institucional descrevendo o kit de captura utilizado nos pontos de atendimento, no mesmo padrão visual das demais seções (Section + SectionHeader + cards/tabela com tokens já existentes).
+
+### Onde entra na página
+
+Inserir entre `ExecutionRoadmap` (Roadmap) e `SecondaryIndicators` (Adesão da rede) em `src/routes/index.tsx`. Justificativa: depois do "como será executado" (roadmap), faz sentido mostrar "com o quê será executado" (kit), antes da adesão dos públicos.
+
+Background alternado: como o Roadmap já é `muted`, esta seção fica `default` (fundo branco), mantendo o ritmo visual de alternância da landing.
+
+### Estrutura visual
 
 ```text
-┌──────────────────────┐ ┌──────────────────────┐ ┌──────────────────────┐
-│ Distribuição geral    │ │ Top 5 — Melhores GREs│ │ Top 5 — Prioritárias │
-│ mesmo formato/card    │ │ mesmo formato/card    │ │ mesmo formato/card   │
-└──────────────────────┘ └──────────────────────┘ └──────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│ Eyebrow: Infraestrutura                                          │
+│ Título: Kit de hardware para atendimento                         │
+│ Descrição: Composição padrão do ponto de captura...              │
+├──────────────────────────────────────────────────────────────────┤
+│ ┌────────────┐ ┌────────────┐ ┌────────────┐                     │
+│ │ 10 kits    │ │ R$ 25.000  │ │ R$ 250.000 │  (3 KPIs resumo)    │
+│ │ previstos  │ │ valor unit.│ │ inv. total │                     │
+│ └────────────┘ └────────────┘ └────────────┘                     │
+├──────────────────────────────────────────────────────────────────┤
+│ Card único: Composição do kit                                    │
+│ ┌────┬──────────────────┬──────────────────┬─────────────────┐   │
+│ │ Qt │ Item             │ Modelo de ref.   │ Função          │   │
+│ ├────┼──────────────────┼──────────────────┼─────────────────┤   │
+│ │ 01 │ Biombo de atend. │ MAKO             │ Privacidade...  │   │
+│ │ 02 │ Estações...      │ Dell Optiplex... │ Captura/apoio   │   │
+│ │ 01 │ Câmera digital   │ Canon PowerShot..│ Captura foto    │   │
+│ │ 01 │ Pad de assinat.  │ Akiyama AK560    │ Assinatura el.  │   │
+│ │ 01 │ Leitor biométr.  │ Suprema RealScan │ Impressões dig. │   │
+│ └────┴──────────────────┴──────────────────┴─────────────────┘   │
+│ Nota de rodapé: descrição operacional do kit (texto fornecido)   │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-Plano de alteração
+Em telas pequenas a tabela vira lista de cards empilhados (cada item do kit = um cartão com Qt + Item + Modelo + Função), aproveitando o componente `Table` existente que já tem `overflow-auto`.
 
-1. Transformar “Distribuição geral” em card igual aos rankings
-   - Mesmo tamanho visual.
-   - Mesmo padding.
-   - Mesmo cabeçalho: ícone pequeno + título + subtítulo.
-   - Mesma estrutura interna compacta.
-   - Remover o card largo com gauge grande, porque ele está destoando dos outros dois.
+### Arquivos
 
-2. Colocar os três cards lado a lado
-   - Usar grid com 3 colunas para desktop e janelas largas/intermediárias.
-   - Em tela menor, empilhar de forma responsiva para não quebrar.
-   - Evitar que um card fique gigante e os outros separados abaixo.
+**Criar** `src/components/landing/HardwareKit.tsx`:
+- Dados do kit como `const KIT_ITEMS` tipado dentro do próprio arquivo (5 itens, fixos — não justifica um JSON separado).
+- 3 mini-cards de KPI no topo (qtd kits, valor unitário, investimento total) usando o mesmo padrão visual dos cards já existentes na landing (border-l-4, ícone pequeno no header, número grande, label).
+- Card principal contendo a tabela (`@/components/ui/table`) com colunas: Quantidade, Termo genérico, Modelo de referência, Descrição/Função.
+- Rodapé do card com a descrição operacional fornecida pelo usuário (parágrafo cinza pequeno).
+- Ícones do `lucide-react`: `PackageCheck` (kits), `Wallet` (valor unit.), `Banknote` (investimento total), `Cpu` no header da seção.
+- Formatação monetária via `formatNumber` ou `Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" })`.
 
-3. Padronizar altura e espaçamento
-   - Os três cards terão altura e densidade visual parecidas.
-   - “Distribuição geral” mostrará:
-     - percentual principal de cobertura;
-     - linha “Com CIN”;
-     - linha “Sem CIN”;
-     - totais resumidos no mesmo padrão compacto.
-   - “Top 5 — Melhores GREs” e “Top 5 — Prioritárias” continuam com suas listas, mas ajustadas para a mesma altura/densidade do primeiro card.
+**Editar** `src/routes/index.tsx`:
+- Importar `HardwareKit`.
+- Inserir um novo `<Section id="kit-hardware">` com `SectionHeader` (eyebrow "Infraestrutura", título "Kit de hardware para atendimento", descrição curta) entre `roadmap` e `secundarios`.
 
-4. Preservar fonte, cores e terminologia
-   - Não alterar fonte.
-   - Não alterar paleta.
-   - Manter “Ensino Fundamental e Ensino Médio”.
-   - Não voltar com “educação básica”.
+### Conteúdo (textos exatos)
 
-Arquivos a alterar após aprovação
+- Eyebrow: `Infraestrutura`
+- Título: `Kit de hardware para atendimento`
+- Descrição da seção: `Composição padrão do ponto de captura biométrica e fotográfica utilizado nas operações da CIN nas escolas. Serão mobilizados 10 kits para cobrir as ondas do roadmap.`
+- KPIs:
+  - `10` — Kits previstos
+  - `R$ 25.000` — Valor aproximado por kit
+  - `R$ 250.000` — Investimento total estimado
+- Tabela: os 5 itens conforme fornecido pelo usuário.
+- Nota de rodapé do card: o parágrafo "Kit de captura composto por estrutura de atendimento, duas estações de trabalho..." literalmente como o usuário enviou.
 
-- `src/components/landing/TerritorialDiagnosis.tsx`
-  - Reorganizar os três blocos em uma única grade horizontal.
-  - Refatorar “Distribuição geral” para usar o mesmo padrão de card dos rankings.
+### Padronização (não inventar)
 
-- `src/styles.css`, somente se necessário
-  - Criar uma classe utilitária padronizada para grid de três cards, sem valores soltos improvisados.
+- Usar `Section`, `SectionHeader` e `Container` já existentes — sem `max-w-*` solto.
+- Tipografia, cores e radius vêm dos tokens; nada de cor hardcoded.
+- Tabela usa o componente `@/components/ui/table` para herdar tipografia/bordas do design system.
+- Sem novas dependências.
 
-Critério de aceite
+### Critério de aceite
 
-- Os três blocos aparecem como cards equivalentes.
-- Os três ficam um ao lado do outro em desktop/janela larga.
-- Nenhum card fica desproporcional, gigante ou jogado para outra linha sem necessidade.
-- O bloco “Distribuição geral” deixa de parecer uma seção diferente dos outros dois.
+- Nova seção aparece entre Roadmap e Adesão da rede, com fundo branco (default).
+- Três mini-KPIs no topo, alinhados como os demais cards da landing.
+- Tabela legível em desktop com 4 colunas; em mobile rola horizontalmente sem quebrar layout.
+- Nenhum dado fora do que o usuário forneceu; nenhuma cor/fonte nova.
