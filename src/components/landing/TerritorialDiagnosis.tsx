@@ -205,7 +205,7 @@ export function TerritorialDiagnosis() {
                 Cobertura CIN por Gerência Regional
               </h3>
               <p className="mt-1 text-xs text-muted-foreground">
-                Ordenadas da menor para a maior cobertura · cor indica status
+                Sequência numérica das 21 GREs · cor indica status
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
