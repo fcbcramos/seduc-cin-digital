@@ -51,11 +51,11 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-2xl shadow-card-hover">
             <img
               src={heroImage}
-              alt="Estudantes da rede estadual do Piauí em sala de aula, uniforme oficial Governo do Estado"
+              alt="Estudantes da rede estadual do Piauí em sala de aula com uniforme oficial do Governo do Estado"
               className="h-[280px] w-full object-cover sm:h-[400px] lg:h-[460px]"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/75 via-primary/25 to-transparent" aria-hidden />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/55 via-primary/15 to-transparent" aria-hidden />
             <div className="absolute inset-x-0 bottom-0 p-5 text-primary-foreground">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
                 Identidade · Cidadania · Educação
