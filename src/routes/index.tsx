@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { TopBar } from "@/components/landing/TopBar";
+import { InstitutionalHeader } from "@/components/landing/InstitutionalHeader";
 import { Hero } from "@/components/landing/Hero";
 import { KpiSummary } from "@/components/landing/KpiSummary";
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
@@ -54,6 +56,8 @@ function Section({
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
+      <TopBar />
+      <InstitutionalHeader />
       <Hero />
 
       <main>

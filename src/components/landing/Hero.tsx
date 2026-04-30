@@ -16,13 +16,10 @@ export function Hero() {
   return (
     <header className="relative overflow-hidden">
       <div className="gradient-header text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">
               <div className="mb-4 flex flex-wrap items-center gap-2">
-                <Badge className="border-0 bg-secondary text-secondary-foreground hover:bg-secondary">
-                  SEDUC-PI
-                </Badge>
                 <Badge variant="outline" className="border-primary-foreground/30 bg-transparent text-primary-foreground">
                   Projeto Institucional
                 </Badge>
