@@ -9,10 +9,10 @@ export function Hero() {
 
   return (
     <header className="relative overflow-hidden bg-card">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-6 sm:px-6 sm:py-8 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:py-10">
         {/* LEFT — content */}
         <div className="flex flex-col justify-center lg:col-span-7">
-          <div className="mb-5 flex flex-wrap items-center gap-2">
+          <div className="mb-3 flex flex-wrap items-center gap-2">
             <Badge className="border-0 bg-secondary text-secondary-foreground hover:bg-secondary">
               <Sparkles className="mr-1.5 h-3 w-3" aria-hidden />
               Projeto Institucional
@@ -30,7 +30,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             A Secretaria de Estado da Educação do Piauí mobiliza a rede para garantir
             que <strong className="text-foreground">todos os estudantes</strong> da
             educação básica obtenham a Carteira de Identidade Nacional, eliminando a
@@ -38,7 +38,7 @@ export function Hero() {
           </p>
 
           {/* micro KPIs */}
-          <dl className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
             <KpiPill icon={GraduationCap} label="Estudantes" value={formatNumber(t.estudantes)} tone="primary" />
             <KpiPill icon={Sparkles} label="Cobertura" value={formatPercent(t.pctComCIN, 1)} tone="accent" />
             <KpiPill icon={MapPin} label="Municípios" value={formatNumber(t.totalMunicipios)} tone="secondary" />
