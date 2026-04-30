@@ -1,6 +1,6 @@
-import { ShieldCheck, Fingerprint, Smartphone, Globe2 } from "lucide-react";
+import { ShieldCheck, Fingerprint, Smartphone, Globe2, ExternalLink } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { ExternalLink } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface PillarProps {
   icon: LucideIcon;
@@ -37,30 +37,32 @@ const pillars: PillarProps[] = [
 
 function Pillar({ icon: Icon, title, description }: PillarProps) {
   return (
-    <div className="border-t border-border pt-6">
-      <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-muted text-primary">
-        <Icon className="h-4.5 w-4.5" aria-hidden />
-      </span>
-      <h3 className="mt-4 font-display text-base font-semibold leading-snug text-foreground">
-        {title}
-      </h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        {description}
-      </p>
-    </div>
+    <Card className="h-full border border-border shadow-card">
+      <CardContent className="flex h-full flex-col p-6">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+          <Icon className="h-5 w-5" aria-hidden />
+        </span>
+        <h3 className="mt-4 text-base font-semibold leading-snug text-foreground">
+          {title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {description}
+        </p>
+      </CardContent>
+    </Card>
   );
 }
 
 export function AboutCIN() {
   return (
     <div>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid-cards-4">
         {pillars.map((p) => (
           <Pillar key={p.title} {...p} />
         ))}
       </div>
 
-      <div className="mt-8 border-t border-border pt-4">
+      <div className="mt-6 border-t border-border pt-4">
         <a
           href="https://www.gov.br/governodigital/pt-br/identidade/identificacao-do-cidadao-e-carteira-de-identidade-nacional/carteira-de-identidade-nacional-cin"
           target="_blank"
