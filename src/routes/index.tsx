@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TopBar } from "@/components/landing/TopBar";
 import { InstitutionalHeader } from "@/components/landing/InstitutionalHeader";
 import { Hero } from "@/components/landing/Hero";
+import { AboutCIN } from "@/components/landing/AboutCIN";
 import { KpiSummary } from "@/components/landing/KpiSummary";
 import { UniversalizationGoal } from "@/components/landing/UniversalizationGoal";
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
 import { MunicipalityTable } from "@/components/landing/MunicipalityTable";
+import { ExecutionRoadmap } from "@/components/landing/ExecutionRoadmap";
 import { SecondaryIndicators } from "@/components/landing/SecondaryIndicators";
 import { Footer } from "@/components/landing/Footer";
 import { SectionHeader } from "@/components/landing/SectionHeader";
@@ -44,7 +45,7 @@ function Section({
   return (
     <section
       id={id}
-      className={`mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 ${className ?? ""}`}
+      className={`mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10 ${className ?? ""}`}
     >
       {children}
     </section>
@@ -54,44 +55,65 @@ function Section({
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
-      <TopBar />
       <InstitutionalHeader />
       <Hero />
 
       <main>
-        <Section id="prioritarios">
+        <Section id="sobre-cin">
           <SectionHeader
-            eyebrow="Indicadores prioritários"
-            title="Alunos da rede estadual — ano letivo 2026"
-            description="Totalizadores macro de estudantes da rede estadual do Piauí com enturmação 2026: quem já tem a Carteira de Identidade Nacional e quem ainda precisa ser atendido."
+            eyebrow="Sobre a CIN"
+            title="O que é a Carteira de Identidade Nacional"
+            description="Documento único, padronizado e seguro, com validade em todo o Brasil e nos países do Mercosul. Substitui o antigo RG e usa o CPF como número único."
             eyebrowTone="primary"
           />
-          <KpiSummary />
-          <div className="mt-5">
-            <UniversalizationGoal />
-          </div>
+          <AboutCIN />
         </Section>
 
         <div className="bg-muted/40">
-          <Section id="diagnostico">
+          <Section id="prioritarios">
             <SectionHeader
-              eyebrow="Diagnóstico por GRE"
-              title="Quem tem mais e quem tem menos cobertura"
-              description="Comparativo entre as 21 Gerências Regionais de Educação — destaque para as melhores e as prioritárias."
-              eyebrowTone="accent"
+              eyebrow="Indicadores prioritários"
+              title="Alunos da rede estadual — ano letivo 2026"
+              description="Totalizadores macro de estudantes da rede estadual do Piauí com enturmação 2026: quem já tem a Carteira de Identidade Nacional e quem ainda precisa ser atendido."
+              eyebrowTone="primary"
             />
-            <TerritorialDiagnosis />
+            <KpiSummary />
+            <div className="mt-4">
+              <UniversalizationGoal />
+            </div>
           </Section>
         </div>
 
-        <Section id="municipios">
+        <Section id="diagnostico">
           <SectionHeader
-            eyebrow="Plano de ação por município"
-            title="224 municípios da rede estadual"
-            description="Tabela operacional com filtros por GRE, status e ordenação por gap. Use para identificar prioridades."
+            eyebrow="Diagnóstico por GRE"
+            title="Quem tem mais e quem tem menos cobertura"
+            description="Comparativo entre as 21 Gerências Regionais de Educação — destaque para as melhores e as prioritárias."
+            eyebrowTone="accent"
+          />
+          <TerritorialDiagnosis />
+        </Section>
+
+        <div className="bg-muted/40">
+          <Section id="municipios">
+            <SectionHeader
+              eyebrow="Plano de ação por município"
+              title="224 municípios da rede estadual"
+              description="Tabela operacional com filtros por GRE, status e ordenação por gap. Use para identificar prioridades."
+              eyebrowTone="destructive"
+            />
+            <MunicipalityTable />
+          </Section>
+        </div>
+
+        <Section id="roadmap">
+          <SectionHeader
+            eyebrow="Roadmap de execução"
+            title="Plano em 4 ondas até dezembro de 2026"
+            description="Sequência operacional das 21 GREs, priorizando primeiro as de menor cobertura e maior distância da capital, e fechando o ciclo na Região Metropolitana de Teresina."
             eyebrowTone="destructive"
           />
-          <MunicipalityTable />
+          <ExecutionRoadmap />
         </Section>
 
         <div className="bg-muted/40">
