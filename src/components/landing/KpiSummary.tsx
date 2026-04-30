@@ -1,50 +1,62 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { getTotals } from "@/lib/cin-data";
-import { formatNumber, formatPercent } from "@/lib/format";
 import {
   CheckCircle2,
   GraduationCap,
-  TrendingUp,
-  Users,
-  UsersRound,
+  MapPin,
+  ShieldAlert,
+  ShieldCheck,
   XCircle,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { getStudentTotals } from "@/lib/cin-data";
+import { formatNumber, formatPercent } from "@/lib/format";
 
 interface KpiCardProps {
   label: string;
   value: string;
   helper?: string;
   icon: LucideIcon;
-  tone: "primary" | "success" | "warning" | "danger";
+  accent: "primary" | "accent" | "destructive" | "secondary";
   progress?: number;
 }
 
-const toneStyles: Record<KpiCardProps["tone"], { iconBg: string; iconColor: string }> = {
-  primary: { iconBg: "bg-primary/10", iconColor: "text-primary" },
-  success: { iconBg: "bg-accent/10", iconColor: "text-accent" },
-  warning: { iconBg: "bg-secondary/20", iconColor: "text-foreground" },
-  danger: { iconBg: "bg-destructive/10", iconColor: "text-destructive" },
+const accentMap: Record<
+  KpiCardProps["accent"],
+  { bar: string; iconBg: string; iconColor: string }
+> = {
+  primary: { bar: "bg-primary", iconBg: "bg-primary/10", iconColor: "text-primary" },
+  accent: { bar: "bg-accent", iconBg: "bg-accent/10", iconColor: "text-accent" },
+  destructive: {
+    bar: "bg-destructive",
+    iconBg: "bg-destructive/10",
+    iconColor: "text-destructive",
+  },
+  secondary: {
+    bar: "bg-secondary",
+    iconBg: "bg-secondary/20",
+    iconColor: "text-foreground",
+  },
 };
 
-function KpiCard({ label, value, helper, icon: Icon, tone, progress }: KpiCardProps) {
-  const t = toneStyles[tone];
+function KpiCard({ label, value, helper, icon: Icon, accent, progress }: KpiCardProps) {
+  const a = accentMap[accent];
   return (
-    <Card className="card-hover shadow-card">
+    <Card className="card-hover relative overflow-hidden shadow-card">
+      <span className={`absolute inset-x-0 top-0 h-1 ${a.bar}`} aria-hidden />
       <CardContent className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               {label}
             </p>
-            <p className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">{value}</p>
+            <p className="mt-2 text-3xl font-bold text-foreground">{value}</p>
             {helper && <p className="mt-1 text-xs text-muted-foreground">{helper}</p>}
           </div>
           <div
-            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${t.iconBg}`}
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${a.iconBg}`}
           >
-            <Icon className={`h-5 w-5 ${t.iconColor}`} aria-hidden />
+            <Icon className={`h-5 w-5 ${a.iconColor}`} aria-hidden />
           </div>
         </div>
         {typeof progress === "number" && (
@@ -58,59 +70,60 @@ function KpiCard({ label, value, helper, icon: Icon, tone, progress }: KpiCardPr
 }
 
 export function KpiSummary() {
-  const t = getTotals();
+  const t = getStudentTotals();
 
   const items: KpiCardProps[] = [
     {
       label: "Total de estudantes",
       value: formatNumber(t.estudantes),
-      helper: "Rede estadual de ensino do Piauí",
+      helper: "Rede estadual do Piauí",
       icon: GraduationCap,
-      tone: "primary",
+      accent: "primary",
     },
     {
       label: "Estudantes com CIN",
-      value: formatNumber(t.estudantesComCIN),
-      helper: formatPercent(t.pctEstudantes) + " de cobertura",
+      value: formatNumber(t.comCIN),
+      helper: formatPercent(t.pctComCIN) + " do total",
       icon: CheckCircle2,
-      tone: "success",
-      progress: t.pctEstudantes,
+      accent: "accent",
+      progress: t.pctComCIN,
     },
     {
       label: "Estudantes sem CIN",
-      value: formatNumber(t.estudantesSemCIN),
-      helper: "Público prioritário do projeto",
+      value: formatNumber(t.semCIN),
+      helper: formatPercent(t.pctSemCIN) + " — público prioritário",
       icon: XCircle,
-      tone: "danger",
+      accent: "destructive",
+      progress: t.pctSemCIN,
     },
     {
-      label: "Total de parentes",
-      value: formatNumber(t.parentes),
-      helper: "Familiares vinculados aos estudantes",
-      icon: UsersRound,
-      tone: "primary",
+      label: "Municípios adequados",
+      value: formatNumber(t.municipiosAdequados),
+      helper: "Cobertura ≥ 70%",
+      icon: ShieldCheck,
+      accent: "accent",
     },
     {
-      label: "Parentes sem CIN",
-      value: formatNumber(t.parentesSemCIN),
-      helper: formatPercent(100 - t.pctParentes) + " do total de familiares",
-      icon: Users,
-      tone: "warning",
+      label: "Municípios críticos",
+      value: formatNumber(t.municipiosCriticos),
+      helper: "Cobertura < 40%",
+      icon: ShieldAlert,
+      accent: "destructive",
     },
     {
-      label: "Avanço geral",
-      value: formatPercent(t.pctGeral),
-      helper: "Cobertura consolidada (estudantes + parentes)",
-      icon: TrendingUp,
-      tone: "success",
-      progress: t.pctGeral,
+      label: "Cobertura geral",
+      value: formatPercent(t.pctComCIN),
+      helper: "Estudantes com CIN / total",
+      icon: MapPin,
+      accent: "secondary",
+      progress: t.pctComCIN,
     },
   ];
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-      {items.map((item) => (
-        <KpiCard key={item.label} {...item} />
+      {items.map((i) => (
+        <KpiCard key={i.label} {...i} />
       ))}
     </div>
   );
