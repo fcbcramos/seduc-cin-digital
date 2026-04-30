@@ -1,28 +1,86 @@
-## O que muda
+## Diagnóstico (viewport 1920×1080)
 
-### 1. Roadmap — janela jun a dez/2026 (7 ondas mensais)
-Em `src/lib/cin-roadmap.ts`:
-- Trocar a divisão atual (4 ondas trimestrais jan–dez/26) por **7 ondas mensais**, uma por mês de junho a dezembro de 2026.
-- Cada onda recebe ~3 GREs (21 ÷ 7 = 3 exatas) na ordem de prioridade já calculada (`(100 - cobertura) × 0.7 + distância × 0.3`).
-- Sequência: **Jun, Jul, Ago, Set, Out, Nov, Dez 2026**.
-- Tons reaproveitados do gradiente institucional, do mais crítico (vermelho) ao consolidação (azul/verde): destructive → secondary → secondary → accent → accent → primary → primary.
-- Ajustar `intensidade` para refletir 7 níveis enxutos: "Crítica", "Crítica", "Alta", "Alta", "Média", "Consolidação", "Fechamento".
-- Em `src/components/landing/ExecutionRoadmap.tsx`: mudar grid de `xl:grid-cols-4` para `lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-7` (em telas comuns, 3–4 cards por linha; o usuário enxerga sequência clara). Reduzir densidade interna (apenas 3 GREs por card cabe melhor).
-- Atualizar texto de cabeçalho da seção em `src/routes/index.tsx`: "Plano em 7 ondas mensais — junho a dezembro de 2026".
+Capturei a página em fullscreen e identifiquei estes problemas reais:
 
-### 2. Card de "Pais e responsáveis" — sair do placeholder
-Os dados **já existem** no JSON `cin-coverage.json` (campos `qtdParentes`, `qtdParenteComCIN`, `qtdParenteSemCIN`). Totais reais: **263.982 responsáveis · 72.534 com CIN · 191.448 sem CIN · 27,5% de cobertura**. O card está vazio só porque o componente nunca foi conectado.
+1. **Larguras inconsistentes entre seções**
+   - Quase toda a página usa `max-w-7xl` (1280px) centralizado, deixando ~320px de margem branca de cada lado em telas ≥1920px.
+   - O `CallToAction` é **full-bleed** (sem `max-w-7xl`), então a faixa azul ocupa 1920px enquanto o conteúdo acima fica em 1280px — quebra visual evidente.
+   - O `InstitutionalHeader` também limita a 1280px, fazendo o logo "flutuar" no meio da tela em vez de ancorar à esquerda da viewport.
+   - O `Footer` segue o mesmo padrão de 1280px.
 
-Mudanças:
-- `src/lib/cin-data.ts`: adicionar tipos `ParentTotals` e `ParentByGre`, e funções puras `getParentTotals()`, `getParentByGre()` (consolida por GRE) e `getParentWorstGres(n)`.
-- `src/components/landing/SecondaryIndicators.tsx`: substituir `IndicatorBlockEmpty` pelo `IndicatorBlock` real, alimentado por `getParentTotals()` + `getParentWorstGres(3)`. Mantém o tom `secondary` (amarelo) já definido na hierarquia visual.
-- Texto: "Famílias dos estudantes da rede — base de matrícula 2026".
+2. **Imagens cortadas / desproporcionais em telas largas**
+   - `Hero`: imagem da direita usa altura fixa `lg:h-[460px]` mas a coluna estica em telas >1280px, cortando a aluna em primeiro plano (mãos/folha sumindo em baixo).
+   - `CallToAction`: a foto de fundo usa `object-cover object-left` numa faixa de 1920×~440px → o estudante aparece deslocado e o gradiente azul cobre 75% da imagem, mas em 1920px o gradiente se estica e a foto fica praticamente invisível à direita.
+   - O card "Cada estudante com sua identidade garantida" no Hero tem o gradiente cobrindo demais o rosto da estudante.
 
-### 3. Não muda nada mais
-- KPI principal de estudantes, diagnóstico por GRE, tabela municipal e meta de universalização permanecem como estão.
-- A seção "Sobre a CIN" e a logo do header não são tocadas.
+3. **Cards/containers desalinhados ou grandes demais**
+   - `KpiSummary` em 3 colunas fica com cards de ~400px de largura cada em telas ≥1280px — números pequenos no meio de muito espaço vazio.
+   - `SecondaryIndicators` (3 cards): cada card cresce demais; tabelas de "GREs prioritárias" ficam com muito espaço entre código GRE e percentual.
+   - `ExecutionRoadmap` usa `2xl:grid-cols-7` que só ativa em ≥1536px. Entre 1280px e 1535px os cards ficam em 4 colunas com a 5ª, 6ª e 7ª ondas quebradas para a linha de baixo, criando uma fileira órfã visualmente desbalanceada.
+   - O `UniversalizationGoal` em 2 colunas (1.5fr_1fr) fica com a barra de progresso enorme em telas largas.
 
-## Critérios de aceite
-- Roadmap renderiza 7 cards mensais (Jun–Dez/2026), 3 GREs cada, ordenados por prioridade.
-- Card "Pais e responsáveis" mostra 263.982 / 27,5% e as 3 GREs prioritárias, sem badge "Em consolidação".
-- Build passa sem erro.
+4. **Header**
+   - Logo SEDUC à esquerda fica isolado no centro-esquerdo da tela, e o bloco "Painel Institucional" no centro-direito, com ~600px vazios em cada extremo.
+
+## Plano de correção
+
+### A) Padronizar largura máxima do site
+Adotar **uma única largura de conteúdo**: `max-w-[1440px]` (em vez de `max-w-7xl`/1280px) para todas as seções, header, hero, CTA e footer. Isso:
+- Aproveita melhor monitores 1920px sem ficar "esticado" demais.
+- Garante que as faixas full-bleed do CTA tenham o conteúdo interno alinhado com o restante da página.
+
+Arquivos:
+- `src/routes/index.tsx` → trocar `max-w-7xl` por `max-w-[1440px]` no helper `Section`.
+- `src/components/landing/InstitutionalHeader.tsx` → mesmo ajuste.
+- `src/components/landing/Hero.tsx` → mesmo ajuste no container interno.
+- `src/components/landing/CallToAction.tsx` → trocar `max-w-7xl` do conteúdo por `max-w-[1440px]` (mantendo a imagem/gradiente full-bleed).
+- `src/components/landing/Footer.tsx` → mesmo ajuste.
+
+### B) Corrigir cortes/proporções de imagem
+
+**Hero** (`Hero.tsx`):
+- Aumentar a altura do bloco direito em telas grandes para acompanhar o crescimento da coluna de texto: `lg:h-[460px] xl:h-[520px]`.
+- Mudar `object-cover` para `object-cover object-[center_30%]` para enquadrar melhor o rosto/mãos da estudante.
+- Ajustar gradiente para `from-primary/45 via-primary/10 to-transparent` (deixa a foto mais visível).
+
+**CallToAction** (`CallToAction.tsx`):
+- Trocar imagem `object-left` por `object-[30%_center]` para manter o estudante visível mesmo em 1920px.
+- Reduzir o overlay da direita: `from-primary/95 via-primary/70 to-primary/20` → menos opacidade na ponta direita para a foto respirar.
+- Limitar a altura da seção (`max-h-[520px]`) para não esticar a foto verticalmente.
+
+### C) Densificar cards em telas grandes
+
+**KpiSummary** (`KpiSummary.tsx`):
+- Em telas ≥1280px usar 6 colunas (1 linha só) com cards mais compactos: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6`. Reduz altura visual e elimina espaço vazio.
+
+**SecondaryIndicators**:
+- Manter 3 colunas mas adicionar `max-w-[1280px] mx-auto` no grid para impedir que cresça demais dentro do container 1440px.
+
+**ExecutionRoadmap** (`ExecutionRoadmap.tsx`):
+- Mudar breakpoint do grid de 7 colunas para `xl:grid-cols-7` (1280px) em vez de `2xl:grid-cols-7`. Assim a partir de 1280px já mostra as 7 ondas em uma única linha, eliminando a fileira órfã.
+
+**UniversalizationGoal** (`UniversalizationGoal.tsx`):
+- Ajustar grid para `lg:grid-cols-[2fr_1fr]` e adicionar `max-w-[1100px] mx-auto` no card para não ficar gigantesco em telas largas.
+
+### D) Header — ancorar o logo
+- Aumentar tamanho máximo do logo: `h-16 sm:h-20 lg:h-24 xl:h-28`.
+- Manter `max-w-[1440px]` para alinhar com o resto, mas adicionar um `min-h-[96px]` para estabilizar a barra.
+
+## Resumo dos arquivos editados
+
+```text
+src/routes/index.tsx                                  (largura padrão)
+src/components/landing/InstitutionalHeader.tsx        (largura + logo)
+src/components/landing/Hero.tsx                       (largura + imagem)
+src/components/landing/CallToAction.tsx               (largura + imagem)
+src/components/landing/Footer.tsx                     (largura)
+src/components/landing/KpiSummary.tsx                 (6 colunas em xl)
+src/components/landing/SecondaryIndicators.tsx        (cap de largura)
+src/components/landing/UniversalizationGoal.tsx       (cap de largura)
+src/components/landing/ExecutionRoadmap.tsx           (xl:grid-cols-7)
+```
+
+## QA pós-implementação
+- Validar visualmente em 1920×1080, 1536×864 e 1366×768.
+- Verificar que nenhuma seção tem mais conteúdo "espremido" que o vizinho.
+- Confirmar que o estudante na foto do Hero e do CTA aparece sem ser cortado.
