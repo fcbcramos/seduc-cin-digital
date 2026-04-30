@@ -148,6 +148,7 @@ interface IndicatorBlockEmptyProps {
   title: string;
   description: string;
   pendingNote: string;
+  accent?: "secondary" | "muted";
 }
 
 export function IndicatorBlockEmpty({
@@ -156,13 +157,28 @@ export function IndicatorBlockEmpty({
   title,
   description,
   pendingNote,
+  accent = "secondary",
 }: IndicatorBlockEmptyProps) {
+  const isSecondary = accent === "secondary";
+  const bar = isSecondary ? "bg-secondary" : "bg-muted-foreground/30";
+  const iconWrap = isSecondary
+    ? "bg-secondary/20 text-foreground"
+    : "bg-muted text-muted-foreground";
+  const noteWrap = isSecondary
+    ? "border-secondary/40 bg-secondary/10"
+    : "border-border/80 bg-muted/30";
+  const badgeClass = isSecondary
+    ? "border-secondary/50 bg-secondary/20 text-secondary-foreground"
+    : "";
+
   return (
     <Card className="relative flex h-full flex-col overflow-hidden border-dashed shadow-card">
-      <span className="absolute inset-x-0 top-0 h-1 bg-muted-foreground/30" aria-hidden />
+      <span className={`absolute inset-x-0 top-0 h-1 ${bar}`} aria-hidden />
       <CardContent className="flex flex-1 flex-col gap-5 p-6">
         <header className="flex items-start gap-3">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
+          <span
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${iconWrap}`}
+          >
             <Icon className="h-5 w-5" aria-hidden />
           </span>
           <div className="min-w-0">
@@ -176,8 +192,13 @@ export function IndicatorBlockEmpty({
           </div>
         </header>
 
-        <div className="flex flex-1 flex-col items-start justify-center gap-3 rounded-lg border border-dashed border-border/80 bg-muted/30 p-5">
-          <Badge variant="outline" className="text-[10px] font-bold uppercase tracking-wide">
+        <div
+          className={`flex flex-1 flex-col items-start justify-center gap-3 rounded-lg border border-dashed p-5 ${noteWrap}`}
+        >
+          <Badge
+            variant="outline"
+            className={`text-[10px] font-bold uppercase tracking-wide ${badgeClass}`}
+          >
             Em consolidação
           </Badge>
           <p className="text-xs leading-relaxed text-muted-foreground">{pendingNote}</p>
