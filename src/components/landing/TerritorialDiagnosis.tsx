@@ -36,10 +36,19 @@ const statusClass: Record<
   danger: "status-danger",
 };
 
+const CHART_COLORS = {
+  accent: "oklch(0.521 0.144 152)",
+  secondary: "oklch(0.823 0.165 84)",
+  destructive: "oklch(0.612 0.231 28)",
+  primary: "oklch(0.502 0.158 252)",
+  grid: "oklch(0.91 0.01 245)",
+  axis: "oklch(0.5 0.02 250)",
+} as const;
+
 const barColor = (pct: number): string => {
-  if (pct >= 70) return "var(--color-accent)";
-  if (pct >= 40) return "var(--color-secondary)";
-  return "var(--color-destructive)";
+  if (pct >= 70) return CHART_COLORS.accent;
+  if (pct >= 40) return CHART_COLORS.secondary;
+  return CHART_COLORS.destructive;
 };
 
 export function TerritorialDiagnosis() {
