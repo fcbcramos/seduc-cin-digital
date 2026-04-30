@@ -20,7 +20,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
-import { getStudentMunicipalities, getStudentByGre } from "@/lib/cin-data";
+import { getStudentMunicipalitiesConsolidated, getStudentByGre } from "@/lib/cin-data";
 import {
   coverageStatusLabel,
   formatNumber,
@@ -46,7 +46,7 @@ const progressColor = (pct: number): string => {
 };
 
 export function MunicipalityTable() {
-  const all = useMemo(() => getStudentMunicipalities(), []);
+  const all = useMemo(() => getStudentMunicipalitiesConsolidated(), []);
   const gres = useMemo(() => getStudentByGre().map((g) => g.codGRE), []);
 
   const [search, setSearch] = useState("");
