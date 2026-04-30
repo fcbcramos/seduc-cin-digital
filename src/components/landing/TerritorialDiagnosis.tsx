@@ -1,19 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import {
   Bar,
   BarChart,
   CartesianGrid,
   Cell,
   Legend,
-  Pie,
-  PieChart,
+  PolarAngleAxis,
+  RadialBar,
+  RadialBarChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { Building2, GraduationCap, MapPin, TrendingDown, TrendingUp } from "lucide-react";
 import {
   getStudentByGre,
   getStudentTotals,
@@ -64,84 +66,130 @@ export function TerritorialDiagnosis() {
       pct: Number(g.pctComCIN.toFixed(1)),
     }));
 
-  const donutData = [
-    { name: "Com CIN", value: totals.comCIN, color: CHART_COLORS.accent },
-    { name: "Sem CIN", value: totals.semCIN, color: CHART_COLORS.destructive },
+  const gaugeData = [
+    {
+      name: "Cobertura",
+      value: Number(totals.pctComCIN.toFixed(1)),
+      fill: CHART_COLORS.accent,
+    },
   ];
 
   return (
     <div className="space-y-6">
-      {/* Top row: donut + ranking columns */}
+      {/* Top row: distribution (2/3) + stacked rankings (1/3) */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <Card className="shadow-card">
-          <CardContent className="p-5">
-            <h3 className="mb-1 text-base font-semibold text-foreground">
-              Distribuição geral
-            </h3>
-            <p className="mb-4 text-xs text-muted-foreground">
-              Estudantes Com vs Sem CIN — rede estadual
-            </p>
-            <div className="h-[220px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={donutData}
-                    dataKey="value"
-                    nameKey="name"
-                    innerRadius={55}
-                    outerRadius={85}
-                    paddingAngle={2}
-                    stroke="none"
-                  >
-                    {donutData.map((d) => (
-                      <Cell key={d.name} fill={d.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip
-                    formatter={(v: number, name: string) => [formatNumber(v), name]}
-                    contentStyle={{
-                      borderRadius: 8,
-                      border: "1px solid oklch(0.91 0.01 245)",
-                      fontSize: 12,
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
+        <Card className="shadow-card lg:col-span-2">
+          <CardContent className="p-6">
+            <div className="mb-5">
+              <h3 className="text-base font-semibold text-foreground">
+                Distribuição geral
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                Estudantes Com vs Sem CIN — rede estadual
+              </p>
             </div>
-            <div className="mt-2 grid grid-cols-2 gap-3 text-center">
-              <div>
-                <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden />
-                <p className="mt-1 text-xs text-muted-foreground">Com CIN</p>
-                <p className="text-lg font-bold text-accent">
-                  {formatPercent(totals.pctComCIN)}
-                </p>
+
+            <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[260px_1fr]">
+              {/* Semicircular gauge */}
+              <div className="relative mx-auto h-[180px] w-full max-w-[260px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadialBarChart
+                    data={gaugeData}
+                    innerRadius="78%"
+                    outerRadius="100%"
+                    startAngle={180}
+                    endAngle={0}
+                    barSize={22}
+                  >
+                    <PolarAngleAxis
+                      type="number"
+                      domain={[0, 100]}
+                      tick={false}
+                    />
+                    <RadialBar
+                      dataKey="value"
+                      cornerRadius={12}
+                      background={{ fill: "oklch(0.94 0.02 28)" }}
+                      fill={CHART_COLORS.accent}
+                    />
+                  </RadialBarChart>
+                </ResponsiveContainer>
+                {/* Centered big number */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-2 flex flex-col items-center">
+                  <span className="text-4xl font-extrabold tracking-tight text-foreground tabular-nums">
+                    {formatPercent(totals.pctComCIN)}
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Com CIN · Meta 100%
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="inline-block h-2 w-2 rounded-full bg-destructive" aria-hidden />
-                <p className="mt-1 text-xs text-muted-foreground">Sem CIN</p>
-                <p className="text-lg font-bold text-destructive">
-                  {formatPercent(totals.pctSemCIN)}
-                </p>
+
+              {/* Breakdown */}
+              <div className="space-y-4">
+                <BreakdownRow
+                  label="Com CIN"
+                  count={totals.comCIN}
+                  pct={totals.pctComCIN}
+                  color={CHART_COLORS.accent}
+                  indicatorClassName="bg-accent"
+                  valueClassName="text-accent"
+                />
+                <BreakdownRow
+                  label="Sem CIN"
+                  count={totals.semCIN}
+                  pct={totals.pctSemCIN}
+                  color={CHART_COLORS.destructive}
+                  indicatorClassName="bg-destructive"
+                  valueClassName="text-destructive"
+                />
               </div>
+            </div>
+
+            {/* Footer context */}
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border/60 pt-4 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-1.5">
+                <GraduationCap className="h-3.5 w-3.5" aria-hidden />
+                <strong className="font-semibold text-foreground tabular-nums">
+                  {formatNumber(totals.estudantes)}
+                </strong>{" "}
+                estudantes
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Building2 className="h-3.5 w-3.5" aria-hidden />
+                <strong className="font-semibold text-foreground tabular-nums">
+                  {totals.totalGREs}
+                </strong>{" "}
+                GREs
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="h-3.5 w-3.5" aria-hidden />
+                <strong className="font-semibold text-foreground tabular-nums">
+                  {totals.totalMunicipios}
+                </strong>{" "}
+                municípios
+              </span>
             </div>
           </CardContent>
         </Card>
 
-        <RankingCard
-          title="Top 5 — Melhores GREs"
-          subtitle="Maior cobertura de CIN entre estudantes"
-          icon={<TrendingUp className="h-4 w-4 text-accent" aria-hidden />}
-          accentClass="border-l-accent"
-          rows={best}
-        />
-
-        <RankingCard
-          title="Top 5 — GREs prioritárias"
-          subtitle="Menor cobertura — atenção imediata"
-          icon={<TrendingDown className="h-4 w-4 text-destructive" aria-hidden />}
-          accentClass="border-l-destructive"
-          rows={worst}
-        />
+        {/* Stacked rankings column */}
+        <div className="flex flex-col gap-6">
+          <RankingCard
+            title="Top 5 — Melhores GREs"
+            subtitle="Maior cobertura de CIN"
+            icon={<TrendingUp className="h-4 w-4 text-accent" aria-hidden />}
+            accentClass="border-l-accent"
+            rows={best}
+          />
+          <RankingCard
+            title="Top 5 — Prioritárias"
+            subtitle="Menor cobertura — atenção imediata"
+            icon={<TrendingDown className="h-4 w-4 text-destructive" aria-hidden />}
+            accentClass="border-l-destructive"
+            rows={worst}
+          />
+        </div>
       </div>
 
       {/* Full-width comparative chart */}
@@ -212,6 +260,46 @@ function LegendDot({ color, label }: { color: string; label: string }) {
       />
       {label}
     </span>
+  );
+}
+
+interface BreakdownRowProps {
+  label: string;
+  count: number;
+  pct: number;
+  color: string;
+  indicatorClassName: string;
+  valueClassName: string;
+}
+
+function BreakdownRow({
+  label,
+  count,
+  pct,
+  color,
+  indicatorClassName,
+  valueClassName,
+}: BreakdownRowProps) {
+  return (
+    <div>
+      <div className="mb-1.5 flex items-center justify-between gap-3">
+        <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+          <span
+            className="inline-block h-2.5 w-2.5 rounded-full"
+            style={{ backgroundColor: color }}
+            aria-hidden
+          />
+          {label}
+        </span>
+        <span className={`text-sm font-bold tabular-nums ${valueClassName}`}>
+          {formatPercent(pct)}
+        </span>
+      </div>
+      <Progress value={pct} indicatorClassName={indicatorClassName} className="h-2" />
+      <p className="mt-1 text-xs text-muted-foreground tabular-nums">
+        {formatNumber(count)} estudantes
+      </p>
+    </div>
   );
 }
 
