@@ -1,67 +1,70 @@
-## Problema
+## Contexto
 
-O donut atual está visualmente pobre: muito espaço vazio, dois segmentos genéricos (verde/vermelho) sem hierarquia, sem números absolutos, sem contexto. Para 2 categorias, donut é o pior formato.
+A planilha enviada contém **dados oficiais de servidores** da rede SEDUC-PI (não estudantes), agrupados por GRE / Município / Tipo (Professor ou Administrativo).
 
-## Solução: Card "Distribuição geral" reformulado
+### Resumo do dataset
+- **454 linhas** · **21 GREs** · **224 municípios**
+- **29.990 servidores** no total
+  - Professores: **16.836** (78,9% com CIN)
+  - Administrativos: **13.154** (77,2% com CIN)
+- **Cobertura geral: 78,2%** com CIN · **6.551 sem CIN**
+- Faixa por GRE: **71,7% (16ª GRE) → 83,4% (08ª GRE)**
 
-Substituir o donut por um **gauge semicircular (radial)** + **big number central** + **breakdown lateral com números absolutos**, tudo dentro do mesmo card, ocupando o espaço de forma densa e informativa.
+Ou seja, é um excelente **indicador indireto de adesão institucional**: mostra que a própria rede (quem leciona e administra) já está majoritariamente regularizada — argumento de credibilidade para a campanha junto aos estudantes.
 
-### Layout proposto
+## Solução: nova seção "Adesão da Rede — Servidores"
 
-```text
-┌─────────────────────────────────────────────────────────┐
-│ Distribuição geral                                      │
-│ Estudantes Com vs Sem CIN — rede estadual               │
-│                                                         │
-│   ┌──────────────┐    ● Com CIN                         │
-│   │   ╭─────╮    │      99.289 estudantes        56,5%  │
-│   │  ╱  56% ╲   │      ████████████░░░░░░░               │
-│   │ │  COM   │   │                                       │
-│   │  ╲ CIN  ╱    │    ● Sem CIN                          │
-│   │   ╰─────╯    │      76.535 estudantes        43,5%  │
-│   │ Meta: 100%   │      ████████░░░░░░░░░░░               │
-│   └──────────────┘                                       │
-│                                                         │
-│  Total: 175.824 estudantes · 21 GREs · 227 municípios   │
-└─────────────────────────────────────────────────────────┘
-```
+Inserida **entre o KPI Summary e o Diagnóstico das GREs (estudantes)**, posicionada como contexto institucional da campanha.
 
-### Componentes
-
-1. **Gauge semicircular (RadialBar do Recharts)** — meio círculo de 180°, preenchimento verde representando 56,5%, fundo vermelho-claro = lacuna. Big number "56,5%" + label "COM CIN" centralizados.
-2. **Breakdown ao lado** — duas linhas com:
-   - bullet colorido + label
-   - número absoluto formatado (`99.289`, `76.535`)
-   - barra de progresso horizontal (reusa `Progress` shadcn)
-   - percentual à direita
-3. **Rodapé do card** — linha de contexto: total + GREs + municípios.
-
-### Card ocupa lg:col-span-2
-
-Atualmente o card de distribuição ocupa 1/3 da grade. Vou aumentá-lo para **2/3** (lg:col-span-2) e empilhar os dois rankings (Top 5 melhores / piores) na coluna lateral. Isso dá ao gauge espaço para respirar e mantém densidade informativa.
+### Layout
 
 ```text
-┌───────────────────────────┬──────────────────┐
-│  Distribuição geral       │  Top 5 melhores  │
-│  (gauge + breakdown)      ├──────────────────┤
-│                           │  Top 5 críticas  │
-└───────────────────────────┴──────────────────┘
+┌────────────────────────────────────────────────────────────┐
+│ ADESAO DA REDE                                             │
+│ Servidores da SEDUC-PI ja com CIN                          │
+│ Indicador indireto de engajamento institucional            │
+├────────────────────────────────────────────────────────────┤
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐                  │
+│  │ 29.990   │  │  78,2%   │  │  6.551   │                  │
+│  │SERVIDORES│  │  COM CIN │  │ SEM CIN  │                  │
+│  └──────────┘  └──────────┘  └──────────┘                  │
+│                                                            │
+│  Cobertura por categoria                                   │
+│  Professores       78,9% ████████████████░░░  16.836       │
+│  Administrativos   77,2% ███████████████░░░░  13.154       │
+│                                                            │
+│  GREs com menor adesao entre servidores                    │
+│  ┌─────────────────────────────────────────────┐           │
+│  │ 16ª GRE  921 servidores  71,7%  ░░░░        │           │
+│  │ 14ª GRE  808 servidores  73,9%  ░░░░        │           │
+│  │ 05ª GRE 1.390 servidores 74,7%  ░░░░        │           │
+│  │ 17ª GRE  643 servidores  75,0%  ░░░░        │           │
+│  │ 15ª GRE  939 servidores  75,4%  ░░░░        │           │
+│  └─────────────────────────────────────────────┘           │
+└────────────────────────────────────────────────────────────┘
 ```
 
-## Arquivos a alterar
+## Arquivos
 
-- `src/components/landing/TerritorialDiagnosis.tsx`
-  - Substituir bloco `<PieChart>` por `<RadialBarChart>` semicircular (startAngle=180, endAngle=0)
-  - Adicionar breakdown lateral com `Progress`
-  - Mudar grid externo de `lg:grid-cols-3` para `lg:grid-cols-3` mantendo o card principal em `lg:col-span-2` e os dois rankings empilhados em `lg:col-span-1` (`flex-col`)
-  - Adicionar rodapé com contexto agregado
+### Novos
+- `src/data/cin-servidores.json` — 454 registros (GRE / Município / Tipo / total / comCIN / semCIN)
+- `src/lib/cin-servidores.ts` — helpers tipados: `getServidorTotals`, `getServidorByTipo`, `getServidorByGre`, `getServidorWorstGres`
+- `src/components/landing/StaffAdoption.tsx` — seção completa com:
+  - 3 KPI cards compactos (total / com CIN / sem CIN)
+  - Comparativo Professor vs Administrativo (barras horizontais com `Progress`)
+  - Lista das 5 GREs com menor adesão (formato compacto, igual aos rankings já existentes)
 
-Sem novos arquivos, sem novas dependências (Recharts já tem `RadialBarChart`, `Progress` já existe).
+### Editados
+- `src/routes/index.tsx` — inserir `<StaffAdoption />` entre `<KpiSummary />` e `<TerritorialDiagnosis />`
+
+## Pontos de design
+- Reutiliza tokens já definidos (`accent`, `secondary`, `border`, `muted`)
+- Usa `Card`, `Progress` e `Badge` do shadcn já presentes — sem novas dependências
+- Mantém a hierarquia visual: KPIs estudantes (foco) → adesão servidores (contexto) → diagnóstico GREs estudantes (ação)
+- Subtítulo deixa claro que é **indicador indireto**, não a métrica principal do projeto
 
 ## Critérios de aceite
-
-- Gauge semicircular renderiza com fill verde sólido e trilho cinza-claro
-- Big number "56,5%" centralizado dentro do gauge
-- Breakdown mostra números absolutos formatados em pt-BR
-- Card principal ocupa 2/3 da largura em desktop
-- Em mobile (<lg), tudo empilha verticalmente e mantém legibilidade
+- Os 3 KPIs exibem 29.990 / 78,2% / 6.551
+- Comparativo mostra Professor (78,9%) acima de Administrativo (77,2%)
+- Top 5 GREs prioritárias entre servidores aparece ordenado da menor para a maior cobertura
+- Seção respeita o mesmo padrão visual (sombra, espaçamento, tipografia) das demais
