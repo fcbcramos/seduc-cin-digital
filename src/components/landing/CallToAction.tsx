@@ -9,11 +9,11 @@ export function CallToAction() {
     <section className="relative overflow-hidden">
       <img
         src={ctaImage}
-        alt="Estudante da rede estadual do Piauí recebendo a Carteira de Identidade Nacional"
-        className="absolute inset-0 h-full w-full object-cover"
+        alt="Estudante da rede estadual do Piauí em laboratório de informática, com uniforme oficial do Governo do Estado"
+        className="absolute inset-0 h-full w-full object-cover object-left"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.32_0.12_252)]/95 via-primary/85 to-accent/80" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/30" aria-hidden />
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
