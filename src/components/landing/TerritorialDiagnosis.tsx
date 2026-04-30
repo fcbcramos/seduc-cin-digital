@@ -1,19 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import {
   Bar,
   BarChart,
   CartesianGrid,
   Cell,
   Legend,
-  Pie,
-  PieChart,
+  PolarAngleAxis,
+  RadialBar,
+  RadialBarChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { Building2, GraduationCap, MapPin, TrendingDown, TrendingUp } from "lucide-react";
 import {
   getStudentByGre,
   getStudentTotals,
