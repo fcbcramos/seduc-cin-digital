@@ -38,7 +38,7 @@ function KpiCard({ icon: Icon, label, value, hint, accent }: KpiCardProps) {
     <Card className={`flex h-full flex-col border-l-4 ${accentRing[accent]} shadow-card`}>
       <CardContent className="flex flex-1 flex-col gap-3 p-6">
         <div className="flex items-center justify-between gap-2">
-          <span className="eyebrow truncate">{label}</span>
+          <span className="eyebrow leading-tight">{label}</span>
           <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md ${accentIcon[accent]}`}>
             <Icon className="h-4 w-4" aria-hidden />
           </span>
