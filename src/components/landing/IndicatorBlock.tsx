@@ -63,7 +63,7 @@ export function IndicatorBlock({
   return (
     <Card className="card-hover relative flex h-full flex-col overflow-hidden shadow-card">
       <span className={`absolute inset-x-0 top-0 h-1 ${a.bar}`} aria-hidden />
-      <CardContent className="flex flex-1 flex-col gap-5 p-6">
+      <CardContent className="flex flex-1 flex-col gap-4 p-5">
         <header className="flex items-start gap-3">
           <span
             className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${a.iconBg} ${a.iconColor}`}
@@ -174,7 +174,7 @@ export function IndicatorBlockEmpty({
   return (
     <Card className="relative flex h-full flex-col overflow-hidden border-dashed shadow-card">
       <span className={`absolute inset-x-0 top-0 h-1 ${bar}`} aria-hidden />
-      <CardContent className="flex flex-1 flex-col gap-5 p-6">
+      <CardContent className="flex flex-1 flex-col gap-4 p-5">
         <header className="flex items-start gap-3">
           <span
             className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${iconWrap}`}
