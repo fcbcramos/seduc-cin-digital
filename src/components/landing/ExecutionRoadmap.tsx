@@ -48,7 +48,7 @@ export function ExecutionRoadmap() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-7">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7">
         {waves.map((w) => (
           <WaveCard key={w.wave} wave={w} />
         ))}
