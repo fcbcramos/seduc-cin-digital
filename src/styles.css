@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -6,18 +6,18 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * SEDUC-PI Design System
- * Espelhado do projeto REGC — Governo do Piauí.
- * Paleta institucional convertida para oklch (Tailwind v4).
- *   Azul   #034ea2  → primary
- *   Amarelo #fdb913 → secondary
- *   Verde  #007932  → accent (success)
- *   Vermelho #ef4123 → destructive
+ * SEDUC-PI · Painel CIN nas Escolas
+ * Sistema de design institucional sóbrio.
+ *
+ * Princípios:
+ *  - 1 cor de marca (azul SEDUC) + neutros + 3 cores de status (uso restrito a dados)
+ *  - Tipografia: Fraunces (display, serif) + Inter (UI/dados)
+ *  - Espaçamentos generosos, sem decoração colorida em containers
  */
 
 @theme inline {
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -61,54 +61,62 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.625rem;
 
-  --background: oklch(0.985 0.005 240);
-  --foreground: oklch(0.27 0.03 250);
+  /* Neutros — base de quase tudo */
+  --background: oklch(0.99 0.003 240);          /* off-white */
+  --foreground: oklch(0.22 0.02 250);           /* tinta quase preta */
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.27 0.03 250);
+  --card-foreground: oklch(0.22 0.02 250);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.27 0.03 250);
+  --popover-foreground: oklch(0.22 0.02 250);
 
-  /* #034ea2 */
-  --primary: oklch(0.502 0.158 252);
+  /* Marca — único acento decorativo permitido */
+  --primary: oklch(0.42 0.13 252);              /* SEDUC azul institucional */
   --primary-foreground: oklch(1 0 0);
 
-  /* #fdb913 */
-  --secondary: oklch(0.823 0.165 84);
-  --secondary-foreground: oklch(0.27 0.03 250);
+  /* Secondary/Accent reaproveitados como neutros suaves */
+  --secondary: oklch(0.965 0.005 240);          /* cinza-claro de fundo */
+  --secondary-foreground: oklch(0.22 0.02 250);
 
   --muted: oklch(0.965 0.005 240);
-  --muted-foreground: oklch(0.5 0.02 250);
+  --muted-foreground: oklch(0.45 0.02 250);
 
-  /* #007932 */
-  --accent: oklch(0.521 0.144 152);
-  --accent-foreground: oklch(1 0 0);
+  --accent: oklch(0.96 0.008 240);              /* hover/realce sutil */
+  --accent-foreground: oklch(0.22 0.02 250);
 
-  /* #ef4123 */
-  --destructive: oklch(0.612 0.231 28);
+  /* Status — uso restrito a dados (gráficos, badges de status) */
+  --positive: oklch(0.52 0.12 152);             /* verde sóbrio */
+  --positive-foreground: oklch(1 0 0);
+  --warning: oklch(0.62 0.13 70);               /* âmbar sóbrio */
+  --warning-foreground: oklch(1 0 0);
+  --critical: oklch(0.55 0.20 28);              /* vermelho sóbrio */
+  --critical-foreground: oklch(1 0 0);
+
+  /* Destructive (compat shadcn) → mapeado a critical */
+  --destructive: oklch(0.55 0.20 28);
   --destructive-foreground: oklch(1 0 0);
 
-  --border: oklch(0.91 0.01 245);
-  --input: oklch(0.91 0.01 245);
-  --ring: oklch(0.502 0.158 252);
+  --border: oklch(0.91 0.008 245);
+  --input: oklch(0.91 0.008 245);
+  --ring: oklch(0.42 0.13 252);
 
-  --chart-1: oklch(0.502 0.158 252);
-  --chart-2: oklch(0.823 0.165 84);
-  --chart-3: oklch(0.521 0.144 152);
-  --chart-4: oklch(0.612 0.231 28);
-  --chart-5: oklch(0.65 0.12 252);
+  --chart-1: oklch(0.42 0.13 252);
+  --chart-2: oklch(0.65 0.05 250);
+  --chart-3: oklch(0.52 0.12 152);
+  --chart-4: oklch(0.55 0.20 28);
+  --chart-5: oklch(0.62 0.13 70);
 
   --sidebar: oklch(0.42 0.13 252);
   --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.823 0.165 84);
-  --sidebar-primary-foreground: oklch(0.27 0.03 250);
+  --sidebar-primary: oklch(0.55 0.15 252);
+  --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.55 0.15 252);
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.48 0.14 252);
-  --sidebar-ring: oklch(0.823 0.165 84);
+  --sidebar-ring: oklch(0.42 0.13 252);
 }
 
 .dark {
@@ -120,12 +128,15 @@
   --popover-foreground: oklch(0.985 0.005 240);
   --primary: oklch(0.62 0.16 252);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.823 0.165 84);
-  --secondary-foreground: oklch(0.27 0.03 250);
+  --secondary: oklch(0.3 0.02 250);
+  --secondary-foreground: oklch(0.985 0.005 240);
   --muted: oklch(0.3 0.02 250);
   --muted-foreground: oklch(0.7 0.02 250);
-  --accent: oklch(0.6 0.14 152);
-  --accent-foreground: oklch(1 0 0);
+  --accent: oklch(0.3 0.02 250);
+  --accent-foreground: oklch(0.985 0.005 240);
+  --positive: oklch(0.6 0.13 152);
+  --critical: oklch(0.65 0.22 28);
+  --warning: oklch(0.7 0.13 70);
   --destructive: oklch(0.65 0.22 28);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.35 0.02 250);
@@ -146,69 +157,87 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  /* Tabular figures globalmente em números */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "ss01" 1;
   }
 }
 
 @layer utilities {
-  .gradient-header {
-    background: linear-gradient(135deg,
-      oklch(0.42 0.13 252) 0%,
-      oklch(0.55 0.15 252) 100%);
-  }
-
-  .gradient-institutional {
+  /* Faixa institucional discreta — usada APENAS no topo do header */
+  .institutional-rule {
     background: linear-gradient(90deg,
       var(--color-primary) 0%,
-      var(--color-accent) 33%,
-      var(--color-secondary) 66%,
-      var(--color-destructive) 100%);
+      var(--color-primary) 100%);
   }
 
   .shadow-card {
-    box-shadow: 0 4px 20px -4px color-mix(in oklab, var(--color-primary) 12%, transparent);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 1px 0 rgb(0 0 0 / 0.03);
   }
 
   .shadow-card-hover {
-    box-shadow: 0 8px 30px -4px color-mix(in oklab, var(--color-primary) 18%, transparent);
-  }
-
-  .shadow-institutional {
-    box-shadow: 0 2px 12px -2px color-mix(in oklab, var(--color-primary) 10%, transparent);
+    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -1px rgb(0 0 0 / 0.04);
   }
 
   .card-hover {
-    transition: all 0.3s ease-out;
+    transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
   }
   .card-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px -4px color-mix(in oklab, var(--color-primary) 18%, transparent);
+    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -1px rgb(0 0 0 / 0.04);
   }
 
+  /* Status — semântica restrita a dados */
   .status-success {
-    background-color: color-mix(in oklab, var(--color-accent) 12%, transparent);
-    color: var(--color-accent);
-    border-color: color-mix(in oklab, var(--color-accent) 25%, transparent);
+    background-color: color-mix(in oklab, var(--positive) 10%, transparent);
+    color: var(--positive);
+    border-color: color-mix(in oklab, var(--positive) 25%, transparent);
   }
   .status-warning {
-    background-color: color-mix(in oklab, var(--color-secondary) 18%, transparent);
-    color: oklch(0.45 0.13 70);
-    border-color: color-mix(in oklab, var(--color-secondary) 35%, transparent);
+    background-color: color-mix(in oklab, var(--warning) 12%, transparent);
+    color: var(--warning);
+    border-color: color-mix(in oklab, var(--warning) 30%, transparent);
   }
   .status-danger {
-    background-color: color-mix(in oklab, var(--color-destructive) 12%, transparent);
-    color: var(--color-destructive);
-    border-color: color-mix(in oklab, var(--color-destructive) 25%, transparent);
+    background-color: color-mix(in oklab, var(--critical) 10%, transparent);
+    color: var(--critical);
+    border-color: color-mix(in oklab, var(--critical) 25%, transparent);
   }
   .status-info {
-    background-color: color-mix(in oklab, var(--color-primary) 10%, transparent);
+    background-color: color-mix(in oklab, var(--color-primary) 8%, transparent);
     color: var(--color-primary);
     border-color: color-mix(in oklab, var(--color-primary) 22%, transparent);
+  }
+
+  /* Cores semânticas para uso direto em componentes */
+  .text-positive { color: var(--positive); }
+  .text-warning  { color: var(--warning); }
+  .text-critical { color: var(--critical); }
+  .bg-positive   { background-color: var(--positive); }
+  .bg-warning    { background-color: var(--warning); }
+  .bg-critical   { background-color: var(--critical); }
+  .border-positive { border-color: var(--positive); }
+  .border-warning  { border-color: var(--warning); }
+  .border-critical { border-color: var(--critical); }
+
+  /* Eyebrow institucional padronizado */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
   }
 }

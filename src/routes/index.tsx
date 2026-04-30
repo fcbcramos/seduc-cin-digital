@@ -1,27 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InstitutionalHeader } from "@/components/landing/InstitutionalHeader";
 import { Hero } from "@/components/landing/Hero";
+import { KpiStrip } from "@/components/landing/KpiStrip";
 import { AboutCIN } from "@/components/landing/AboutCIN";
-import { KpiSummary } from "@/components/landing/KpiSummary";
-import { UniversalizationGoal } from "@/components/landing/UniversalizationGoal";
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
 import { MunicipalityTable } from "@/components/landing/MunicipalityTable";
 import { ExecutionRoadmap } from "@/components/landing/ExecutionRoadmap";
 import { SecondaryIndicators } from "@/components/landing/SecondaryIndicators";
 import { Footer } from "@/components/landing/Footer";
 import { SectionHeader } from "@/components/landing/SectionHeader";
-import { CallToAction } from "@/components/landing/CallToAction";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Projeto CIN nas Escolas — SEDUC-PI" },
+      { title: "Painel CIN nas Escolas — SEDUC-PI" },
       {
         name: "description",
         content:
           "Painel executivo do Projeto CIN nas Escolas da SEDUC-PI: cobertura da Carteira de Identidade Nacional entre estudantes da rede estadual, com indicadores por GRE e município.",
       },
-      { property: "og:title", content: "Projeto CIN nas Escolas — SEDUC-PI" },
+      { property: "og:title", content: "Painel CIN nas Escolas — SEDUC-PI" },
       {
         property: "og:description",
         content:
@@ -35,17 +33,15 @@ export const Route = createFileRoute("/")({
 
 function Section({
   id,
-  className,
   children,
 }: {
   id: string;
-  className?: string;
   children: React.ReactNode;
 }) {
   return (
     <section
       id={id}
-      className={`mx-auto w-full max-w-[1440px] px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10 ${className ?? ""}`}
+      className="mx-auto w-full max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20"
     >
       {children}
     </section>
@@ -57,78 +53,57 @@ function LandingPage() {
     <div className="min-h-screen bg-background">
       <InstitutionalHeader />
       <Hero />
+      <KpiStrip />
 
       <main>
         <Section id="sobre-cin">
           <SectionHeader
-            eyebrow="Sobre a CIN"
+            eyebrow="Sobre o documento"
             title="O que é a Carteira de Identidade Nacional"
             description="Documento único, padronizado e seguro, com validade em todo o Brasil e nos países do Mercosul. Substitui o antigo RG e usa o CPF como número único."
-            eyebrowTone="primary"
           />
           <AboutCIN />
         </Section>
 
-        <div className="bg-muted/40">
-          <Section id="prioritarios">
+        <div className="border-t border-border bg-muted/40">
+          <Section id="diagnostico">
             <SectionHeader
-              eyebrow="Indicadores prioritários"
-              title="Alunos da rede estadual — ano letivo 2026"
-              description="Totalizadores macro de estudantes da rede estadual do Piauí com enturmação 2026: quem já tem a Carteira de Identidade Nacional e quem ainda precisa ser atendido."
-              eyebrowTone="primary"
+              eyebrow="Diagnóstico territorial"
+              title="Cobertura por Gerência Regional de Educação"
+              description="Comparativo entre as 21 GREs do Piauí — destaque para as melhores e as prioritárias para mobilização imediata."
             />
-            <KpiSummary />
-            <div className="mt-4">
-              <UniversalizationGoal />
-            </div>
+            <TerritorialDiagnosis />
           </Section>
         </div>
 
-        <Section id="diagnostico">
+        <Section id="municipios">
           <SectionHeader
-            eyebrow="Diagnóstico por GRE"
-            title="Quem tem mais e quem tem menos cobertura"
-            description="Comparativo entre as 21 Gerências Regionais de Educação — destaque para as melhores e as prioritárias."
-            eyebrowTone="accent"
+            eyebrow="Plano de ação"
+            title="224 municípios da rede estadual"
+            description="Tabela operacional com filtros por GRE, status e ordenação por gap. Use para identificar prioridades."
           />
-          <TerritorialDiagnosis />
+          <MunicipalityTable />
         </Section>
 
-        <div className="bg-muted/40">
-          <Section id="municipios">
+        <div className="border-t border-border bg-muted/40">
+          <Section id="roadmap">
             <SectionHeader
-              eyebrow="Plano de ação por município"
-              title="224 municípios da rede estadual"
-              description="Tabela operacional com filtros por GRE, status e ordenação por gap. Use para identificar prioridades."
-              eyebrowTone="destructive"
+              eyebrow="Roadmap de execução"
+              title="Plano em 7 ondas mensais — junho a dezembro de 2026"
+              description="Sequência operacional das 21 GREs, priorizando primeiro as de menor cobertura e maior distância da capital, e fechando o ciclo na Região Metropolitana de Teresina."
             />
-            <MunicipalityTable />
+            <ExecutionRoadmap />
           </Section>
         </div>
 
-        <Section id="roadmap">
+        <Section id="secundarios">
           <SectionHeader
-            eyebrow="Roadmap de execução"
-            title="Plano em 7 ondas mensais — junho a dezembro de 2026"
-            description="Sequência operacional das 21 GREs, priorizando primeiro as de menor cobertura e maior distância da capital, e fechando o ciclo na Região Metropolitana de Teresina."
-            eyebrowTone="destructive"
+            eyebrow="Adesão da rede"
+            title="Docentes, administrativo e responsáveis"
+            description="Cobertura entre os profissionais da rede e as famílias dos estudantes — base de credibilidade institucional para a campanha."
           />
-          <ExecutionRoadmap />
+          <SecondaryIndicators />
         </Section>
-
-        <div className="bg-muted/40">
-          <Section id="secundarios">
-            <SectionHeader
-              eyebrow="Indicadores secundários"
-              title="Adesão da rede e responsáveis"
-              description="Cobertura entre docentes em sala de aula, quadro administrativo e famílias dos estudantes — base de credibilidade institucional para a campanha."
-              eyebrowTone="secondary"
-            />
-            <SecondaryIndicators />
-          </Section>
-        </div>
-
-        <CallToAction />
       </main>
 
       <Footer />
