@@ -145,4 +145,4 @@ export const getTopWorstGres = (limit = 5): GreStudentAggregate[] =>
   [...getStudentByGre()].sort((a, b) => a.pctComCIN - b.pctComCIN).slice(0, limit);
 
 export const getTopGapMunicipalities = (limit = 10): MunicipalityStudentRow[] =>
-  [...getStudentMunicipalities()].sort((a, b) => b.semCIN - a.semCIN).slice(0, limit);
+  [...getStudentMunicipalitiesConsolidated()].sort((a, b) => b.semCIN - a.semCIN).slice(0, limit);
