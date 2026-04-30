@@ -56,6 +56,8 @@ function Section({
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
+      <TopBar />
+      <InstitutionalHeader />
       <Hero />
 
       <main>
