@@ -3,9 +3,10 @@ import { TopBar } from "@/components/landing/TopBar";
 import { InstitutionalHeader } from "@/components/landing/InstitutionalHeader";
 import { Hero } from "@/components/landing/Hero";
 import { KpiSummary } from "@/components/landing/KpiSummary";
+import { UniversalizationGoal } from "@/components/landing/UniversalizationGoal";
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
 import { MunicipalityTable } from "@/components/landing/MunicipalityTable";
-import { StaffAdoption } from "@/components/landing/StaffAdoption";
+import { SecondaryIndicators } from "@/components/landing/SecondaryIndicators";
 import { Footer } from "@/components/landing/Footer";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 import { CallToAction } from "@/components/landing/CallToAction";
@@ -58,25 +59,17 @@ function LandingPage() {
       <Hero />
 
       <main>
-        <Section id="resumo">
+        <Section id="prioritarios">
           <SectionHeader
-            eyebrow="Resumo executivo"
-            title="Cobertura CIN entre estudantes"
-            description="Indicadores consolidados da rede estadual de ensino do Piauí — quem já tem a Carteira de Identidade Nacional e quem ainda precisa ser atendido."
+            eyebrow="Indicadores prioritários"
+            title="Alunos da rede estadual — ano letivo 2026"
+            description="Totalizadores macro de estudantes da rede estadual do Piauí com enturmação 2026: quem já tem a Carteira de Identidade Nacional e quem ainda precisa ser atendido."
           />
           <KpiSummary />
+          <div className="mt-6">
+            <UniversalizationGoal />
+          </div>
         </Section>
-
-        <Section id="servidores">
-          <SectionHeader
-            eyebrow="Adesão da rede"
-            title="Servidores da SEDUC-PI já com CIN"
-            description="Indicador indireto de engajamento institucional — quanto da própria rede (professores e administrativo) já está regularizada com a Carteira de Identidade Nacional."
-          />
-          <StaffAdoption />
-        </Section>
-
-        <CallToAction />
 
         <div className="bg-muted/40">
           <Section id="diagnostico">
@@ -97,6 +90,19 @@ function LandingPage() {
           />
           <MunicipalityTable />
         </Section>
+
+        <div className="bg-muted/40">
+          <Section id="secundarios">
+            <SectionHeader
+              eyebrow="Indicadores secundários"
+              title="Adesão da rede e responsáveis"
+              description="Cobertura entre docentes em sala de aula, quadro administrativo e famílias dos estudantes — base de credibilidade institucional para a campanha."
+            />
+            <SecondaryIndicators />
+          </Section>
+        </div>
+
+        <CallToAction />
       </main>
 
       <Footer />
