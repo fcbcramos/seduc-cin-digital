@@ -114,7 +114,7 @@ export function TerritorialDiagnosis() {
         <RankingCard
           title="Maior cobertura"
           subtitle="Top 5 GREs com melhor desempenho"
-          icon={<TrendingUp className="h-4 w-4 text-success" aria-hidden />}
+          icon={<TrendingUp className="h-4 w-4 text-positive" aria-hidden />}
           rows={best}
         />
         <RankingCard

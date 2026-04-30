@@ -6,14 +6,14 @@ import { formatNumber, formatPercent } from "@/lib/format";
 const toneAccent: Record<RoadmapWave["tone"], string> = {
   destructive: "bg-critical",
   secondary: "bg-warning",
-  accent: "bg-success",
+  accent: "bg-positive",
   primary: "bg-primary",
 };
 
 const toneLabel: Record<RoadmapWave["tone"], string> = {
   destructive: "text-critical",
   secondary: "text-warning",
-  accent: "text-success",
+  accent: "text-positive",
   primary: "text-primary",
 };
 
