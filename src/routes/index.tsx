@@ -5,6 +5,7 @@ import { Hero } from "@/components/landing/Hero";
 import { KpiSummary } from "@/components/landing/KpiSummary";
 import { TerritorialDiagnosis } from "@/components/landing/TerritorialDiagnosis";
 import { MunicipalityTable } from "@/components/landing/MunicipalityTable";
+import { StaffAdoption } from "@/components/landing/StaffAdoption";
 import { Footer } from "@/components/landing/Footer";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 import { CallToAction } from "@/components/landing/CallToAction";
