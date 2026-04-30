@@ -263,6 +263,46 @@ function LegendDot({ color, label }: { color: string; label: string }) {
   );
 }
 
+interface BreakdownRowProps {
+  label: string;
+  count: number;
+  pct: number;
+  color: string;
+  indicatorClassName: string;
+  valueClassName: string;
+}
+
+function BreakdownRow({
+  label,
+  count,
+  pct,
+  color,
+  indicatorClassName,
+  valueClassName,
+}: BreakdownRowProps) {
+  return (
+    <div>
+      <div className="mb-1.5 flex items-center justify-between gap-3">
+        <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+          <span
+            className="inline-block h-2.5 w-2.5 rounded-full"
+            style={{ backgroundColor: color }}
+            aria-hidden
+          />
+          {label}
+        </span>
+        <span className={`text-sm font-bold tabular-nums ${valueClassName}`}>
+          {formatPercent(pct)}
+        </span>
+      </div>
+      <Progress value={pct} indicatorClassName={indicatorClassName} className="h-2" />
+      <p className="mt-1 text-xs text-muted-foreground tabular-nums">
+        {formatNumber(count)} estudantes
+      </p>
+    </div>
+  );
+}
+
 interface RankingCardProps {
   title: string;
   subtitle: string;
