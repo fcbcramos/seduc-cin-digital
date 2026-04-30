@@ -21,7 +21,7 @@ export function SecondaryIndicators() {
   const parentsWorst = toBlockGres(getParentWorstGres(3));
 
   return (
-    <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       <IndicatorBlock
         icon={GraduationCap}
         eyebrow="Docentes"
